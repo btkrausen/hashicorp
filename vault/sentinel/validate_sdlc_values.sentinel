@@ -1,0 +1,42 @@
+# Policy that requires keys of secrets with name "environment"
+# to be a valid SDLC abbreviated environment
+# For use with Vault KV v1 and v2 secrets engines
+
+# Function that validates states
+validate_sdcl_abbreviation = func() {
+
+  # Print some information about the request
+  # Note that these messages will only be printed when the policy is violated
+  print("Namespace path:", namespace.path)
+  print("Request path:", request.path)
+  print("Request data:", request.data)
+
+  valid_sdlc = [
+    "dev", "prd", "stg", "qa", "qas", "tst", "pre", "mdl", "sbx"]
+
+  # Test for "environment" key in request.data for kv v1
+  if "environment" in keys(request.data) {
+    if request.data.environment not in valid_sdlc {
+      print("Invalid environment abbreviation")
+      return false
+    }
+  }
+
+  # Test for "environment" key in request.data.data for kv v2
+  # after first checking for "data" key in request.data
+  if "data" in keys(request.data) and "environment" in keys(request.data.data) {
+    if request.data.data.state not in valid_sdlc {
+      print("Invalid environment abbreviation")
+      return false
+    }
+  }
+
+  return true
+
+}
+
+# Main Rule
+sdlc_validated = validate_sdcl_abbreviation()
+main = rule {
+  sdlc_validated
+}

@@ -1,0 +1,18 @@
+import "sockaddr"
+import "strings"
+
+# Only care about create, update, and delete operations against secret path
+precond = rule {
+    request.operation in ["create", "update", "delete"] and
+    strings.has_prefix(request.path, "secret/")
+}
+
+# Requests to come only from our private IP range
+cidrcheck = rule {
+    sockaddr.is_contained(request.connection.remote_addr, "10.10.0.0/16")
+}
+
+# Check the precondition before execute the cidrcheck
+main = rule when precond {
+    cidrcheck
+}

@@ -1,0 +1,11 @@
+import "sockaddr"
+import "strings"
+
+# Expect requests to come only from our IP range or address
+cidrcheck = rule {
+    sockaddr.is_contained(request.connection.remote_addr, "10.10.10.10/32")
+}
+
+main = rule {
+    cidrcheck
+}

@@ -1,0 +1,32 @@
+# Source: github.com/hashicorp/vault-guides
+# EGP policy meant for paths aws/config/root and auth/aws/config/client
+# Prohibit use of AWS creds to enforce IAM profile usage only
+# Can be used for AWS auth or secrets
+
+config_check = func() {
+  # Make sure there is request data
+  if length(request.data else 0) is 0 {
+    print("No request data")
+    return false
+  }
+
+  # Debug data
+  #print("DATA:", request.data)
+
+  if ("access_key" in keys(request.data) or "secret_key" in keys(request.data)) {
+    print("Use of AWS access_key and secret_key is prohibited.  IAM profile is required.")
+    return false
+  }
+
+  return true
+}
+
+# Rule applies to creating/updating AWS Vault roles (uses default path)
+precond = rule {
+	request.operation in ["create", "update"]
+}
+
+# Main rule
+main = rule when precond {
+	config_check()
+}
