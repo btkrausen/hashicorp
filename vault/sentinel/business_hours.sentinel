@@ -11,6 +11,11 @@ workhours = rule {
     time.now.hour > 7 and time.now.hour < 18
 }
 
-main = rule {
+precond = rule {
+    request.operation in ["read"] and
+    strings.has_prefix(request.path, "secret/")
+}
+
+main = rule when precond {
     workdays and workhours
 }
