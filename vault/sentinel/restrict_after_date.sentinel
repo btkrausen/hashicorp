@@ -1,6 +1,6 @@
 import "time"
 
-# Permit Only Authenticated Requests with Tokens Created in the year 2020
+# Permit Only Authenticated Requests with Tokens Created in 2020
 main = rule when not request.unauthenticated {
     time.load(token.creation_time).unix >
       time.load("2020-01-01T0:00:00Z").unix
