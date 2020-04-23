@@ -1,0 +1,22 @@
+{
+  "log_level": "INFO",
+  "server": false,
+  "node_name": "node-a.example.com",
+  "key_file": "/etc/consul.d/cert.key",
+  "cert_file": "/etc/consul.d/client.pem",
+  "ca_file": "/etc/consul.d/chain.pem",
+  "verify_incoming": true,
+  "verify_outgoing": true,
+  "encrypt": "xxxxxxxxxxxxxxxxxxxxxxxx",
+  "data_dir": "/opt/consul/data",
+  "datacenter": "us-east-1",
+  "bind_addr": "10.10.10.10.10",
+  "client_addr": "0.0.0.0",
+  "retry_join": ["provider=aws tag_key=Environment-Name tag_value=consul-cluster region=us-east-1"],
+  "enable_syslog": true,
+  "acl": {
+     "tokens": {
+        "agent": "xxxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+        }
+  }
+}
