@@ -13,4 +13,5 @@ This repo is intended to supplement training courses and externa projects relate
 | 2 | HashiCorp Certified: Terraform Associate | 50PERCENT | June 2nd |
 | 3 | HashiCorp Certified: Vault Associate | 50PERCENT | June 2nd |
 
-Please feel free to reach to via Twitter or LinkedIn for questions or comments.
+
+Please feel free to reach to via [Twitter](https://twitter.com/btkrausen) or [LinkedIn](https://www.linkedin.com/in/bryan-krausen-5ab8794/) for questions or comments.
