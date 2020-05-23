@@ -1,6 +1,6 @@
 ## HashiCorp-related training courses, projects, and book
 
-This repo is intended to supplement training courses and external projects related to HashiCorp training and community-based engagement. It is not affiliated with HashiCorp and should be treated as such. Content shared here is target for students looking for additional content or content referenced in material created for educational purposes.  
+This repo is intended to supplement training courses and external projects related to HashiCorp training and community-based engagement. It is not affiliated with HashiCorp and should not be treated as such. Content shared here is target for students looking for additional content or content referenced in material created for educational purposes.  
 
 ### Current Training Discounts and Coupons
 
