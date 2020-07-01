@@ -8,7 +8,7 @@ This repo is intended to supplement training courses and external projects relat
 [Udemy Profile for Bryan Krausen](https://www.udemy.com/user/bryan-krausen/ "Udemy Profile")
 
 | No | Course Link | Coupon Code | Price | Valid Until |
-| ------ | ------ | ------ | ------ |
+| ------ | ------ | ------ | ------ | ------ |
 | 1 | [Getting Started with HashiCorp Vault](https://www.udemy.com/course/hashicorp-vault/?referralCode=2B837FCB45B4916456F3) | n/a  | n/a | n/a |
 | 2 | [HashiCorp Vault: The Advanced Course](https://www.udemy.com/course/vaultadvanced/?referralCode=C4C5A5D0BAD6EC1D2D1A) | VAULT-ADVANCED | $20.99 | July 12th |
 | 3 | [HashiCorp Certified: Terraform Associate Practice Exam](https://www.udemy.com/course/terraform-associate-practice-exam/?referralCode=D98434484AB772F1C1A2) | GETCERTIFIED | $15.99 | July 12th |
