@@ -12,7 +12,7 @@ This repo is intended to supplement training courses and external projects relat
 | 1 | [Getting Started with HashiCorp Vault](https://www.udemy.com/course/hashicorp-vault/?referralCode=2B837FCB45B4916456F3) | n/a  | n/a | n/a |
 | 2 | [HashiCorp Vault: The Advanced Course](https://www.udemy.com/course/vaultadvanced/?referralCode=C4C5A5D0BAD6EC1D2D1A) | OCT2020 | $16.99 | Nov 6th |
 | 3 | [HashiCorp Certified: Terraform Associate Practice Exam](https://www.udemy.com/course/terraform-associate-practice-exam/?referralCode=D98434484AB772F1C1A2) | OCT2020 | $17.99 | Nov 5th |
-| 4 | [HashiCorp Certified: Vault Associate Practice Exam](https://www.udemy.com/course/hashicorp-certified-vault-associate-practice-exam/?referralCode=B053909C293F10D9408D) | OCT2020 | $16.99 | Nov 6th |
+| 4 | [HashiCorp Certified: Vault Associate Practice Exam](https://www.udemy.com/course/hashicorp-certified-vault-associate-practice-exam/?referralCode=B053909C293F10D9408D) | SO-MANY-QUESTIONS | $14.99 | Dec 4th |
 | 5 | [HashiCorp Certified: Consul Associate Practice Exam](https://www.udemy.com/course/consul-associate-practice-exam/?referralCode=DFDB41615ADFB8C1CD6A) | OCT2020 | $18.99 | Nov 6th |  
 | 6 | Getting Started with HashiCorp Consul | COMING SOON | COMING SOON | COMING SOON |  
 
