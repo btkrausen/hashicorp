@@ -4,7 +4,11 @@ This repo is intended to supplement training courses and external projects relat
 
 ### Buy my book on Amazon: 
 [Running HashiCorp Vault in Production](https://amzn.to/2UeUjAI)
- 
+
+<a href="https://amzn.to/2UeUjAI"> 
+<img src="book-cover.png"
+     alt="Vault book"
+     style="float: center; margin-right: 6px;" />
  
 ### Current Training Discounts and Coupons
 
