@@ -9,7 +9,7 @@
           "kms:Decrypt",
           "kms:DescribeKey"
         ],
-        "Resource": "arn:aws:kms:us-east-1:000000000000:key/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        "Resource": "arn:aws:kms:us-east-1:123456789012:key/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
       },
       {
         "Sid": "PermitEC2ApiAccessForCloudAutoJoin",
@@ -34,7 +34,7 @@
             "logs:DescribeLogStreams"
         ],
         "Resource": [
-            "arn:aws:logs:us-east-1:000000000000:log-group:vault_audit_logs:*"
+            "arn:aws:logs:us-east-1:123456789012:log-group:vault_audit_logs:*"
         ]
     },
     {
@@ -69,6 +69,15 @@
         "Resource": [
             "arn:aws:s3:::vault_raft_snapshots/*"
         ]
-    }
+    },
+    {
+        "Sid": "PermitAccessForAWSSecretsEngineAssumedRole",
+        "Effect": "Allow",
+        "Action": "sts:AssumeRole",
+        "Resource": [
+            "arn:aws:iam::123456789012:role/RoleName",
+            "arn:aws:iam::987654321098:role/RoleName"            
+        ]
+    }    
     ]
   }
