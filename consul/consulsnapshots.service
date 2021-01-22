@@ -1,0 +1,17 @@
+[Unit]
+Description="HashiCorp Consul Snapshot Agent"
+Documentation=https://www.consul.io/
+Requires=network-online.target
+After=consul.service
+ConditionFileNotEmpty=/etc/consul-snapshot.d/consul-snapshot.json
+
+[Service]
+User=consul
+Group=consul
+ExecStart=/usr/local/bin/consul snapshot agent -config-dir=/etc/consul-snapshot.d/
+KillMode=process
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
