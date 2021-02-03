@@ -5,6 +5,9 @@ This repo is intended to supplement training courses and external projects relat
 ### Buy my book on Amazon: 
 [Running HashiCorp Vault in Production](https://amzn.to/2UeUjAI)
 
+### Buy my book on Gumroad in PDF format: 
+[Running HashiCorp Vault in Production](https://gum.co/vaultbook/j67unh3)
+
 <a href="https://amzn.to/2UeUjAI"> 
 <img src="book-cover.png"
      alt="Vault book"
