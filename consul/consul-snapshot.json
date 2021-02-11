@@ -1,16 +1,17 @@
 {
-  "snapshot_agent": {
-     "http_addr": "127.0.0.1:8500",
-     "token": "xxx-xxxx-xxxx-xxx-xxxx",
-     "datacenter": "",
-     "snapshot": {
-        "interval": "30m",
-        "retain": 336,
-        "deregister_after": "8h"
-     },
-  "aws_storage": {
-    "s3_region": "us-east-1",
-    "s3_bucket": "xxxx-bucket-consulsnapshots"
-  }
+   "snapshot_agent": {
+      "http_addr": "127.0.0.1:8500",
+      "datacenter": "",
+      "snapshot": {
+         "interval": "30m",
+         "retain": 336,
+         "deregister_after": "8h",
+         "service": "consul-snapshot"
+      },
+      "aws_storage": {
+        "s3_region": "us-east-1",
+        "s3_bucket": "xxx-xxx-consul-snapshots"
+      }
+   }
  }
-}
+ 
