@@ -1,0 +1,10 @@
+{
+  "node_name": "web-server-01",
+  "service": {
+    "id": "web-server-01",
+    "name": "front-end-eCommerce",
+    "tags": ["v7.05", "production"],
+    "address": "10.0.101.110",
+    "port": 80
+   }
+}
