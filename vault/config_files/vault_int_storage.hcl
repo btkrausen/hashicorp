@@ -1,5 +1,5 @@
 storage "raft" {
-  path    = "opt/vault/data"
+  path    = "/opt/vault/data"
   node_id = "node-a-us-east-1.example.com"
   retry_join {
     auto_join = "provider=aws region=us-east-1 tag_key=vault tag_value=us-east-1"
