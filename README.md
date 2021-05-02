@@ -20,7 +20,7 @@ This repo is intended to supplement training courses and external projects relat
 
 | No | Course Link | Coupon Code | Price | Valid Until |
 | ------ | ------ | ------ | ------ | ------ |
-| 1 | [Getting Started with HashiCorp Vault](https://www.udemy.com/course/hashicorp-vault/?referralCode=2B837FCB45B4916456F3) | VAULT-SALE  | $14.99 | MAY 05 |
+| 1 | [Getting Started with HashiCorp Vault](https://www.udemy.com/course/hashicorp-vault/?referralCode=2B837FCB45B4916456F3) | MAY2021  | $16.99 | June 02 |
 | 2 | [HashiCorp Vault: The Advanced Course](https://www.udemy.com/course/vaultadvanced/?referralCode=C4C5A5D0BAD6EC1D2D1A) | SPRING21 | $20.99 | MAY 05 |
 | 2 | [Integrating HashiCorp Vault with AWS](https://www.udemy.com/course/integrating-hashicorp-vault-with-aws/?referralCode=8069E87B5BA71FD21632) | SPRING21 | $19.99 | MAY 05  |
 | 4 | [HashiCorp Certified: Terraform Associate Practice Exam](https://www.udemy.com/course/terraform-associate-practice-exam/?referralCode=D98434484AB772F1C1A2) | SPRING21 | $17.99 | MAY 05 |
