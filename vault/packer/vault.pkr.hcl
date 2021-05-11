@@ -5,7 +5,7 @@ variable "aws_region" {
 
 variable "vault_zip" {
   type    = string
-  default = "C:\\Users\\btkra\\Downloads\\vault_1.7.1_windows_amd64.zip"
+  default = "C:\\Users\\btkra\\Downloads\\vault_1.7.1_linux_amd64.zip"
 }
 
 variable "vpc_id" {
