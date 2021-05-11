@@ -28,10 +28,13 @@ data "amazon-ami" "amazon-linux-2" {
   owners      = ["amazon"]
   region      = var.aws_region
 }
+locals {
+  timestamp = "${timestamp()}"
+}
 
 source "amazon-ebs" "amazon-ebs-amazonlinux-2" {
   ami_description             = "Vault - Amazon Linux 2"
-  ami_name                    = "vault-amazonlinux2"
+  ami_name                    = "vault-amazonlinux2-${local.timestamp}"
   ami_regions                 = ["us-east-1"]
   ami_virtualization_type     = "hvm"
   associate_public_ip_address = true
@@ -39,7 +42,7 @@ source "amazon-ebs" "amazon-ebs-amazonlinux-2" {
   force_deregister            = true
   instance_type               = "m5.large"
   region                      = var.aws_region
-  source_ami                  = "${data.amazon-ami.amazon-linux-2.id}"
+  source_ami                  = data.amazon-ami.amazon-linux-2.id
   spot_price                  = "0"
   ssh_pty                     = true
   ssh_timeout                 = "5m"
