@@ -10,12 +10,12 @@ variable "vault_zip" {
 
 variable "vpc_id" {
   type    = string
-  default = "vpc-xxxx"
+  default = "vpc-06626bb552084b94b"
 }
 
 variable "subnet_id" {
   type    = string
-  default = "xxxx"
+  default = "subnet-090200863e9701b57"
 }
 
 data "amazon-ami" "amazon-linux-2" {
@@ -31,7 +31,7 @@ data "amazon-ami" "amazon-linux-2" {
 
 source "amazon-ebs" "amazon-ebs-amazonlinux-2" {
   ami_description             = "Vault - Amazon Linux 2"
-  ami_name                    = "vault-amazonlinux2"
+  ami_name                    = "vault-amazonlinux2-vault-course"
   ami_regions                 = ["us-east-1"]
   ami_virtualization_type     = "hvm"
   associate_public_ip_address = true
