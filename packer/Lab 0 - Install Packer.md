@@ -5,15 +5,15 @@ Packer Packer may be installed in the following ways:
 - Installing from source. (Recommended for advanced users)
 - Using your system's package manager.
 
-This lab will walk you through installing packer on an ubuntu workstation using the `apt` package manager
+This lab will walk you through installing packer on an Ubuntu workstation using the `apt` package manager
 
 Duration: 10 minutes
 
-- Task 1: Install Packer on Ubuntu Worksation
+- Task 1: Install Packer on Ubuntu Workstation
 - Task 2: Validate the Packer Install
 - Task 3: Enable autocompletion for Packer CLI
 
-### Task 1: Install Packer on Ubuntu Worksation
+### Task 1: Install Packer on Ubuntu Workstation
 ```bash
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
