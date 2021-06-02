@@ -24,8 +24,8 @@ This repo is intended to supplement training courses and external projects relat
 | 2 | [HashiCorp Vault: The Advanced Course](https://www.udemy.com/course/vaultadvanced/?referralCode=C4C5A5D0BAD6EC1D2D1A) | JUNE21  | $17.99 | July 03 |
 | 2 | [Integrating HashiCorp Vault with AWS](https://www.udemy.com/course/integrating-hashicorp-vault-with-aws/?referralCode=8069E87B5BA71FD21632) | JUNE21  | $16.99 | July 03 |
 | 4 | [HashiCorp Certified: Terraform Associate Practice Exam](https://www.udemy.com/course/terraform-associate-practice-exam/?referralCode=D98434484AB772F1C1A2) | JUNE-SALE  | $14.99 | July 03 |
-| 5 | [HashiCorp Certified: Vault Associate Practice Exam](https://www.udemy.com/course/hashicorp-certified-vault-associate-practice-exam/?referralCode=B053909C293F10D9408D) | JUNE21  | $17.99 | July 03 |
-| 6 | [HashiCorp Certified: Consul Associate Practice Exam](https://www.udemy.com/course/consul-associate-practice-exam/?referralCode=DFDB41615ADFB8C1CD6A) | JUNE21  | $17.99 | July 03 |
+| 5 | [HashiCorp Certified: Vault Associate Practice Exam](https://www.udemy.com/course/hashicorp-certified-vault-associate-practice-exam/?referralCode=B053909C293F10D9408D) | JUNE-SALE  | $14.99 | July 03 |
+| 6 | [HashiCorp Certified: Consul Associate Practice Exam](https://www.udemy.com/course/consul-associate-practice-exam/?referralCode=DFDB41615ADFB8C1CD6A) | JUNE-SALE  | $14.99 | July 03 |
 | 7 | [Getting Started with HashiCorp Consul](https://www.udemy.com/course/hashicorp-consul/?referralCode=6506321DC305903E7BFA) | JUNE21  | $20.99 | July 03 |  
 | 8 | Building Automated Machine Images using HashiCorp Packer | COMING SOON | COMING SOON | COMING SOON |  
 
