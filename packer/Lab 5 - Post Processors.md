@@ -24,17 +24,7 @@ build {
     inline = [
       "echo Installing Updates",
       "sudo apt-get update",
-    ]
-  }
-
-  provisioner "file" {
-    source      = "assets"
-    destination = "/tmp/"
-  }
-
-  provisioner "shell" {
-    inline = [
-      "sudo sh /tmp/assets/setup-web.sh",
+      "sudo apt-get install -y nginx"
     ]
   }
 
