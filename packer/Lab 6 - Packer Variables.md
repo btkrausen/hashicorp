@@ -1,4 +1,4 @@
-# Lab: Managaing Secrets for Packer Builds
+# Lab: Utilize Variables with Packer Templates
 
 Duration: 35 minutes
 
