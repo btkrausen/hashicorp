@@ -74,32 +74,32 @@ build {
 }
 ```
 
-### Task 3: Validate the Packer Template
-Packer templates can be auto formatted and validated via the Packer command line.
+### Task 3: Rename and Validate the Packer Template
+Now that the Packer template has been updated to be multi-cloud aware, we are going to rename the template to `linux.pkr.hcl`.  After refactoring and renaming our Packer template, we can auto format and validate the templatet via the Packer command line.
 
 ### Step 3.1.1
 
 Format and validate your configuration using the `packer fmt` and `packer validate` commands.
 
 ```shell
-packer fmt aws-linux.pkr.hcl 
-packer validate aws-linux.pkr.hcl
+packer fmt linux.pkr.hcl 
+packer validate linux.pkr.hcl
 ```
 
 ### Task 4: Build a new Image using Packer
 The `packer build` command is used to initiate the image build process across AWS and Azure.
 
 ### Step 4.1.1
-Run a `packer build` for the `aws-linux.pkr.hcl` template only for the Ubuntu build images.
+Run a `packer build` for the `linux.pkr.hcl` template only for the Ubuntu build images.
 
 ```shell
-packer build -only 'ubuntu*' aws-linux.pkr.hcl
+packer build -only 'ubuntu*' linux.pkr.hcl
 ```
 
 Packer will print output similar to what is shown below.  You should notice a different color for each cloud in which an image is being created.
 
 ```bash
-packer build aws-linux.pkr.hcl
+packer build linux.pkr.hcl
 amazon-ebs.ubuntu: output will be in this color.
 azure-arm.ubuntu: output will be in this color.
 
