@@ -193,7 +193,7 @@ data "amazon-ami" "windows_2019" {
   region      = "us-east-1"
 }
 
-source "amazon-ebs" "windows_2019" {
+source "amazon-ebs" "windows-2019" {
   ami_name       = "my-windows-2019-aws-{{timestamp}}"
   communicator   = "winrm"
   instance_type  = "t2.micro"
@@ -210,7 +210,7 @@ Update our `build` block to build both Windows versions.
 
 ```hcl
 build {
-  sources = ["source.amazon-ebs.windows_2012r2", "source.amazon-ebs.windows_2019", ]
+  sources = ["source.amazon-ebs.windows-2012r2", "source.amazon-ebs.windows-2019", ]
 
   post-processor "manifest" {
   }
