@@ -6,16 +6,18 @@ Packer is an open source tool for automated image management.  HashiCorp Packer 
 
 Designed for students with little to no experience with Packer, this course will provide you with the education needed to be up and running with HashiCorp Packer in no time.
 
-During your journey RPT will lead you through a series of sections, modules, and demos to prepare you for utilzing Packer in the real world.
+During your journey we will lead you through a series of sections, modules, and demos to prepare you for utilzing Packer in the real world.
 
 ## Learning Objectives
 
 - Core Packer concepts
 - Packer CLI Options
 - Packer Build Templates
+- Packer Variables, Provisioners, Post-Processors
 - Multi-Cloud Image Management
 - Code Organization with Packer
 - Integrations with HashiCorp and DevOps Tooling
+- Use Cases and Examples
 
 ## Course Curriculum:
 
@@ -24,8 +26,7 @@ This course includes the following modules to get you jump started with Packer. 
 - Course Introduction
 - HashiCorp Packer Overview
 
-
-Lectures will educate you on the fundamental terms and principles of the Terraform Cloud and demos will enable you with a hands-on experience using scenarios to empower you in the real world.
+Lectures will educate you on the fundamental terms and principles of the Packer and demos will enable you with a hands-on experience using scenarios to empower you in the real world.
 
 ## A Note on Cloud Costs:
 
