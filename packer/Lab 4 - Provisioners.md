@@ -1,5 +1,5 @@
 # Lab: Packer Provisioners
-This lab will walk you through adding a provisoner to your Packer HCL Template. Provisioners use builtin and third-party software to install and configure the machine image after booting.
+This lab will walk you through adding a provisioner to your Packer HCL Template. Provisioners use built-in and third-party software to install and configure the machine image after booting.
 
 Duration: 30 minutes
 
