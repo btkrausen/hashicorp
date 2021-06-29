@@ -40,7 +40,7 @@ Targets can also be specified for certain OS types based on their source.  To bu
 packer build -only "*.ubuntu_20" .
 ```
 
-## Task 4: Exclude packer builds for certain cloud targets
+## Task 4: Exclude Packer builds for specific cloud targets
 Just as we can target build for only certain provisoners and cloud types, we can also `except` certain builds from running by using the `-except` paramater.  In this example we will exclude all of the Ubunutu builds within our directory of template files.
 
 ```
