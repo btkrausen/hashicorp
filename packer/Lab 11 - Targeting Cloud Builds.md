@@ -6,7 +6,7 @@ Duration: 30 minutes
 - Task 1: Target Provisioners to only run for certain sources
 - Task 2: Target Builds for only AWS Sources
 - Task 3: Target Builds for certain OS sources
-- Task 4: Exclude packer builds for certain cloud targets
+- Task 4: Exclude Packer builds for specific cloud targets
 
 We will utilize the Packer Templates from the *Code Organization* lab.
 
