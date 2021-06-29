@@ -370,7 +370,7 @@ Now that the source and build blocks have been organized by cloud target and bui
 Format and validate your configuration using the `packer fmt` and `packer validate` commands.  This time we will peform the command across all files within the `ubuntu_image` folder.
 
 ```shell
-cd ubuntu_image
+cd cloud_images
 packer fmt .
 packer validate .
 ```
@@ -379,7 +379,7 @@ packer validate .
 The `packer build` command can be run against all template files in a given folder.
 
 ### Step 10.3.1
-Run a `packer build` across all files within the `ubuntu_image` 
+Run a `packer build` across all files within the `cloud_images` 
 
 ```shell
 packer build .
@@ -388,3 +388,14 @@ packer build .
 Packer will perform a build by aggregating the contents of all template files within a folder.
 
 ### Task 4: Target a build for a particular build type or cloud target
+Targets can be specified to only run for certain cloud targets.  In this example we will only perform a run for the Amazon builders within our directory of template files.
+
+```shell
+packer build -only "*.amazon.*" .
+```
+
+Targets can also be specified for certain OS types based on their source.  To build only `ubuntu 20` machines regardless of cloud
+
+```shell
+packer build -only "*.ubuntu_20" .
+```
