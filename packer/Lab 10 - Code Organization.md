@@ -391,7 +391,7 @@ Packer will perform a build by aggregating the contents of all template files wi
 Targets can be specified to only run for certain cloud targets.  In this example we will only perform a run for the Amazon builders within our directory of template files.
 
 ```shell
-packer build -only "*.amazon.*" .
+packer build -only "*.amazon*" .
 ```
 
 Targets can also be specified for certain OS types based on their source.  To build only `ubuntu 20` machines regardless of cloud
