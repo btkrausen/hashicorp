@@ -8,7 +8,7 @@ Duration: 30 minutes
 - Task 3: Target Builds for certain OS sources
 - Task 4: Exclude packer builds for certain cloud targets
 
-We will utilize the Packer Templates from the 'Code Organization' lab.
+We will utilize the Packer Templates from the *Code Organization* lab.
 
 ## Task 1 - Target Provisioners to only run for certain sources
 Targets can specified within a `provisioner` block to only run for certain image sources.  In this example we will install `azure-cli` only on the Azure Images and the `awscli` only on the AWS Images.
