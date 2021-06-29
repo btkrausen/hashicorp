@@ -10,7 +10,7 @@ Duration: 30 minutes
 
 We will utilize the Packer Templates from the *Code Organization* lab.
 
-## Task 1 - Target Provisioners to only run for certain sources
+## Task 1: Target Provisioners to only run for certain sources
 Targets can specified within a `provisioner` block to only run for certain image sources.  In this example we will install `azure-cli` only on the Azure Images and the `awscli` only on the AWS Images.
 
 ```hcl
@@ -25,14 +25,14 @@ Targets can specified within a `provisioner` block to only run for certain image
   }
 ```
 
-## Task 2 - Target Builds for only AWS Sources
+## Task 2: Target Builds for only AWS Sources
 Targets can be specified to only run for certain cloud targets.  In this example we will only perform a run for the Amazon builders within our directory of template files.
 
 ```
 packer build -only="*.amazon*" .
 ```
 
-## Task 3 - Target Builds for only OS Sources
+## Task 3: Target Builds for only OS Sources
 
 Targets can also be specified for certain OS types based on their source.  To build only `ubuntu 20` machines regardless of cloud
 
