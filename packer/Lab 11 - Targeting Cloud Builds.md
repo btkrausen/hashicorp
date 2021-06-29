@@ -1,21 +1,28 @@
 # Lab: Target Clouds and Build Types using Packer
 When performing image builds it might be favorable to only target a particular build by type or cloud target.  Packer provides this ability via the `-only` and `-exclude` paramaters.
 
-Duration: 40 minutes
+Duration: 30 minutes
 
 - Task 1: Target Provisioners to only run for certain sources
 - Task 2: Target Builds for only AWS Sources
 - Task 3: Target Builds for certain OS sources
 - Task 4: Exclude packer builds for certain cloud targets
 
+We will utilize the Packer Templates from the 'Code Organization' lab.
+
 ## Task 1 - Target Provisioners to only run for certain sources
-Targets can specified within a `provisioner` block to only run for certain image sources.  In this example we will install `git` only on the Azure Image, as the AWS image already has it installed.
+Targets can specified within a `provisioner` block to only run for certain image sources.  In this example we will install `azure-cli` only on the Azure Images and the `awscli` only on the AWS Images.
 
 ```hcl
-provisioner "shell-local" {
-    only = ["azure-arm.ubuntu"]
-    inline = ["apt-install git"]
-}
+  provisioner "shell" {
+    only   = ["source.amazon-ebs.ubuntu*"]
+    inline = ["sudo apt-get install awscli"]
+  }
+
+  provisioner "shell" {
+    only   = ["source.azure-arm.ubuntu*"]
+    inline = ["sudo apt-get install azure-cli"]
+  }
 ```
 
 ## Task 2 - Target Builds for only AWS Sources
