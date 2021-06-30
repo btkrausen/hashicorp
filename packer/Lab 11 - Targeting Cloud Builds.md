@@ -1,5 +1,5 @@
 # Lab: Target Clouds and Build Types using Packer
-When performing image builds it might be favorable to only target a particular build by type or cloud target.  Packer provides this ability via the `-only` and `-exclude` paramaters.
+When performing image builds it might be favorable to only target a particular build by type or cloud target.  Packer provides this ability via the `-only` and `-exclude` parameters.
 
 Duration: 30 minutes
 
