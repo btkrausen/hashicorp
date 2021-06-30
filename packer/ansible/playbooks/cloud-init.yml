@@ -1,0 +1,65 @@
+---
+- name: cloud-init | Installing Cloud-Init
+  package:
+    name: cloud-init
+    state: present
+  become: true
+  when: packer_builder_type in ["proxmox"]
+
+- name: cloud-init | Cleaning Up Ubuntu cloud-init
+  file:
+    path: "{{ item }}"
+    state: absent
+  become: true
+  loop:
+    - /etc/cloud/cloud.cfg.d/99-installer.cfg
+  when:
+    - ansible_distribution == "Ubuntu"
+    - ansible_distribution_version is version('20.04', '>=')
+
+- name: cloud-init | Configuring /etc/cloud/cloud.cfg.d/99_pve.cfg
+  copy:
+    content: |
+      datasource_list: [ NoCloud, ConfigDrive ]
+    dest: /etc/cloud/cloud.cfg.d/99_pve.cfg
+    mode: u=rw,g=rw,o=rw
+  become: true
+  when: packer_builder_type in ["proxmox"]
+
+- name: cloud-init | Configuring /etc/cloud/cloud.cfg.d/99-installer.cfg
+  copy:
+    content: |
+      datasource_list: [ None ]
+    dest: /etc/cloud/cloud.cfg.d/99-installer.cfg
+    mode: u=rw,g=r,o=r
+  become: true
+  when:
+    - ansible_distribution == "Ubuntu"
+    - ansible_distribution_version is version('20.04', '>=')
+    - packer_builder_type not in ["proxmox"]
+
+- name: cloud-init | Cleaning Up cloud-init
+  block:
+    - name: cleanup | Attempting cloud-init clean
+      command: cloud-init clean -s -l
+      become: true
+
+  rescue:
+    - name: cloud-init | Cleaning up cloud-init manually
+      file:
+        path: "{{ item }}"
+        state: absent
+      become: true
+      loop:
+        - /var/lib/cloud/instances
+        - /var/log/cloud-init.log
+        - /var/log/cloud-init-output.log
+
+- name: cloud-init | Enabling cloud-init.service
+  service:
+    name: cloud-init.service
+    enabled: true
+  become: true
+  when:
+    - ansible_os_family in ["Archlinux"]
+    - packer_builder_type in ["proxmox"]

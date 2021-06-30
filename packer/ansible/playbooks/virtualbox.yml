@@ -1,0 +1,94 @@
+---
+- name: virtualbox | Installing Pre-Reqs
+  apt:
+    name:
+      - build-essential
+      - "linux-headers-{{ ansible_kernel }}"
+    state: present
+  become: true
+  when: ansible_os_family == "Debian"
+
+- name: virtualbox | Installing Pre-Reqs
+  package:
+    name:
+      - "@Development tools"
+      - bzip2
+      - dkms
+      - gcc
+      - make
+      - perl
+    state: present
+  become: true
+  when: ansible_os_family == "RedHat"
+
+- name: virtualbox | Installing kernel-devel-{{ ansible_kernel }}
+  block:
+    - name: virtualbox | Attempting kernel-devel-{{ ansible_kernel }}
+      package:
+        name: "kernel-devel-{{ ansible_kernel }}"
+        state: present
+      become: true
+
+  rescue:
+    - name: virtualbox | Rescuing with kernel-devel
+      package:
+        name: kernel-devel
+        state: present
+      become: true
+
+  when: ansible_os_family == "RedHat"
+
+- name: virtualbox | Installing kernel-headers-{{ ansible_kernel }}
+  block:
+    - name: virtualbox | Attempting kernel-headers-{{ ansible_kernel }}
+      package:
+        name: "kernel-headers-{{ ansible_kernel }}"
+        state: present
+      become: true
+
+  rescue:
+    - name: virtualbox | Rescuing with kernel-headers
+      package:
+        name: kernel-headers
+        state: present
+      become: true
+
+  when: ansible_os_family == "RedHat"
+
+- name: virtualbox | Mounting VirtualBox Additions ISO
+  mount:
+    name: /mnt/virtualbox
+    src: "/home/{{ ansible_user }}/VBoxGuestAdditions.iso"
+    opts: loop
+    state: mounted
+    fstype: iso9660
+  become: true
+  when: ansible_os_family not in ["Archlinux"]
+
+- name: virtualbox | Installing VirtualBox Additions
+  shell: sh /mnt/virtualbox/VBoxLinuxAdditions.run
+  become: true
+  failed_when: false
+  when: ansible_os_family not in ["Archlinux"]
+
+- name: virtualbox | Unmounting VirtualBox Additions ISO
+  mount:
+    name: /mnt/virtualbox
+    state: absent
+    fstype: iso9660
+  become: true
+  when: ansible_os_family not in ["Archlinux"]
+
+- name: virtualbox | Removing /home/{{ ansible_user }}/VBoxGuestAdditions.iso
+  file:
+    path: "/home/{{ ansible_user }}/VBoxGuestAdditions.iso"
+    state: absent
+  become: true
+
+- name: virtualbox | Installing VirtualBox Guest Utils
+  pacman:
+    name:
+      - linux-headers
+      - virtualbox-guest-utils
+  become: true
+  when: ansible_os_family == "Archlinux"

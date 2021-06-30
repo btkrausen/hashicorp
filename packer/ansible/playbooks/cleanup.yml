@@ -1,0 +1,100 @@
+---
+- name: cleanup | Uninstalling Packages
+  apt:
+    name: []
+    state: absent
+  become: true
+  when: ansible_os_family == "Debian"
+
+- name: cleanup | Check if /etc/machine-id exists
+  stat:
+    path: /etc/machine-id
+  register: _machine_id
+
+- name: cleanup | Clearing /etc/machine-id
+  copy:
+    content: ""
+    dest: /etc/machine-id
+  become: true
+  when: _machine_id.stat.exists|bool
+
+- name: cleanup | Finding SSH Key Files to Clean
+  find:
+    paths: /etc/ssh
+    patterns: ssh_host_*
+  register: _ssh_host_keys
+
+- name: cleanup | Cleaning Up SSH Key Files
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  become: true
+  loop: "{{ _ssh_host_keys.files }}"
+
+- name: cleanup | Cleaning Up Apt
+  command: "{{ item }}"
+  become: true
+  loop:
+    - apt-get autoremove -y
+    - apt-get clean -y
+    - apt-get autoclean -y
+  when: ansible_os_family == "Debian"
+
+- name: cleanup | Cleaning Up Yum
+  command: "{{ item }}"
+  become: true
+  loop:
+    - yum clean all
+  when:
+    - ansible_os_family == "RedHat"
+    - ansible_distribution != "Fedora"
+
+- name: cleanup | Cleaning Up DNF
+  command: "{{ item }}"
+  become: true
+  loop:
+    - dnf clean all
+  when:
+    - ansible_os_family == "RedHat"
+    - ansible_distribution == "Fedora"
+
+- name: cleanup | Finding Temp Files to Clean
+  find:
+    paths:
+      - /tmp
+      - /var/tmp
+    recurse: true
+  register: _temp_files
+
+- name: cleanup | Cleaning Up Temp Files
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  become: true
+  loop: "{{ _temp_files.files }}"
+
+- name: cleanup | Finding Log Files to Clean in /var/log
+  find:
+    paths: /var/log
+    patterns: "*.log"
+    recurse: true
+  become: true
+  register: _log_files
+
+- name: cleanup | Cleaning Up Log Files in /var/log
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  become: true
+  loop: "{{ _log_files.files }}"
+
+- name: cleanup | Cleaning Up Random Files/Directories
+  file:
+    path: "{{ item }}"
+    state: absent
+  become: true
+  loop:
+    - /etc/udev/rules.d/70-persistent-net.rules
+    - /var/cache/yum
+    - /var/lib/misc/random-seed
+    - /var/lib/systemd/random-seed
