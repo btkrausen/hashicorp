@@ -258,7 +258,7 @@ $env:PACKER_LOG_PATH="packer_log.txt"
 For remote builds with cloud providers like Amazon Web Services AMIs, debugging a Packer build can be eased greatly with `packer build -debug`. This disables parallelization and enables debug mode.
 
 ```shell
-packer build -debug
+packer build -debug .
 ```
 
 ## Task 5: Inspect Failures
@@ -267,5 +267,12 @@ Packer provides the ability to inspect failures during the debug process.
 `packer build -on-error=ask` allows you to inspect failures and try out solutions before restarting the build.
 
 ```shell
-packer build -on-error=ask
+packer build -on-error=ask .
+```
+
+You can simulate a failure by issuing a `Ctrl+C` and Packer will prompt for how it should handle the failure condition:
+
+```shell
+==> amazon-ebs.ubuntu: Step "StepRunSourceInstance" failed
+==> amazon-ebs.ubuntu: [c] Clean up and exit, [a] abort without cleanup, or [r] retry step (build may fail even if retry succeeds)?
 ```
