@@ -1,0 +1,82 @@
+---
+- name: "Add nodejs apt key"
+  apt_key:
+    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+    state: present
+  become: true
+
+- name: "Add nodejs 14.x ppa for apt repo for Ubuntu 18"
+  apt_repository:
+    repo: deb https://deb.nodesource.com/node_14.x bionic main
+    update_cache: yes
+  become: true
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_version == "18.04"
+
+- name: "Add nodejs 14.x ppa for apt repo for Ubuntu 20"
+  apt_repository:
+    repo: deb https://deb.nodesource.com/node_14.x focal main
+    update_cache: yes
+  become: true
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_version == "20.04"
+
+- name: Install Packages
+  apt:
+    name: ['build-essential', 'nodejs', 'curl']
+    update_cache: yes
+    state: latest
+  become: true
+  when: ansible_os_family == "Debian"
+
+- name: Update NPM
+  command: npm install -g npm@latest
+  become: true
+
+- name: Clone a repo with separate git directory
+  ansible.builtin.git:
+    repo: https://github.com/ellisonleao/clumsy-bird
+    dest: /src/clumsy-bird
+  become: true
+
+- name: Run NPM Install
+  npm:
+    path: /src/clumsy-bird
+  register: npm_finished
+  become: true
+
+- name: "Install NPM-grunt"
+  npm:
+    global: yes
+    name: "{{ item }}"
+    path: /src/clumsy-bird
+  with_items:
+    - grunt-cli
+  become: true
+
+- name: Move 'launch.sh' File to '/src/clumsy-bird' Directory
+  command: mv /tmp/assets/launch.sh /src/clumsy-bird/launch.sh
+  become: true
+    
+- name: Change Value of Clumsy Bird Permissions
+  file:
+    path: /src/clumsy-bird/launch.sh
+    mode: a+x
+  become: true
+
+- name: Change Ownership of '/src/clumsy-bird' 
+  file:
+    path: /src/clumsy-bird/
+    recurse: yes
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  become: true
+
+- name: Add Clumsy Bird to path
+  command: cp /tmp/assets/clumsy-bird.service /lib/systemd/system/clumsy-bird.service
+  become: true
+
+- name: Start and Enable Clumsy Bird Service
+  service:
+    name: clumsy-bird
+    state: started
+    enabled: yes
+  become: true
