@@ -1,0 +1,24 @@
+---
+- name: debian | Update Apt Cache
+  apt:
+    update_cache: true
+  become: true
+
+- name: debian | Installing cloud-initramfs-growroot
+  apt:
+    name: cloud-initramfs-growroot
+    state: present
+  become: true
+  when:
+    - ansible_distribution != "Ubuntu"
+    - ansible_distribution_version is version('20.04', '>=')
+
+- name: debian | Configuring /etc/rc.local
+  copy:
+    content: |
+      #!/bin/sh -e
+      test -f /etc/ssh/ssh_host_dsa_key || dpkg-reconfigure openssh-server
+      exit 0
+    dest: /etc/rc.local
+    mode: u=rwx,g=rx,o=rx
+  become: true

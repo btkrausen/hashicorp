@@ -1,0 +1,21 @@
+---
+- name: base | Marking Packer Build Time
+  copy:
+    content: |
+      {{ ansible_date_time.iso8601 }}
+    dest: /etc/packer_build_time
+    mode: u=rw,g=rw,o=rw
+  become: true
+
+- name: base | Configuring sshd_config Options
+  lineinfile:
+    line: "{{ item.key }} {{ item.value }}"
+    path: /etc/ssh/sshd_config
+    regexp: "^{{ item.key }}"
+    state: present
+  become: true
+  loop:
+    - key: UseDNS
+      value: "no"
+    - key: GSSAPIAuthentication
+      value: "no"

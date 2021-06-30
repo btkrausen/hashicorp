@@ -1,0 +1,51 @@
+---
+- hosts: default
+  tasks:
+    - name: Debug Ansible OS Family
+      debug:
+        var: ansible_os_family
+
+    - name: Debug Packer Builder Type
+      debug:
+        var: packer_builder_type
+
+    - name: Checking if /etc/packer_build_time Exists
+      stat:
+        path: /etc/packer_build_time
+      register: _packer_build_complete_check
+
+    - name: Setting Fact - _packer_build_complete
+      set_fact:
+        _packer_build_complete: "{{ _packer_build_complete_check.stat.exists|bool }}"
+
+    - name: Debug _packer_build_complete
+      debug:
+        var: _packer_build_complete
+
+    - name: Base Tasks
+      include_tasks: base.yml
+
+    - name: Archlinux Specific Task
+      include_tasks: arch.yml
+      when: ansible_os_family == "Archlinux"
+
+    - name: Debian Specific Tasks
+      include_tasks: debian.yml
+      when: ansible_os_family == "Debian"
+
+    - name: RedHat Specific Tasks
+      include_tasks: redhat.yml
+      when: ansible_os_family == "RedHat"
+
+    - name: VMware Specific Tasks
+      include_tasks: vmware.yml
+      when: packer_builder_type in ["vmware-iso", "vsphere-iso"]
+
+    - name: Cloud-Init Specific Tasks
+      include_tasks: cloud-init.yml
+
+    - name: App Specific Tasks
+      include_tasks: apps.yml
+
+    - name: Cleaning Up
+      include_tasks: cleanup.yml

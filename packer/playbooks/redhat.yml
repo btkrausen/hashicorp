@@ -1,0 +1,13 @@
+---
+- name: redhat | Adding EPEL Repo
+  yum:
+    name: epel-release
+    state: present
+  become: true
+  when: ansible_distribution == "CentOS"
+
+- name: redhat | Installing cloud-utils-growpart
+  package:
+    name: cloud-utils-growpart
+    state: present
+  become: true
