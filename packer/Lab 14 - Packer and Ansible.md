@@ -12,7 +12,9 @@ Duration: 30 minutes
 ## Task 1: Create Packer Template for Ubuntu server customized with an Ansible playbook
 
 ### Step 1.1.1
-Create a `aws-clumsy-bird.pkr.hcl` file:
+Create a `ansible` folder with the following Packer Template called `aws-clumsy-bird.pkr.hcl` the following code:
+
+`aws-clumsy-bird.pkr.hcl`
 
 ```hcl
 source "amazon-ebs" "ubuntu_20" {
@@ -55,7 +57,10 @@ build {
 }
 ```
 
-Create a `variables.pkr.hcl` file:
+Create a `variables.pkr.hcl` with the following code:
+
+`variables.pkr.hcl`
+
 ```hcl
 variable "ami_prefix" {
   type    = string
@@ -97,7 +102,7 @@ locals {
 }
 ```
 
-Create a `assets` folder with the following files inside it: `launch.sh` and `clumsy-bird.service`
+Create a `assets` sub directory with the following files inside it: `launch.sh` and `clumsy-bird.service`
 
 `launch.sh`
 
@@ -125,13 +130,13 @@ Restart=on-failure
 
 ## Task 2: Create Ansible Playbooks
 
-Copy the ansible playbooks into our packer working directory
+Copy the ansible playbooks from the lab guide into our packer working directory
 
 ```bash
-cp -R /playbooks/ /ansible/playbooks.
+cp -R /playbooks/ /ansible/playbooks
 ```
 
-The directory structure should look as follows:
+Validate the directory structure is laid out as follows:
 
 ```bash
 
