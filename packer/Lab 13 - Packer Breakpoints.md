@@ -37,7 +37,9 @@ build {
 
 ### Execute a Packer Build
 
-`packer build packer-breakpoints.pkr.hcl`
+```bash
+packer build packer-breakpoints.pkr.hcl
+```
 
 The build should run straight through to completion; you should see output that
 reads
