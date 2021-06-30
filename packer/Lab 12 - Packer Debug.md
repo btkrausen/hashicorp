@@ -97,66 +97,122 @@ packer build .
 ```
 
 ```shell
-2021/06/29 21:24:09 [INFO] Packer version: 1.7.2 [go1.16.3 darwin amd64]
-2021/06/29 21:24:09 [TRACE] discovering plugins in /usr/local/bin
-2021/06/29 21:24:09 [TRACE] discovering plugins in /Users/gabe/.packer.d/plugins
-2021/06/29 21:24:09 [TRACE] discovering plugins in .
-2021/06/29 21:24:09 [INFO] PACKER_CONFIG env var not set; checking the default config file path
-2021/06/29 21:24:09 [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/gabe/.packerconfig
-2021/06/29 21:24:09 [WARN] Config file doesn't exist: /Users/gabe/.packerconfig
-2021/06/29 21:24:09 [INFO] Setting cache directory: /Users/gabe/repos/packer_training/labs/debug_lab/packer_cache
-2021/06/29 21:24:09 [TRACE] Starting internal plugin packer-builder-amazon-ebs
-2021/06/29 21:24:09 Starting plugin: /usr/local/bin/packer []string{"/usr/local/bin/packer", "plugin", "packer-builder-amazon-ebs"}
-2021/06/29 21:24:09 Waiting for RPC address for: /usr/local/bin/packer
-2021/06/29 21:24:09 packer-builder-amazon-ebs plugin: [INFO] Packer version: 1.7.2 [go1.16.3 darwin amd64]
-2021/06/29 21:24:09 packer-builder-amazon-ebs plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
-2021/06/29 21:24:09 packer-builder-amazon-ebs plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/gabe/.packerconfig
-2021/06/29 21:24:09 packer-builder-amazon-ebs plugin: [WARN] Config file doesn't exist: /Users/gabe/.packerconfig
-2021/06/29 21:24:09 packer-builder-amazon-ebs plugin: [INFO] Setting cache directory: /Users/gabe/repos/packer_training/labs/debug_lab/packer_cache
-2021/06/29 21:24:09 packer-builder-amazon-ebs plugin: args: []string{"packer-builder-amazon-ebs"}
-2021/06/29 21:24:09 packer-builder-amazon-ebs plugin: Plugin address: unix /var/folders/1c/qvs1hwp964z_dwd5qg07lv_00000gn/T/packer-plugin532870282
-2021/06/29 21:24:09 packer-builder-amazon-ebs plugin: Waiting for connection...
-2021/06/29 21:24:09 Received unix RPC address for /usr/local/bin/packer: addr is /var/folders/1c/qvs1hwp964z_dwd5qg07lv_00000gn/T/packer-plugin532870282
-2021/06/29 21:24:09 packer-builder-amazon-ebs plugin: Serving a plugin connection...
-2021/06/29 21:24:09 packer-builder-amazon-ebs plugin: [INFO] (aws): No AWS timeout and polling overrides have been set. Packer will default to waiter-specific delays and timeouts. If you would like to customize the length of time between retries and max number of retries you may do so by setting the environment variables AWS_POLL_DELAY_SECONDS and AWS_MAX_ATTEMPTS or the configuration options aws_polling_delay_seconds and aws_polling_max_attempts to your desired values.
-2021/06/29 21:24:09 ui: [1;32mamazon-ebs.ubuntu: output will be in this color.[0m
-2021/06/29 21:24:09 ui: 
-2021/06/29 21:24:09 Build debug mode: false
-2021/06/29 21:24:09 Force build: false
-2021/06/29 21:24:09 On error: 
-2021/06/29 21:24:09 Waiting on builds to complete...
-2021/06/29 21:24:09 Starting build run: amazon-ebs.ubuntu
-2021/06/29 21:24:09 Running builder: 
-2021/06/29 21:24:09 [INFO] (telemetry) Starting builder 
-2021/06/29 21:24:09 packer-builder-amazon-ebs plugin: [INFO] AWS Auth provider used: "SharedCredentialsProvider"
-2021/06/29 21:24:09 packer-builder-amazon-ebs plugin: Found region us-west-2
-2021/06/29 21:24:09 packer-builder-amazon-ebs plugin: [INFO] AWS Auth provider used: "SharedCredentialsProvider"
-2021/06/29 21:24:10 ui: [1;32m==> amazon-ebs.ubuntu: Prevalidating any provided VPC information[0m
-2021/06/29 21:24:10 ui: [1;32m==> amazon-ebs.ubuntu: Prevalidating AMI Name: packer-ubuntu-aws-1625016249[0m
-2021/06/29 21:24:11 packer-builder-amazon-ebs plugin: Using AMI Filters {
-2021/06/29 21:24:11 packer-builder-amazon-ebs plugin:   Filters: [{
-2021/06/29 21:24:11 packer-builder-amazon-ebs plugin:       Name: "name",
-2021/06/29 21:24:11 packer-builder-amazon-ebs plugin:       Values: ["ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"]
-2021/06/29 21:24:11 packer-builder-amazon-ebs plugin:     },{
-2021/06/29 21:24:11 packer-builder-amazon-ebs plugin:       Name: "root-device-type",
-2021/06/29 21:24:11 packer-builder-amazon-ebs plugin:       Values: ["ebs"]
-2021/06/29 21:24:11 packer-builder-amazon-ebs plugin:     },{
-2021/06/29 21:24:11 packer-builder-amazon-ebs plugin:       Name: "virtualization-type",
-2021/06/29 21:24:11 packer-builder-amazon-ebs plugin:       Values: ["hvm"]
-2021/06/29 21:24:11 packer-builder-amazon-ebs plugin:     }],
-2021/06/29 21:24:11 packer-builder-amazon-ebs plugin:   Owners: ["099720109477"]
-2021/06/29 21:24:11 packer-builder-amazon-ebs plugin: }
-2021/06/29 21:24:11 ui: [0;32m    amazon-ebs.ubuntu: Found Image ID: ami-01773ce53581acf22[0m
-2021/06/29 21:24:11 ui: [1;32m==> amazon-ebs.ubuntu: Creating temporary keypair: packer_60dbc7b9-fef3-543e-4b22-f5e99c635796[0m
-2021/06/29 21:24:11 ui: [1;32m==> amazon-ebs.ubuntu: Creating temporary security group for this instance: packer_60dbc7bb-fc1b-8851-31d4-9cb60e099abf[0m
-2021/06/29 21:24:12 packer-builder-amazon-ebs plugin: [DEBUG] Waiting for temporary security group: sg-070eea0bac531d51e
-2021/06/29 21:24:12 packer-builder-amazon-ebs plugin: [DEBUG] Found security group sg-070eea0bac531d51e
-2021/06/29 21:24:12 ui: [1;32m==> amazon-ebs.ubuntu: Authorizing access to port 22 from [0.0.0.0/0] in the temporary security groups...[0m
-2021/06/29 21:24:13 ui: [1;32m==> amazon-ebs.ubuntu: Launching a source AWS instance...[0m
-2021/06/29 21:24:13 ui: [1;32m==> amazon-ebs.ubuntu: Adding tags to source instance[0m
-2021/06/29 21:24:13 ui: [0;32m    amazon-ebs.ubuntu: Adding tag: "Name": "Packer Builder"[0m
-2021/06/29 21:24:15 ui: [0;32m    amazon-ebs.ubuntu: Instance ID: i-0340d75bdbe279c59[0m
-2021/06/29 21:24:15 ui: [1;32m==> amazon-ebs.ubuntu: Waiting for instance (i-0340d75bdbe279c59) to become ready...
+2021/06/29 21:43:50 [INFO] Packer version: 1.7.2 [go1.16.3 darwin amd64]
+2021/06/29 21:43:50 [TRACE] discovering plugins in /usr/local/bin
+2021/06/29 21:43:50 [TRACE] discovering plugins in /Users/gabe/.packer.d/plugins
+2021/06/29 21:43:50 [TRACE] discovering plugins in .
+2021/06/29 21:43:50 [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2021/06/29 21:43:50 [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/gabe/.packerconfig
+2021/06/29 21:43:50 [WARN] Config file doesn't exist: /Users/gabe/.packerconfig
+2021/06/29 21:43:50 [INFO] Setting cache directory: /Users/gabe/repos/packer_training/labs/debug_lab/packer_cache
+2021/06/29 21:43:50 [TRACE] Starting internal plugin packer-builder-amazon-ebs
+2021/06/29 21:43:50 Starting plugin: /usr/local/bin/packer []string{"/usr/local/bin/packer", "plugin", "packer-builder-amazon-ebs"}
+2021/06/29 21:43:50 Waiting for RPC address for: /usr/local/bin/packer
+2021/06/29 21:43:50 packer-builder-amazon-ebs plugin: [INFO] Packer version: 1.7.2 [go1.16.3 darwin amd64]
+2021/06/29 21:43:50 packer-builder-amazon-ebs plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2021/06/29 21:43:50 packer-builder-amazon-ebs plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/gabe/.packerconfig
+2021/06/29 21:43:50 packer-builder-amazon-ebs plugin: [WARN] Config file doesn't exist: /Users/gabe/.packerconfig
+2021/06/29 21:43:50 packer-builder-amazon-ebs plugin: [INFO] Setting cache directory: /Users/gabe/repos/packer_training/labs/debug_lab/packer_cache
+2021/06/29 21:43:50 packer-builder-amazon-ebs plugin: args: []string{"packer-builder-amazon-ebs"}
+2021/06/29 21:43:50 packer-builder-amazon-ebs plugin: Plugin address: unix /var/folders/1c/qvs1hwp964z_dwd5qg07lv_00000gn/T/packer-plugin945249578
+2021/06/29 21:43:50 packer-builder-amazon-ebs plugin: Waiting for connection...
+2021/06/29 21:43:50 Received unix RPC address for /usr/local/bin/packer: addr is /var/folders/1c/qvs1hwp964z_dwd5qg07lv_00000gn/T/packer-plugin945249578
+2021/06/29 21:43:50 packer-builder-amazon-ebs plugin: Serving a plugin connection...
+2021/06/29 21:43:50 packer-builder-amazon-ebs plugin: [INFO] (aws): No AWS timeout and polling overrides have been set. Packer will default to waiter-specific delays and timeouts. If you would like to customize the length of time between retries and max number of retries you may do so by setting the environment variables AWS_POLL_DELAY_SECONDS and AWS_MAX_ATTEMPTS or the configuration options aws_polling_delay_seconds and aws_polling_max_attempts to your desired values.
+2021/06/29 21:43:50 Build debug mode: false
+2021/06/29 21:43:50 Force build: false
+2021/06/29 21:43:50 On error: 
+2021/06/29 21:43:50 Waiting on builds to complete...
+2021/06/29 21:43:50 Starting build run: amazon-ebs.ubuntu
+2021/06/29 21:43:50 Running builder: 
+amazon-ebs.ubuntu: output will be in this color.
+2021/06/29 21:43:50 [INFO] (telemetry) Starting builder 
+
+2021/06/29 21:43:50 packer-builder-amazon-ebs plugin: [INFO] AWS Auth provider used: "SharedCredentialsProvider"
+2021/06/29 21:43:50 packer-builder-amazon-ebs plugin: Found region us-west-2
+2021/06/29 21:43:50 packer-builder-amazon-ebs plugin: [INFO] AWS Auth provider used: "SharedCredentialsProvider"
+==> amazon-ebs.ubuntu: Prevalidating any provided VPC information
+==> amazon-ebs.ubuntu: Prevalidating AMI Name: packer-ubuntu-aws-1625017430
+2021/06/29 21:43:51 packer-builder-amazon-ebs plugin: Using AMI Filters {
+2021/06/29 21:43:51 packer-builder-amazon-ebs plugin:   Filters: [{
+2021/06/29 21:43:51 packer-builder-amazon-ebs plugin:       Name: "name",
+2021/06/29 21:43:51 packer-builder-amazon-ebs plugin:       Values: ["ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"]
+2021/06/29 21:43:51 packer-builder-amazon-ebs plugin:     },{
+2021/06/29 21:43:51 packer-builder-amazon-ebs plugin:       Name: "root-device-type",
+2021/06/29 21:43:51 packer-builder-amazon-ebs plugin:       Values: ["ebs"]
+2021/06/29 21:43:51 packer-builder-amazon-ebs plugin:     },{
+2021/06/29 21:43:51 packer-builder-amazon-ebs plugin:       Name: "virtualization-type",
+2021/06/29 21:43:51 packer-builder-amazon-ebs plugin:       Values: ["hvm"]
+2021/06/29 21:43:51 packer-builder-amazon-ebs plugin:     }],
+2021/06/29 21:43:51 packer-builder-amazon-ebs plugin:   Owners: ["099720109477"]
+2021/06/29 21:43:51 packer-builder-amazon-ebs plugin: }
+    amazon-ebs.ubuntu: Found Image ID: ami-01773ce53581acf22
+==> amazon-ebs.ubuntu: Creating temporary keypair: packer_60dbcc56-9a5b-72c6-764e-cb30596cec44
+==> amazon-ebs.ubuntu: Creating temporary security group for this instance: packer_60dbcc58-d42a-5fa5-a69b-8a55afdcc4ae
+2021/06/29 21:43:52 packer-builder-amazon-ebs plugin: [DEBUG] Waiting for temporary security group: sg-0a176e9216c8cb269
+2021/06/29 21:43:53 packer-builder-amazon-ebs plugin: [DEBUG] Found security group sg-0a176e9216c8cb269
+==> amazon-ebs.ubuntu: Authorizing access to port 22 from [0.0.0.0/0] in the temporary security groups...
+==> amazon-ebs.ubuntu: Launching a source AWS instance...
+==> amazon-ebs.ubuntu: Adding tags to source instance
+    amazon-ebs.ubuntu: Adding tag: "Name": "Packer Builder"
+    amazon-ebs.ubuntu: Instance ID: i-0f1905f1ea48da479
+==> amazon-ebs.ubuntu: Waiting for instance (i-0f1905f1ea48da479) to become ready...
+2021/06/29 21:44:42 packer-builder-amazon-ebs plugin: [INFO] Not using winrm communicator, skipping get password...
+==> amazon-ebs.ubuntu: Using ssh communicator to connect: 54.201.204.154
+2021/06/29 21:44:42 packer-builder-amazon-ebs plugin: [INFO] Waiting for SSH, up to timeout: 5m0s
+2021/06/29 21:44:42 packer-builder-amazon-ebs plugin: Using host value: 54.201.204.154
+==> amazon-ebs.ubuntu: Waiting for SSH to become available...
+2021/06/29 21:44:42 packer-builder-amazon-ebs plugin: [DEBUG] TCP connection to SSH ip/port failed: dial tcp 54.201.204.154:22: connect: connection refused
+2021/06/29 21:44:47 packer-builder-amazon-ebs plugin: Using host value: 54.201.204.154
+2021/06/29 21:44:47 packer-builder-amazon-ebs plugin: [INFO] Attempting SSH connection to 54.201.204.154:22...
+2021/06/29 21:44:47 packer-builder-amazon-ebs plugin: [DEBUG] reconnecting to TCP connection for SSH
+2021/06/29 21:44:47 packer-builder-amazon-ebs plugin: [DEBUG] handshaking with SSH
+2021/06/29 21:44:48 packer-builder-amazon-ebs plugin: [DEBUG] handshake complete!
+2021/06/29 21:44:48 packer-builder-amazon-ebs plugin: [DEBUG] Opening new ssh session
+2021/06/29 21:44:51 packer-builder-amazon-ebs plugin: [INFO] agent forwarding enabled
+==> amazon-ebs.ubuntu: Connected to SSH!
+2021/06/29 21:44:51 packer-builder-amazon-ebs plugin: Running the provision hook
+==> amazon-ebs.ubuntu: Stopping the source instance...
+    amazon-ebs.ubuntu: Stopping instance
+==> amazon-ebs.ubuntu: Waiting for the instance to stop...
+==> amazon-ebs.ubuntu: Creating AMI packer-ubuntu-aws-1625017430 from instance i-0f1905f1ea48da479
+    amazon-ebs.ubuntu: AMI: ami-0fb58842ec2e0b5a7
+==> amazon-ebs.ubuntu: Waiting for AMI to become ready...
+==> amazon-ebs.ubuntu: Adding tags to AMI (ami-0fb58842ec2e0b5a7)...
+==> amazon-ebs.ubuntu: Tagging snapshot: snap-0debf55b9c9812339
+==> amazon-ebs.ubuntu: Creating AMI tags
+    amazon-ebs.ubuntu: Adding tag: "Environment": "Production"
+    amazon-ebs.ubuntu: Adding tag: "Name": "Clumsy Bird"
+    amazon-ebs.ubuntu: Adding tag: "OS_Version": "Ubuntu 20.04"
+    amazon-ebs.ubuntu: Adding tag: "Release": "Latest"
+    amazon-ebs.ubuntu: Adding tag: "Created-by": "Packer"
+==> amazon-ebs.ubuntu: Creating snapshot tags
+==> amazon-ebs.ubuntu: Terminating the source AWS instance...
+==> amazon-ebs.ubuntu: Cleaning up any extra volumes...
+==> amazon-ebs.ubuntu: No volumes to clean up, skipping
+==> amazon-ebs.ubuntu: Deleting temporary security group...
+==> amazon-ebs.ubuntu: Deleting temporary keypair...
+2021/06/29 21:47:30 [INFO] (telemetry) ending 
+==> Wait completed after 3 minutes 40 seconds
+==> Builds finished. The artifacts of successful builds are:
+2021/06/29 21:47:30 machine readable: amazon-ebs.ubuntu,artifact-count []string{"1"}
+Build 'amazon-ebs.ubuntu' finished after 3 minutes 40 seconds.
+
+==> Wait completed after 3 minutes 40 seconds
+
+==> Builds finished. The artifacts of successful builds are:
+2021/06/29 21:47:30 machine readable: amazon-ebs.ubuntu,artifact []string{"0", "builder-id", "mitchellh.amazonebs"}
+2021/06/29 21:47:30 machine readable: amazon-ebs.ubuntu,artifact []string{"0", "id", "us-west-2:ami-0fb58842ec2e0b5a7"}
+2021/06/29 21:47:30 machine readable: amazon-ebs.ubuntu,artifact []string{"0", "string", "AMIs were created:\nus-west-2: ami-0fb58842ec2e0b5a7\n"}
+2021/06/29 21:47:30 machine readable: amazon-ebs.ubuntu,artifact []string{"0", "files-count", "0"}
+2021/06/29 21:47:30 machine readable: amazon-ebs.ubuntu,artifact []string{"0", "end"}
+us-west-2: ami-0fb58842ec2e0b5a7
+--> amazon-ebs.ubuntu: AMIs were created:
+us-west-2: ami-0fb58842ec2e0b5a7
+
+2021/06/29 21:47:30 [INFO] (telemetry) Finalizing.
+2021/06/29 21:47:31 waiting for all plugin processes to complete...
+2021/06/29 21:47:31 /usr/local/bin/packer: plugin process exited
 ...
 ```
 
