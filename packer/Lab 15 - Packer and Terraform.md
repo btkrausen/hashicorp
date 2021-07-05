@@ -8,7 +8,7 @@ Duration: 30 minutes
 - Task 3: Validate application deployment
 - Task 4: Update the Terraform Code to always pull the latest Packer machine image
 
-This lab assumes that you have (Terraform)[https://www.terraform.io/downloads.html] locally installed on your workstation and that you have completed the Packer and Ansible Lab succesfully.
+This lab assumes that you have [Terraform](https://www.terraform.io/downloads.html) locally installed on your workstation and that you have completed the Packer and Ansible Lab succesfully.
 
 ## Task 1: Create Terraform code for deploying Packer Images
 Create a `packer_terraform` folder with the following Terraform configuration file called `main.tf`
@@ -268,7 +268,8 @@ Now that we have succesfully deployed our application via Packer and Terraform, 
 Update our `main.tf` by adding:
 
 - a `data` block to lookup the ami image id
-- updating the instnace resource to point the `ami` to our data lookup of the Packer image.
+- updating the instance resource to point the `ami` to our data lookup of the Packer image.
+- remove the `ami` variable from our terraform configuration
 
 ```hcl
 data "aws_ami" "packer_image" {
@@ -300,9 +301,19 @@ resource "aws_instance" "test_ami" {
 }
 ```
 
+Remove the `ami` variable from our Terraform code.
+
+```hcl
+variable "ami" {
+  type = string
+  description = "Application Image to Deploy"
+}
+```
+
 Execute a `terraform plan` and `terraform apply`
 
 ```bash
+terraform plan -var 'appname=ClumsyBird' 
 terraform apply -var 'appname=ClumsyBird' 
 ```
 
