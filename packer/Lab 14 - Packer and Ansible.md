@@ -56,7 +56,7 @@ build {
 
 }
 ```
-
+### Step 1.1.2
 Create a `variables.pkr.hcl` with the following code:
 
 `variables.pkr.hcl`
@@ -101,7 +101,7 @@ locals {
   timestamp = regex_replace(timestamp(), "[- TZ:]", "")
 }
 ```
-
+### Step 1.1.3
 Create a `assets` sub directory with the following files inside it: `launch.sh` and `clumsy-bird.service`
 
 `launch.sh`
