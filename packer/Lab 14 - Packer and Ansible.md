@@ -268,7 +268,14 @@ We will update our `ansible` provisioner block to set the `"Cow Selection"` to `
 
 ```
 build {
-  sources = ["source.amazon-ebs.ubuntu_20"]
+  sources = [
+    "source.amazon-ebs.ubuntu_20"
+  ]
+
+  provisioner "file" {
+    source      = "assets"
+    destination = "/tmp/"
+  }
 
   provisioner "ansible" {
     ansible_env_vars = ["ANSIBLE_HOST_KEY_CHECKING=False", "ANSIBLE_COW_SELECTION=random"]
