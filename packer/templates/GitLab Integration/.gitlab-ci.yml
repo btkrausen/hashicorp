@@ -25,7 +25,7 @@ ami-share:
   script:
     - USE1_AMI_LIST=$(grep -o -e 'us-east-1:ami-[a-z0-9]*' packer-manifest.json)
     - USE2_AMI_LIST=$(grep -o -e 'us-east-2:ami-[a-z0-9]*' packer-manifest.json)
-    - ACCOUNT_LIST=$(printf "603991114860\n847580461439") # Share AMI with other accounts 
+    - ACCOUNT_LIST=$(printf "<account number>\n<account number>") # Share AMI with other accounts 
     - printf "AMIs to change permissions on:\n$USE1_AMI_LIST\n$USE2_AMI_LIST\n"
     # US-EAST-1
     - |
