@@ -1,0 +1,45 @@
+[Unit]
+Description="HashiCorp Vault - A tool for managing secrets"
+Documentation=https://www.vaultproject.io/docs/
+Requires=network-online.target
+After=network-online.target
+ConditionFileNotEmpty=/etc/vault.d/vault.hcl
+
+[Service]
+User=vault
+Group=vault
+LogLevel=info
+
+# Sandboxing settings to improve the security of the host by restricting vault privileges and access
+ProtectSystem=true
+ProtectSystem=full
+ProtectHome=read-only
+PrivateTmp=yes
+PrivateDevices=yes
+
+# Configure the capabilities of the vault process, particularly to lock memory.
+# (support for multiple systemd versions)
+SecureBits=keep-caps
+AmbientCapabilities=CAP_IPC_LOCK
+Capabilities=CAP_IPC_LOCK+ep
+CapabilityBoundingSet=CAP_SYSLOG CAP_IPC_LOCK
+
+# Limit the number of file descriptors to the configured value and prevent memory being swapped to disk
+LimitNOFILE=65536
+LimitMEMLOCK=infinity
+
+# Prevent vault and any child process from gaining new privileges
+NoNewPrivileges=yes
+
+ExecStart=/usr/local/bin/vault server -config=/etc/vault.d/vault.hcl
+ExecReload=/bin/kill --signal HUP $MAINPID
+KillMode=process
+KillSignal=SIGINT
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target

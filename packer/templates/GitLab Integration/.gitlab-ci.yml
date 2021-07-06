@@ -1,0 +1,45 @@
+stages:
+  - packer
+  - aws
+
+packer-build:
+  image:
+    name: hashicorp/packer:latest
+    entrypoint: ["/bin/sh", "-c"]
+  stage: packer
+  script:
+    - packer build ./*.hcl
+  artifacts:
+    paths:
+      - packer-manifest.json
+
+#Share new AMI with other accounts
+ami-share:
+  image:
+    name: ubuntu:latest
+  stage: aws
+  before_script:
+    - apt update
+    - apt -y install unzip wget
+    - wget "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" && unzip -q  awscli-exe-linux-x86_64.zip && ./aws/install
+  script:
+    - USE1_AMI_LIST=$(grep -o -e 'us-east-1:ami-[a-z0-9]*' packer-manifest.json)
+    - USE2_AMI_LIST=$(grep -o -e 'us-east-2:ami-[a-z0-9]*' packer-manifest.json)
+    - ACCOUNT_LIST=$(printf "603991114860\n847580461439") # Share AMI with other accounts 
+    - printf "AMIs to change permissions on:\n$USE1_AMI_LIST\n$USE2_AMI_LIST\n"
+    # US-EAST-1
+    - |
+      for i in $USE1_AMI_LIST; do
+        for a in $ACCOUNT_LIST; do
+          aws --region us-east-1 ec2 modify-image-attribute --image-id $(echo $i | cut -d ":" -f 2) --launch-permission "Add=[{UserId=$a}]"
+        done
+      done
+    # US-EAST-2
+    - |
+      for i in $USE2_AMI_LIST; do
+        for a in $ACCOUNT_LIST; do
+          aws --region us-east-2 ec2 modify-image-attribute --image-id $(echo $i | cut -d ":" -f 2) --launch-permission "Add=[{UserId=$a}]"
+        done
+      done
+  needs:
+    - job: packer-build
