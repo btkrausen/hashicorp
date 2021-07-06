@@ -31,7 +31,7 @@ variable "ssh_username" {
 
 variable "subnet_id" {
   type    = string
-  default = "subnet-056dfef5d87b350ba"
+  default = "subnet-056dfefxxxxxxxx"
 }
 
 variable "vault_version" {
@@ -41,7 +41,7 @@ variable "vault_version" {
 
 variable "vpc_id" {
   type    = string
-  default = "vpc-06626bb552084b94b"
+  default = "vpc-06626bb5xxxxxxx"
 }
 
 locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
