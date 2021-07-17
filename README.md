@@ -27,6 +27,6 @@ This repo is intended to supplement training courses and external projects relat
 | 5 | [HashiCorp Certified: Vault Associate Practice Exam](https://www.udemy.com/course/hashicorp-certified-vault-associate-practice-exam/?referralCode=B053909C293F10D9408D) | INDEPENDENCE  | $16.99 | AUG 04 |
 | 6 | [HashiCorp Certified: Consul Associate Practice Exam](https://www.udemy.com/course/consul-associate-practice-exam/?referralCode=DFDB41615ADFB8C1CD6A) | INDEPENDENCE  | $17.99 | AUG 04 |
 | 7 | [Getting Started with HashiCorp Consul](https://www.udemy.com/course/hashicorp-consul/?referralCode=6506321DC305903E7BFA) | INDEPENDENCE  | $23.99 | AUG 04 |  
-| 8 | [Building Automated Machine Images using HashiCorp Packer](https://www.udemy.com/course/hashicorp-packer/?referralCode=C6799F68F1B5A1359218) | LAUNCH | $15.00 | AUG 18 |  
+| 8 | [Building Automated Machine Images with HashiCorp Packer](https://www.udemy.com/course/hashicorp-packer/?referralCode=C6799F68F1B5A1359218) | LAUNCH | $15.00 | AUG 18 |  
 
 Please feel free to reach to via [Twitter](https://twitter.com/btkrausen) or [LinkedIn](https://www.linkedin.com/in/bryan-krausen-5ab8794/) for questions or comments.
