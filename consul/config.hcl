@@ -22,14 +22,14 @@
   retry_join       = ["provider=aws tag_key=Environment-Name tag_value=consul-cluster region=us-east-1"]
   
   acl = {
-   enabled        = true
-   default_policy = "deny"
-   down_policy    = "extend-cache"
-   tokens = {
+    enabled        = true
+    default_policy = "deny"
+    down_policy    = "extend-cache"
+    tokens = {
       agent = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
    }
 }
 
-   performance = {
-    raft_multiplier = 1
+  performance = {
+     raft_multiplier = 1
   }
