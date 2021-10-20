@@ -1,6 +1,8 @@
   log_level  = "INFO"
   server     = true
-  ui         = true
+  ui_config {
+    enabled = true
+  }
   datacenter = "us-east-1"
 
   key_file               = "/etc/consul.d/cert.key"
