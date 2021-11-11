@@ -2,6 +2,7 @@
    "snapshot_agent": {
       "http_addr": "127.0.0.1:8500",
       "datacenter": "",
+      "token": "<insert ACL token here>",
       "snapshot": {
          "interval": "30m",
          "retain": 336,
