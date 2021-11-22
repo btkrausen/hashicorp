@@ -1,4 +1,5 @@
-# Terraform Associate Certification: Objective / Hands On Labs / Documentation
+# Terraform Associate Certification
+# Objective / Hands On Labs / Documentation
 
 | **Objective**  | **Description** | Hands On Labs| Terraform Documentation |
 |---|---------|--------------|--------------------|
