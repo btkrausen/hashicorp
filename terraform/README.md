@@ -4,7 +4,7 @@
 | **Objective**  | **Description** | Hands On Labs| Terraform Documentation |
 |---|---------|--------------|--------------------|
 | **1** | **Understand Infrastructure as Code (IaC) concepts**| | |
-| 1a | Explain what IaC is| [What is Infrastructure as Code](https://www.udemy.com/course/draft/4254508/learn/lecture/29164046/?instructorPreviewMode=student_v4#content)| [Infrastructure as Code](https://www.terraform.io/intro/index.html#infrastructure-as-code) </br>[Infrastructure as Code in a Private or Public Cloud](https://www.hashicorp.com/resources/what-is-infrastructure-as-code) |
+| 1a | Explain what IaC is| ![What is Infrastructure as Code](https://www.udemy.com/course/draft/4254508/learn/lecture/29164046/?instructorPreviewMode=student_v4#content)| ![Infrastructure as Code](https://www.terraform.io/intro/index.html#infrastructure-as-code) </br> ![Infrastructure as Code in a Private or Public Cloud](https://www.hashicorp.com/resources/what-is-infrastructure-as-code) |
 | 1b| Describe advantages of IaC patterns | [Benefits of IaC](./labs/1b-Benefits%20of%20IaC.md)| [Infrastructure as Code](https://www.terraform.io/intro/index.html#infrastructure-as-code) |      [Infrastructure as code video](https://www.hashicorp.com/resources/what-is-infrastructure-as-code) |
 | **2** | **Understand Terraform's purpose (vs other IaC)**| | |
 | 2a | Explain multi-cloud and provider-agnostic benefits| [Terraform Purpose](./labs/2a-Terraform%20Purpose.md) <br> [Terraform Basics](./labs/2a-Terraform%20Basics.md)| [Multi-Cloud Deployment](https://www.terraform.io/intro/use-cases.html#multi-cloud-deployment) |
