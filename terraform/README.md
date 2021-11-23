@@ -1,4 +1,10 @@
 # Terraform Associate Certification
+
+Master Terraform by taking a Hands-On Approach with 70+ labs that follow the HashiCorp Certified: Terraform Associate.  The links below includes in-depth, hands-on labs that follow all of the HashiCorp Certified: Terraform Associate exam objectives. There are detailed labs for each concept that builds on the previous topics so you can be sure to put all of Terraform's features to work for you.
+
+## [Course Link](https://www.udemy.com/course/terraform-hands-on-labs)
+Th [Terraform Hands on Lab Course](https://www.udemy.com/course/terraform-hands-on-labs) is currently in pre-release.  You can register now for a discounted price using the following link along with the password `pre-release`.
+
 # Objective / Hands On Labs / Documentation / Quizzes
 
 | **Objective**  | **Description** | Hands On Labs | Terraform Documentation | Quiz |
@@ -56,7 +62,7 @@
 |  9a | Describe the benefits of Sentinel, registry, and workspaces | [Terraform Cloud Workspaces](https://www.udemy.com/course/terraform-hands-on-labs/learn/lecture/29581658) <br> [Private Module Registry](https://www.udemy.com/course/terraform-hands-on-labs/learn/lecture/29581658) <br> [Sentinel for Teraraform](https://www.udemy.com/course/terraform-hands-on-labs/learn/lecture/29581658) | [Private Module Registry](https://www.terraform.io/docs/cloud/registry/index.html) <br> [Sentinel](https://www.terraform.io/docs/cloud/sentinel/index.html)|
 | 9b | Differentiate OSS and Terraform Cloud workspaces | [Workspaces Terraform Cloud](https://www.udemy.com/course/terraform-hands-on-labs/learn/lecture/29581658) <br> [Workspaces OSS](https://www.udemy.com/course/terraform-hands-on-labs/learn/lecture/29581658)| [CLI Workspaces](https://www.terraform.io/docs/language/state/workspaces.html) <br> [Enterprise/Cloud Workspaces](https://www.terraform.io/docs/cloud/workspaces/index.html)|
 | 9c | Summarize features of Terraform Cloud | [Terraform Cloud](https://www.udemy.com/course/terraform-hands-on-labs/learn/lecture/29581658) <br> [Terraform Cloud CLI Workflow](https://www.udemy.com/course/terraform-hands-on-labs/learn/lecture/29581658) <br> [Terraform Cloud VCS Workflow](https://www.udemy.com/course/terraform-hands-on-labs/learn/lecture/29581658) | [Terraform Cloud](https://www.terraform.io/docs/cloud/index.html) <br> [The UI- and VCS-driven Run Workflow](https://www.terraform.io/docs/cloud/run/ui.html)|
-
+| Exam Tips | | [Exam Tips](https://www.udemy.com/course/terraform-hands-on-labs/learn/lecture/29581658) | [Bryan and Gabe's Exam Tips](./ExamTips.md) |
 
 <br>
 <br>
