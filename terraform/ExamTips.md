@@ -25,7 +25,7 @@ When you're ready for more practice questions, check out [Bryan's practice exam]
 HashiCorp is one of the few software vendors that go to great lengths to provide you direct links where you can study for the test. If you head over to hashicorp.com/certifications and click on the Terraform Associate exam, you can find a few great links to use. 
 
  - The Study Guide provides a comprehensive list of links that you can use to get additional information. 
- - The ![Review Guide](README.md) does a great job of breaking down each objective in the Terraform Associate exam and providing links and tutorials you can use to study that specific objective. ***Really good resource here.***
+ - The [Review Guide](README.md) does a great job of breaking down each objective in the Terraform Associate exam and providing links and tutorials you can use to study that specific objective. ***Really good resource here.***
  - You can also find some practice questions on this page as well.
 
  The last part of the documentation suggestions are just around the official docs. If you're still feeling uneasy about some topics, go to the official documentation and start reading. They do a great job of breaking down features and how they can be used.
