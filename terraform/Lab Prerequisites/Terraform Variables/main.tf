@@ -1,9 +1,3 @@
-/*
-Name: IaC Buildout for Terraform Associate Exam
-Description: AWS Infrastructure Buildout
-Contributors: Bryan and Gabe
-*/
-
 # Configure the AWS Provider
 provider "aws" {
   region = "us-east-1"
@@ -146,17 +140,5 @@ resource "aws_instance" "web_server" {                            # BLOCK
   subnet_id     = aws_subnet.public_subnets["public_subnet_1"].id # Argument with value as expression
   tags = {
     Name = "Web EC2 Server"
-  }
-}
-
-resource "aws_subnet" "variables-subnet" {
-  vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = var.variables_sub_cidr
-  availability_zone       = var.variables_sub_az
-  map_public_ip_on_launch = var.variables_sub_auto_ip
-
-  tags = {
-    Name      = "sub-variables-${var.variables_sub_az}"
-    Terraform = "true"
   }
 }
