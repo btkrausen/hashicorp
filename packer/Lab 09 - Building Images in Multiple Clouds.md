@@ -5,21 +5,23 @@ Duration: 30 minutes
 
 - Task 1: Update Packer Template to support Multiple Clouds
 - Task 2: Specify Cloud Specific Attributes
-- Task 2: Validate the Packer Template
-- Task 3: Build Image across AWS and Azure
+- Task 3: Validate the Packer Template
+- Task 4: Build Image across AWS and Azure
 
 ### Task 1: Update Packer Template to support Multiple Regions
 Packer supports seperate builders for deploying images accross clouds while allowing for a single build workflow.
 
 ### Step 1.1.1
 
-Update your `aws-linux.pkr.hcl` file with the following Packer `source` block for specifying an `azure-arm` image source.  This source contains the details for building this image in Azure.  We will keep the `aws-ebs` source untouched.  You will need to specify your own Azure credentials in the `client_id`, `client_secret`, `subscription_id` and `tenant_id`.
+Update your `aws-linux.pkr.hcl` file with the following Packer `source` block for specifying an `azure-arm` image source.  This source contains the details for building this image in Azure.  We will keep the `aws-ebs` source untouched.
+
+You will need to specify your own Azure credentials in the `client_id`, `client_secret`, `subscription_id` and `tenant_id`.  You will also need to create your own Azure resource group name called `packer_images` along with a `vm_size` that is available in your region. See Note below.
 
 ```hcl
 source "azure-arm" "ubuntu" {
   client_id                         = "XXXX"
   client_secret                     = "XXXX"
-  managed_image_resource_group_name = "packer_images"
+  managed_image_resource_group_name = "packer_images" # You 
   managed_image_name                = "packer-ubuntu-azure-{{timestamp}}"
   subscription_id                   = "XXXX"
   tenant_id                         = "XXXX"
@@ -39,6 +41,44 @@ source "azure-arm" "ubuntu" {
   vm_size  = "Standard_A2"
 }
 ```
+
+> Note: (Optional) If you do not know how to create Azure credentials, you can log into the Azure portal shell and run the following options. 
+> 
+> Create a service principal: 
+> ```shell 
+> az ad sp create-for-rbac --role Contributor --name sp-packer-001
+> ```
+> ```shell
+> Creating 'Contributor' role assignment under scope '/subscriptions/AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA'
+>The output includes credentials that you must protect. Be sure that you do not include these credentials in your code or check the credentials into your source control. For more information, see https://aka.ms/azadsp-cli 'name' property in the output is deprecated and will be removed in the future. Use 'appId' instead.
+
+```json 
+{
+  "appId": "BBBBBBBB-BBBB-BBBB-BBBB-BBBBBBBBBBBB",
+  "displayName": "sp-packer-001",
+  "name": "BBBBBBBB-BBBB-BBBB-BBBB-BBBBBBBBBBBB",
+  "password": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+  "tenant": "DDDDDDDD-DDDD-DDDD-DDDD-DDDDDDDDDDDD"
+}
+
+Where: 
+AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA is the Subscription ID
+BBBBBBBB-BBBB-BBBB-BBBB-BBBBBBBBBBBB is the Client ID
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC is the Client Secret
+DDDDDDDD-DDDD-DDDD-DDDD-DDDDDDDDDDDD is the Tenant ID
+```
+
+> Note: (Optional) List available sizes for Azure VMs
+
+> ```shell
+> az vm list-skus --location eastus --size Standard_A --output table 
+
+> ```shell
+> az vm list-sizes --location eastus --query "[? contains(name, 'Standard_A')]" --output table
+> ```
+
+> Use an appropriate size for the `vm_size` attribute.  If `Standard_A2` is not available consider `Standard_A2_V2`
+
 
 ### Task 2: Specify Cloud Specific Attributes
 The packer `build` block will need to be updated to specify both an AWS and Azure build.  This can be done with the updated `build` block:
