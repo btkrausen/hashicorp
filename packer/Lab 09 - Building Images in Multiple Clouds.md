@@ -52,7 +52,7 @@ source "azure-arm" "ubuntu" {
 > Creating 'Contributor' role assignment under scope '/subscriptions/AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA'
 >The output includes credentials that you must protect. Be sure that you do not include these credentials in your code or check the credentials into your source control. For more information, see https://aka.ms/azadsp-cli 'name' property in the output is deprecated and will be removed in the future. Use 'appId' instead.
 
-```json 
+```json
 {
   "appId": "BBBBBBBB-BBBB-BBBB-BBBB-BBBBBBBBBBBB",
   "displayName": "sp-packer-001",
@@ -60,7 +60,9 @@ source "azure-arm" "ubuntu" {
   "password": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
   "tenant": "DDDDDDDD-DDDD-DDDD-DDDD-DDDDDDDDDDDD"
 }
+```
 
+```text
 Where: 
 AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA is the Subscription ID
 BBBBBBBB-BBBB-BBBB-BBBB-BBBBBBBBBBBB is the Client ID
