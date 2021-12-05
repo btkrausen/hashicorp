@@ -53,6 +53,7 @@ build {
     inline = [
       "echo Installing Updates",
       "sudo apt-get update",
+      "sudo apt-get upgrade -y",
       "sudo apt-get install -y nginx"
     ]
   }
@@ -230,11 +231,10 @@ us-west-2: ami-040bd66b2e79ccb64
 ### Task 4: Install Web App
 
 #### Step 4.1.1
-Copy the web application assets into our packer working directory
+Copy the web application assets into our packer working directory.  You can download the assets from https://github.com/btkrausen/hashicorp/packer/assets
 
 ```bash
 mkdir assets
-cp -R /workstation/terraform/assets/ .
 ```
 
 #### Step 4.1.2
@@ -250,6 +250,7 @@ build {
     inline = [
       "echo Installing Updates",
       "sudo apt-get update",
+      "sudo apt-get upgrade -y"
     ]
   }
 

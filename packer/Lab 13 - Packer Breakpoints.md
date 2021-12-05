@@ -96,7 +96,8 @@ build {
   provisioner "shell" {
     inline = [
       "echo Installing Updates",
-      "sudo apt-get update"
+      "sudo apt-get update",
+      "sudo apt-get upgrade -y"
     ]
   }
 
