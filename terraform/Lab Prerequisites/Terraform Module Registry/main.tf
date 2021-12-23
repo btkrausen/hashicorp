@@ -165,13 +165,13 @@ resource "aws_instance" "ubuntu_server" {
     command = "chmod 600 ${local_file.private_key_pem.filename}"
   }
 
-  # provisioner "remote-exec" {
-  #   inline = [
-  #     "sudo rm -rf /tmp",
-  #     "sudo git clone https://github.com/hashicorp/demo-terraform-101 /tmp",
-  #     "sudo sh /tmp/assets/setup-web.sh",
-  #   ]
-  # }
+  provisioner "remote-exec" {
+    inline = [
+      "sudo rm -rf /tmp",
+      "sudo git clone https://github.com/hashicorp/demo-terraform-101 /tmp",
+      "sudo sh /tmp/assets/setup-web.sh",
+    ]
+  }
 
   tags = {
     Name = "Ubuntu EC2 Server"
@@ -287,13 +287,13 @@ resource "aws_instance" "web_server" {
     command = "chmod 600 ${local_file.private_key_pem.filename}"
   }
 
-  # provisioner "remote-exec" {
-  #   inline = [
-  #     "sudo rm -rf /tmp",
-  #     "sudo git clone https://github.com/hashicorp/demo-terraform-101 /tmp",
-  #     "sudo sh /tmp/assets/setup-web.sh",
-  #   ]
-  # }
+  provisioner "remote-exec" {
+    inline = [
+      "sudo rm -rf /tmp",
+      "sudo git clone https://github.com/hashicorp/demo-terraform-101 /tmp",
+      "sudo sh /tmp/assets/setup-web.sh",
+    ]
+  }
 
   tags = {
     Name = "Web EC2 Server"
@@ -381,3 +381,4 @@ module "autoscaling" {
 output "asg_group_size" {
   value = module.autoscaling.autoscaling_group_max_size
 }
+

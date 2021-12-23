@@ -28,13 +28,13 @@ resource "aws_instance" "web" {
     private_key = var.private_key
     host        = self.public_ip
   }
-  # provisioner "remote-exec" {
-  #   inline = [
-  #     "sudo rm -rf /tmp",
-  #     "sudo git clone https://github.com/hashicorp/demo-terraform-101 /tmp",
-  #     "sudo sh /tmp/assets/setup-web.sh",
-  #   ]
-  # }
+  provisioner "remote-exec" {
+    inline = [
+      "sudo rm -rf /tmp",
+      "sudo git clone https://github.com/hashicorp/demo-terraform-101 /tmp",
+      "sudo sh /tmp/assets/setup-web.sh",
+    ]
+  }
   tags = {
     "Name"        = "Web Server from Module"
     "Environment" = "Training"
