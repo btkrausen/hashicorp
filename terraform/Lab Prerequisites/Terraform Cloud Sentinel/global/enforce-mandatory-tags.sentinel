@@ -1,0 +1,26 @@
+# This policy uses the Sentinel tfplan import to require that all EC2 instances
+# have all mandatory tags.
+# Note that the comparison is case-sensitive since AWS tags are case-sensitive.
+
+# Import common-functions/tfplan-functions/tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+
+# List of mandatory tags
+### List of mandatory tags ###
+mandatory_tags = [
+  "Name",
+]
+
+# Get all EC2 instances
+allEC2Instances = plan.find_resources("aws_instance")
+
+# Filter to EC2 instances with violations
+# Warnings will be printed for all violations since the last parameter is true
+violatingEC2Instances = plan.filter_attribute_not_contains_list(allEC2Instances,
+                        "tags", mandatory_tags, true)
+
+# Main rule
+main = rule {
+  length(violatingEC2Instances["messages"]) is 0
+}
