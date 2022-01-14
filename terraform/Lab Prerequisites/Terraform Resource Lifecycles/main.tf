@@ -35,21 +35,22 @@ locals {
 
 locals {
   # Common tags to be assigned to all resources
-    prod      = {
-      cidr = "10.0.231.0/24"
-    }
-    dev       = {
-      cidr = "10.0.231.0/24"
-    }
-    App       = local.application
-    Service   = local.service_name
-    AppTeam   = local.app_team
-    CreatedBy = local.createdby
+  prod = {
+    cidr = "10.0.231.0/24"
   }
+  dev = {
+    cidr = "10.0.231.0/24"
+  }
+  App       = local.application
+  Service   = local.service_name
+  AppTeam   = local.app_team
+  CreatedBy = local.createdby
+}
 
 #Retrieve the list of AZs in the current AWS region
 data "aws_availability_zones" "available" {}
 data "aws_region" "current" {}
+
 
 #Define the VPC 
 resource "aws_vpc" "vpc" {
@@ -199,7 +200,7 @@ resource "aws_instance" "ubuntu_server" {
   }
 
   # Leave the first part of the block unchanged and create our `local-exec` provisioner
- /*  provisioner "local-exec" {
+  /*  provisioner "local-exec" {
     command = "chmod 600 ${local_file.private_key_pem.filename}"
   } */
 
@@ -321,7 +322,7 @@ resource "aws_instance" "web_server" {
   }
 
   # Leave the first part of the block unchanged and create our `local-exec` provisioner
-/*   provisioner "local-exec" {
+  /*   provisioner "local-exec" {
     command = "chmod 600 ${local_file.private_key_pem.filename}"
   } */
 
@@ -372,6 +373,22 @@ resource "aws_subnet" "list_subnet" {
   vpc_id            = aws_vpc.vpc.id
   cidr_block        = each.value.ip
   availability_zone = each.value.az
+}
+
+resource "aws_security_group" "main" {
+  name   = "core-sg"
+  vpc_id = aws_vpc.vpc.id
+
+  dynamic "ingress" {
+    for_each = var.web_ingress
+    content {
+      description = ingress.value.description
+      from_port   = ingress.value.port
+      to_port     = ingress.value.port
+      protocol    = ingress.value.protocol
+      cidr_blocks = ingress.value.cidr_blocks
+    }
+  }
 }
 
 output "public_ip" {
