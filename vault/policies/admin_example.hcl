@@ -13,9 +13,14 @@ path "auth/*" {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
 
-# manage Vault identities
+# Manage Vault identities
 path "identity/*" {
   capabilities = ["create", "read", "update", "delete", "list"]
+}
+
+# Deny access to modify namespace admin group
+path "identity/group/namespace-admin" {
+  capabilities = ["deny"]
 }
 
 # permit access to administer secrets KV secrets engine - admin cannot read secrets
