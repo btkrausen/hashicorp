@@ -3,7 +3,7 @@
 Master Terraform by taking a Hands-On Approach with 70+ labs that follow the HashiCorp Certified: Terraform Associate.  The links below includes in-depth, hands-on labs that follow all of the HashiCorp Certified: Terraform Associate exam objectives. There are detailed labs for each concept that builds on the previous topics so you can be sure to put all of Terraform's features to work for you.
 
 ## [Course Link](https://www.udemy.com/course/terraform-hands-on-labs)
-Th [Terraform Hands on Lab Course](https://www.udemy.com/course/terraform-hands-on-labs) is currently in pre-release.  You can register now for a discounted price using the following link along with the password `pre-release`.
+Discounts for the [Terraform Hands on Lab Course](https://www.udemy.com/course/terraform-hands-on-labs) and other HashiCorp courses can be found at the [HashiCorp Course Content and Discounts](https://github.com/btkrausen/hashicorp)
 
 # Objective / Hands On Labs / Documentation / Quizzes
 
