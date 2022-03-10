@@ -5,6 +5,6 @@
     "name": "front-end-eCommerce",
     "tags": ["v7.05", "production"],
     "address": "10.0.101.110",
-    "port": 80,
+    "port": 80
    }
 }
