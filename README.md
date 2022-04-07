@@ -23,6 +23,7 @@ This repo is intended to supplement training courses and external projects relat
 
 | No  | Course Link                                                                                                                                                             | Coupon Code | Price  | Valid Until |
 | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------ | ----------- |
+<<<<<<< HEAD
 | 1   | [Getting Started with HashiCorp Vault](https://www.udemy.com/course/hashicorp-vault/?referralCode=2B837FCB45B4916456F3)                                                 | APR2022     | $28.00 | May 8th     |
 | 2   | [HashiCorp Vault: The Advanced Course](https://www.udemy.com/course/vaultadvanced/?referralCode=C4C5A5D0BAD6EC1D2D1A)                                                   | APR2022     | $18.00 | May 8th     |
 | 3   | [Integrating HashiCorp Vault with AWS](https://www.udemy.com/course/integrating-hashicorp-vault-with-aws/?referralCode=8069E87B5BA71FD21632)                            | APR2022     | $18.00 | May 8th     |
