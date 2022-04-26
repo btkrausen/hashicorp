@@ -19,6 +19,6 @@ seal "awskms" {
 api_addr = "https://vault-us-east-1.example.com:8200"
 cluster_addr = " https://node-a-us-east-1.example.com:8201"
 cluster_name = "vault-prod-us-east-1"
-ui = true
+ui = false
 log_level = "INFO"
 license_path = "/opt/vault/vault.hcl"
