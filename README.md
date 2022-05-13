@@ -29,10 +29,9 @@ This repo is intended to supplement training courses and external projects relat
 | 4 | HashiCorp Certified: Vault Operations Professional | COMING SOON | n/a |
 | 5 | [HashiCorp Certified: Terraform Associate Hands-On Lab Course](https://www.udemy.com/course/terraform-hands-on-labs/?referralCode=D916D9152FAE03F053E3) | MAY2022 | June 6th |
 | 6 | [HashiCorp Certified: Terraform Associate Practice Exam](https://www.udemy.com/course/terraform-associate-practice-exam/?referralCode=D98434484AB772F1C1A2) | MAY2022 | June 6th |
-| 7 | Getting Started with Terraform Cloud | COMING SOON | n/a |
-| 8 | [HashiCorp Certified: Vault Associate Practice Exam](https://www.udemy.com/course/hashicorp-certified-vault-associate-practice-exam/?referralCode=B053909C293F10D9408D) | MAY2022 | June 6th |
-| 9 | [HashiCorp Certified: Consul Associate Practice Exam](https://www.udemy.com/course/consul-associate-practice-exam/?referralCode=DFDB41615ADFB8C1CD6A) | MAY2022 | June 6th |
-| 10 | [Getting Started with HashiCorp Consul](https://www.udemy.com/course/hashicorp-consul/?referralCode=6506321DC305903E7BFA) | MAY2022 | June 6th |
-| 11 | [Building Automated Machine Images using HashiCorp Packer](https://www.udemy.com/course/hashicorp-packer/?referralCode=C6799F68F1B5A1359218) | MAY2022 | June 6th |
+| 7 | [HashiCorp Certified: Vault Associate Practice Exam](https://www.udemy.com/course/hashicorp-certified-vault-associate-practice-exam/?referralCode=B053909C293F10D9408D) | MAY2022 | June 6th |
+| 8 | [HashiCorp Certified: Consul Associate Practice Exam](https://www.udemy.com/course/consul-associate-practice-exam/?referralCode=DFDB41615ADFB8C1CD6A) | MAY2022 | June 6th |
+| 9 | [Getting Started with HashiCorp Consul](https://www.udemy.com/course/hashicorp-consul/?referralCode=6506321DC305903E7BFA) | MAY2022 | June 6th |
+| 10 | [Building Automated Machine Images using HashiCorp Packer](https://www.udemy.com/course/hashicorp-packer/?referralCode=C6799F68F1B5A1359218) | MAY2022 | June 6th |
 
 Please feel free to reach to via [Twitter](https://twitter.com/btkrausen) or [LinkedIn](https://www.linkedin.com/in/bryan-krausen-5ab8794/) for questions or comments.
