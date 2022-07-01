@@ -26,7 +26,7 @@ This repo is intended to supplement training courses and external projects relat
 | 1 | [Getting Started with HashiCorp Vault](https://www.udemy.com/course/hashicorp-vault/?referralCode=2B837FCB45B4916456F3) | JUNE2022 | July 8th |
 | 2 | [HashiCorp Vault: The Advanced Course](https://www.udemy.com/course/vaultadvanced/?referralCode=C4C5A5D0BAD6EC1D2D1A) | JUNE2022 | July 8th |
 | 3 | [Integrating HashiCorp Vault with AWS](https://www.udemy.com/course/integrating-hashicorp-vault-with-aws/?referralCode=8069E87B5BA71FD21632) | JUNE2022 | July 8th |
-| 4 | [HashiCorp Certified: Vault Operations Professional](https://www.udemy.com/course/hashicorp-certified-vault-operations-professional/?couponCode=EED69B75405F195FF4F6) | LAUNCH | AUG 1 |
+| 4 | [HashiCorp Certified: Vault Operations Professional](https://www.udemy.com/course/hashicorp-certified-vault-operations-professional/?referralCode=C3228B05DB53D1EB9C9E) | LAUNCH | AUG 1 |
 | 5 | [HashiCorp Certified: Terraform Associate Hands-On Lab Course](https://www.udemy.com/course/terraform-hands-on-labs/?referralCode=D916D9152FAE03F053E3) | JUNE2022 | July 8th |
 | 6 | [HashiCorp Certified: Terraform Associate Practice Exam](https://www.udemy.com/course/terraform-associate-practice-exam/?referralCode=D98434484AB772F1C1A2) | JUNE2022 | July 8th |
 | 7 | [HashiCorp Certified: Vault Associate Practice Exam](https://www.udemy.com/course/hashicorp-certified-vault-associate-practice-exam/?referralCode=B053909C293F10D9408D) | JUNE2022 | July 8th |
