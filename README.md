@@ -34,4 +34,4 @@ This repo is intended to supplement training courses and external projects relat
 | 9 | [Getting Started with HashiCorp Consul](https://www.udemy.com/course/hashicorp-consul/?referralCode=6506321DC305903E7BFA) | JULY2022 | Aug 6th |
 | 10 | [Building Automated Machine Images using HashiCorp Packer](https://www.udemy.com/course/hashicorp-packer/?referralCode=C6799F68F1B5A1359218) | JULY2022 | Aug 6th |
 
-Please feel free to reach to via [Twitter](https://twitter.com/btkrausen) or [LinkedIn](https://www.linkedin.com/in/bryan-krausen-5ab8794/) for questions or comments.
+Please feel free to reach via [Twitter](https://twitter.com/btkrausen) or [LinkedIn](https://www.linkedin.com/in/bryan-krausen-5ab8794/) for questions or comments.
