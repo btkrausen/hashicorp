@@ -31,11 +31,12 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 | 2 | [HashiCorp Vault: The Advanced Course](https://btk.me/va) | AUGUST22 | Sept 2nd |
 | 3 | [Integrating HashiCorp Vault with AWS](https://btk.me/vaws) | AUGUST22 | Sept 2nd |
 | 4 | [HashiCorp Certified: Vault Operations Professional](https://btk.me/vp) | AUGUST22 | Sept 2nd |
-| 5 | [HashiCorp Certified: Terraform Associate Hands-On Lab Course](https://btk.me/tfhol) | AUGUST22 | Sept 2nd |
-| 6 | [HashiCorp Certified: Terraform Associate Practice Exam](https://btk.me/tf) | AUGUST22 | Sept 2nd |
-| 7 | [HashiCorp Certified: Vault Associate Practice Exam](https://btk.me/vpe) | AUGUST22 | Sept 2nd |
-| 8 | [HashiCorp Certified: Consul Associate Practice Exam](https://btk.me/cpe) | AUGUST22 | Sept 2nd |
-| 9 | [Getting Started with HashiCorp Consul](https://btk.me/c) | AUGUST22 | Sept 2nd |
-| 10 | [Building Automated Machine Images using HashiCorp Packer](https://btk.me/p) | AUGUST22 | Sept 2nd |
+| 5 | Mastering Terraform Cloud with Hands-On Labs | COMING SOON | N/A |
+| 6 | [HashiCorp Certified: Terraform Associate Hands-On Lab Course](https://btk.me/tfhol) | AUGUST22 | Sept 2nd |
+| 7 | [HashiCorp Certified: Terraform Associate Practice Exam](https://btk.me/tf) | AUGUST22 | Sept 2nd |
+| 8 | [HashiCorp Certified: Vault Associate Practice Exam](https://btk.me/vpe) | AUGUST22 | Sept 2nd |
+| 9 | [HashiCorp Certified: Consul Associate Practice Exam](https://btk.me/cpe) | AUGUST22 | Sept 2nd |
+| 10 | [Getting Started with HashiCorp Consul](https://btk.me/c) | AUGUST22 | Sept 2nd |
+| 11 | [Building Automated Machine Images using HashiCorp Packer](https://btk.me/p) | AUGUST22 | Sept 2nd |
 
 Please feel free to reach via [Twitter](https://twitter.com/btkrausen) or [LinkedIn](https://www.linkedin.com/in/bryan-krausen-5ab8794/) for questions or comments.
