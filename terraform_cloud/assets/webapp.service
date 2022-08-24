@@ -1,0 +1,11 @@
+[Install]
+WantedBy=multi-user.target
+
+[Unit]
+Description=Clumsy Bird
+
+[Service]
+ExecStart=/usr/local/bin/webapp >> /var/log/webapp.log
+IgnoreSIGPIPE=false
+KillMode=process
+Restart=on-failure
