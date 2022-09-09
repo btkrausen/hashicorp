@@ -39,4 +39,4 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 | 10 | [Getting Started with HashiCorp Consul](https://btk.me/c) | SEPTEMBER22 | Sept 2nd |
 | 11 | [Building Automated Machine Images using HashiCorp Packer](https://btk.me/p) | SEPTEMBER22 | Sept 2nd |
 
-Please feel free to reach via [Twitter](https://twitter.com/btkrausen) or [LinkedIn](https://www.linkedin.com/in/bryan-krausen-5ab8794/) for questions or comments.
+Please feel free to reach through [Twitter](https://twitter.com/btkrausen) or [LinkedIn](https://www.linkedin.com/in/bryan-krausen-5ab8794/) for questions or comments.
