@@ -31,7 +31,7 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 | 2 | [HashiCorp Vault: The Advanced Course](https://btk.me/va) | SEPTEMBER22 | Oct 2nd |
 | 3 | [Integrating HashiCorp Vault with AWS](https://btk.me/vaws) | SEPTEMBER22 | Oct 2nd |
 | 4 | [HashiCorp Certified: Vault Operations Professional](https://btk.me/vp) | SEPTEMBER22 | Oct 2nd |
-| 5 | Mastering Terraform Cloud with Hands-On Labs | COMING SOON | N/A |
+| 5 | [Mastering Terraform Cloud with Hands-On Labs](https://btk.me/tfc) | PREVIEW | OCT 31 |
 | 6 | [HashiCorp Certified: Terraform Associate Hands-On Lab Course](https://btk.me/tfhol) | SEPTEMBER22 | Oct 2nd |
 | 7 | [HashiCorp Certified: Terraform Associate Practice Exam](https://btk.me/tf) | SEPTEMBER22 | Oct 2nd |
 | 8 | [HashiCorp Certified: Vault Associate Practice Exam](https://btk.me/vpe) | SEPTEMBER22 | Oct 2nd |
