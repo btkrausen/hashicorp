@@ -27,16 +27,16 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 
 | No  | Course Link | Coupon Code | Valid Until |
 | --- | ----------- | ----------- | ----------- |
-| 1 | [Getting Started with HashiCorp Vault](https://btk.me/v) | SEPTEMBER22 | Oct 2nd |
-| 2 | [HashiCorp Vault: The Advanced Course](https://btk.me/va) | SEPTEMBER22 | Oct 2nd |
-| 3 | [Integrating HashiCorp Vault with AWS](https://btk.me/vaws) | SEPTEMBER22 | Oct 2nd |
-| 4 | [HashiCorp Certified: Vault Operations Professional](https://btk.me/vp) | SEPTEMBER22 | Oct 2nd |
+| 1 | [Getting Started with HashiCorp Vault](https://btk.me/v) | OCT2022 | Oct 2nd |
+| 2 | [HashiCorp Vault: The Advanced Course](https://btk.me/va) | OCT2022 | Oct 2nd |
+| 3 | [Integrating HashiCorp Vault with AWS](https://btk.me/vaws) | OCT2022 | Oct 2nd |
+| 4 | [HashiCorp Certified: Vault Operations Professional](https://btk.me/vp) | OCT2022 | Oct 2nd |
 | 5 | [Mastering Terraform Cloud with Hands-On Labs](https://btk.me/tfc) | PREVIEW | OCT 31 |
-| 6 | [HashiCorp Certified: Terraform Associate Hands-On Lab Course](https://btk.me/tfhol) | SEPTEMBER22 | Oct 2nd |
-| 7 | [HashiCorp Certified: Terraform Associate Practice Exam](https://btk.me/tf) | SEPTEMBER22 | Oct 2nd |
-| 8 | [HashiCorp Certified: Vault Associate Practice Exam](https://btk.me/vpe) | SEPTEMBER22 | Oct 2nd |
-| 9 | [HashiCorp Certified: Consul Associate Practice Exam](https://btk.me/cpe) | SEPTEMBER22 | Oct 2nd |
-| 10 | [Getting Started with HashiCorp Consul](https://btk.me/c) | SEPTEMBER22 | Oct 2nd |
-| 11 | [Building Automated Machine Images using HashiCorp Packer](https://btk.me/p) | SEPTEMBER22 | Oct 2nd |
+| 6 | [HashiCorp Certified: Terraform Associate Hands-On Lab Course](https://btk.me/tfhol) | OCT2022 | Oct 2nd |
+| 7 | [HashiCorp Certified: Terraform Associate Practice Exam](https://btk.me/tf) | OCT2022 | Oct 2nd |
+| 8 | [HashiCorp Certified: Vault Associate Practice Exam](https://btk.me/vpe) | OCT2022 | Oct 2nd |
+| 9 | [HashiCorp Certified: Consul Associate Practice Exam](https://btk.me/cpe) | OCT2022 | Oct 2nd |
+| 10 | [Getting Started with HashiCorp Consul](https://btk.me/c) | OCT2022 | Oct 2nd |
+| 11 | [Building Automated Machine Images using HashiCorp Packer](https://btk.me/p) | OCT2022 | Oct 2nd |
 
 Please feel free to reach through [Twitter](https://twitter.com/btkrausen) or [LinkedIn](https://www.linkedin.com/in/bryan-krausen-5ab8794/) for questions or comments.
