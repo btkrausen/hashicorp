@@ -1,6 +1,8 @@
-# Getting-Started-with-Terraform-Cloud
+# Mastering-Terraform-Cloud
 
-Exercise files to go with my Udemy course Getting Started with Terraform Cloud which is currently under development.
+Exercise files to go with my Udemy course Mastering Terraform Cloud which is currently in Tech Preview.
+
+https://www.udemy.com/course/terraform-cloud/
 
 ## Course Description
 
