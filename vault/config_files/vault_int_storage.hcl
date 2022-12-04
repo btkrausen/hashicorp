@@ -24,3 +24,4 @@ cluster_name = "vault-prod-us-east-1"
 ui = true
 log_level = "INFO"
 license_path = "/opt/vault/vault.hcl"
+disable_mlock=true
