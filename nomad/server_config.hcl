@@ -51,7 +51,7 @@ server {
 
 # Client Configuration - Node can be Server & Client
 client {
-  enabled = true
+  enabled = false
 }
 
 # [optional] Specifies configuration for connecting to Consul
