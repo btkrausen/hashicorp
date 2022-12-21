@@ -1,0 +1,29 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "EnableKMSForRaftSnapshotsForS3",
+        "Effect": "Allow",
+        "Action": [
+          "kms:Encrypt",
+          "kms:Decrypt",
+          "kms:DescribeKey",
+          "kms:GenerateDataKey"
+        ],
+        "Resource": "arn:aws:kms:us-east-1:123456789012:key/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+      },
+      {
+        "Sid": "PermitEC2ApiAccessForCloudAutoJoin",
+        "Effect": "Allow",
+        "Action": [
+          "ec2:DescribeInstances"
+        ],
+        "Resource": "*",
+        "Condition": {
+            "StringEquals": {
+                "aws:RequestedRegion": "us-east-1"
+            }
+         }
+      }
+    ]
+}
