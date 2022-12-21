@@ -46,24 +46,32 @@ server {
     retry_join = ["provider=aws tag_key=nomad_cluster_id tag_value=us-east-1"]
   }
   encrypt = "Do7GerAsNtzK527dxRZJwpJANdS2NTFbKJIxIod84u0=" # use command [$ nomad operator gossip keyring generate] to generate
-  # license_path = "opt/nomad.d/nomad.hclic"
+  license_path = "/etc/nomad.d/nomad.hclic"
 }
 
-# Client Configuration - Node can be Server & Client
+# Client Configuration - Disable for Server nodes
 client {
   enabled = false
 }
 
+# Enable and configure ACLs - make sure you do this in production
+acl {
+  enabled    = true
+  token_ttl  = "30s"
+  policy_ttl = "60s"
+  role_ttl   = "60s"
+}
+
 # [optional] Specifies configuration for connecting to Consul
-// consul {
-//   address = "https://consul.example.com:8500"
-// }
+consul { 
+  address = "consul.example.com:8500"
+  ssl = true
+  verify_server_hostname = true
+}
 
 # [optional] Specifies configuration for connecting to Vault
-// vault {
-//   enabled     = true
-//   address     = "https://vault.example.com:8200"
-//   ca_path     = "/etc/certs/ca"
-//   cert_file   = "/var/certs/vault.crt"
-//   key_file    = "/var/certs/vault.key"
-// }
+vault {
+  enabled     = true
+  address     = "https://vault.example.com:8200"
+  create_from_role = "nomad-cluster"
+}
