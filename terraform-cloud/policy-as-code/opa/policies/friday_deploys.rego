@@ -1,7 +1,7 @@
 package terraform.policies.friday_deploys
 
 deny[msg] {
-  time.weekday(time.now_ns()) == "Friday"
+  time.weekday(time.now_ns()) == "Monday"
 
-  msg := "No deployments allowed on Fridays"
+  msg := "No deployments allowed on Mondays"
 }
