@@ -45,6 +45,10 @@ log_file  = "/etc/nomad.d/krausen.log"
 server {
   enabled          = true
   bootstrap_expect = 5
+
+  server_join {
+    retry_join = ["provider=aws tag_key=nomad_cluster_id tag_value=us-east-1"]
+  }
 }
 
 # Client Configuration - Node can be Server & Client

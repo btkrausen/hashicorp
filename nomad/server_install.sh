@@ -13,6 +13,7 @@ sudo yum -y install nomad
 
 # Write a Server Configuration File
 echo "Writing the Nomad configuration file"
+rm -f /etc/nomad.d/nomad.hcl
 sudo cat << EOF > /etc/nomad.d/nomad.hcl
 name = "nomad_server_a" # Update for each node name in the cluster
 
@@ -58,9 +59,7 @@ log_file  = "/etc/nomad.d/nomad.log"
 server {
   enabled          = true
   bootstrap_expect = 3
-  server_join {
-    retry_join = ["provider=aws tag_key=nomad_cluster_id tag_value=us-east-1"]
-  }
+
   encrypt = "Do7GerAsNtzK527dxRZJwpJANdS2NTFbKJIxIod84u0=" # use command [$ nomad operator gossip keyring generate] to generate
   # license_path = "opt/nomad.d/nomad.hclic"
 }
