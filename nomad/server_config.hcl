@@ -42,11 +42,14 @@ log_file  = "/var/log/nomad.log"
 server {
   enabled          = true
   bootstrap_expect = 3
+  encrypt          = "Do7GerAsNtzK527dxRZJwpJANdS2NTFbKJIxIod84u0=" 
+  license_path     = "/etc/nomad.d/nomad.hclic"
   server_join {
-    retry_join = ["provider=aws tag_key=nomad_cluster_id tag_value=us-east-1"]
+    retry_join = ["10.4.23.44", "10.4.54.112", "10.4.56.33"]
   }
-  encrypt = "Do7GerAsNtzK527dxRZJwpJANdS2NTFbKJIxIod84u0=" # use command [$ nomad operator gossip keyring generate] to generate
-  license_path = "/etc/nomad.d/nomad.hclic"
+  default_scheduler_config { 
+    scheduler_algorithm = "spread" # change from default of binpack
+  } 
 }
 
 # Client Configuration - Disable for Server nodes
@@ -54,7 +57,7 @@ client {
   enabled = false
 }
 
-# Enable and configure ACLs - make sure you do this in production
+# Enable and configure ACLs
 acl {
   enabled    = true
   token_ttl  = "30s"
