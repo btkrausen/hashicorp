@@ -53,16 +53,16 @@
   become: true
 
 - name: Move 'launch.sh' File to '/src/clumsy-bird' Directory
-  command: mv /tmp/assets/setup-web.sh /src/clumsy-bird/launch.sh
+  command: mv /tmp/assets/launch.sh /src/clumsy-bird/launch.sh
   become: true
-
+    
 - name: Change Value of Clumsy Bird Permissions
   file:
     path: /src/clumsy-bird/launch.sh
     mode: a+x
   become: true
 
-- name: Change Ownership of '/src/clumsy-bird'
+- name: Change Ownership of '/src/clumsy-bird' 
   file:
     path: /src/clumsy-bird/
     recurse: yes
@@ -71,11 +71,7 @@
   become: true
 
 - name: Add Clumsy Bird to path
-  command: cp /tmp/assets/webapp.service /lib/systemd/system/clumsy-bird.service
-  become: true
-
-- name: Add Clumsy Bird bin
-  command: cp /tmp/assets/webapp /usr/local/bin/webapp
+  command: cp /tmp/assets/clumsy-bird.service /lib/systemd/system/clumsy-bird.service
   become: true
 
 - name: Start and Enable Clumsy Bird Service
