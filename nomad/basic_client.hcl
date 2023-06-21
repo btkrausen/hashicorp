@@ -46,7 +46,7 @@ server {
   enabled = false
 }
 
-# Client Configuration - Node can be Server & Client
+# Client Configuration
 client {
   enabled = true
   
