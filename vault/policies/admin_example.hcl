@@ -18,11 +18,6 @@ path "identity/*" {
   capabilities = ["create", "read", "update", "delete", "list"]
 }
 
-# Deny access to modify namespace admin group
-path "identity/group/namespace-admin" {
-  capabilities = ["deny"]
-}
-
 # permit access to administer secrets KV secrets engine - admin cannot read secrets
 path "secrets/*" {
   capabilities = ["create", "update", "delete"]
@@ -34,16 +29,6 @@ path "secrets/metadata/*" {
 }
 
 # permit access to administer the AWS secrets engine
-path "aws-secrets/*" {
-  capabilities = ["create", "read", "update", "delete", "list"]
-}
-
-# permit access to administer the OIDC auth method
-path "oidc/*" {
-  capabilities = ["create", "read", "update", "delete", "list"]
-}
-
-# permit access to administer the userpass auth method
-path "userpass/*" {
+path "aws/*" {
   capabilities = ["create", "read", "update", "delete", "list"]
 }
