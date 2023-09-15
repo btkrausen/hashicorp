@@ -33,7 +33,7 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 | 3 | [HashiCorp Certified: Vault Operations Professional](https://btk.me/vp) | SEPT2023 | October 7, 2023 |
 | 4 | [Mastering Terraform Cloud with Hands-On Labs](https://btk.me/tfc) | SEPT2023 | October 7, 2023 |
 | 5 | [HashiCorp Certified: Terraform Associate Hands-On Lab Course](https://btk.me/tfhol) | SEPT2023 | October 7, 2023 |
-| 6 | [HashiCorp Certified: Terraform Associate Practice Exam](https://btk.me/tf) | SEPT2023 | October 7, 2023 |
+| 6 | [HashiCorp Certified: Terraform Associate Practice Exam](https://btk.me/tf) | FALL2023 | October 7, 2023 |
 | 7 | [HashiCorp Certified: Vault Associate Practice Exam](https://btk.me/vpe) | SEPT2023 | October 7, 2023 |
 | 8 | [HashiCorp Certified: Consul Associate Practice Exam](https://btk.me/cpe) | SEPT2023 | October 7, 2023 |
 | 9 | [HashiCorp Certified: Consul Associate 2023 (w Hands-On Labs)](https://btk.me/c) | SEPT2023 | October 7, 2023 |
