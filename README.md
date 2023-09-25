@@ -40,6 +40,6 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 | 10 | [Building Automated Machine Images using HashiCorp Packer](https://btk.me/p) | SEPT2023 | October 7, 2023 |
 | 11 | [HashiCorp Nomad Fundamentals: The Ultimate Beginner's Guide](https://btk.me/n) | SEPT2023 | October 7, 2023 |
 | 12 | [Amazon S3 Deep Dive: The Ultimate Guide to Cloud Storage](https://btk.me/s3) | SEPT2023 | October 7, 2023 |
-| 13 | [Kubernetes and Cloud Native (KCNA) Practice Exams](https://btk.me/kcna) | LAUNCH2 | Sept 29, 2023 |
+| 13 | [Kubernetes and Cloud Native Associate (KCNA) Practice Exams](https://btk.me/kcna) | LAUNCH2 | Sept 29, 2023 |
 
 Please feel free to reach through [Twitter](https://twitter.com/btkrausen) or [LinkedIn](https://www.linkedin.com/in/bryan-krausen-5ab8794/) for questions or comments.
