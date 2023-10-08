@@ -39,7 +39,7 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 | 9 | [HashiCorp Certified: Consul Associate 2023 (w Hands-On Labs)](https://btk.me/c) | OCT2023 | Nov 8, 2023 |
 | 10 | [Building Automated Machine Images using HashiCorp Packer](https://btk.me/p) | OCT2023 | Nov 8, 2023 |
 | 11 | [HashiCorp Nomad Fundamentals: The Ultimate Beginner's Guide](https://btk.me/n) | OCT2023 | Nov 8, 2023 |
-| 12 | [Amazon S3 Deep Dive: The Ultimate Guide to Cloud Storage](https://btk.me/s3) | OCT2023 | Nov 8, 2023 |
+| 12 | [Amazon S3 Deep Dive: The Ultimate Guide to AWS Cloud Storage](https://btk.me/s3) | OCT2023 | Nov 8, 2023 |
 | 13 | [Kubernetes and Cloud Native Associate (KCNA) Practice Exams](https://btk.me/kcna) | OCT2023 | Nov 8, 2023 |
 
 Please feel free to reach through [Twitter](https://twitter.com/btkrausen) or [LinkedIn](https://www.linkedin.com/in/bryan-krausen-5ab8794/) for questions or comments.
