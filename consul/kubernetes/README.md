@@ -8,11 +8,11 @@ Consul has many integrations with Kubernetes. You can deploy Consul to Kubernete
 Service sync to enable Kubernetes and non-Kubernetes services to communicate: Consul can sync Kubernetes services with its own service registry. This service sync allows Kubernetes services to use Kubernetes' native service discovery capabilities to discover and connect to external services registered in Consul, and for external services to use Consul service discovery to discover and connect to Kubernetes services.
 
 ### Authentication and Annotations
-When using Helm, the init container handles the auth for you but I guess you have to have the annotations in there during initial deploy
+When using Helm, the init container handles the auth for you but you have to have the annotations in there during initial deploy
 
 ### DNS
 
-The RPT EKS cluster is using CoreDNS instead of KubeDNS so need to update the coredns ConfigMap in the kube-system namespace to include a forward definition for consul that points to the cluster IP of the Consul DNS service.  This is documented here:
+EKS cluster uses CoreDNS instead of KubeDNS so need to update the coredns ConfigMap in the kube-system namespace to include a forward definition for consul that points to the cluster IP of the Consul DNS service. This is documented here:
 
 https://developer.hashicorp.com/consul/docs/k8s/dns#coredns-configuration
 
