@@ -1,0 +1,113 @@
+global:
+  name: consul
+  enabled: true
+  datacenter: us-east-1 # datacenter name - must be unique for federated datacenters
+  gossipEncryption:
+    autoGenerate: true # Automatically generate a gossip encryption key
+
+  tls:
+    enabled: true # Enforce ingoing/outgoing TLS, and automatically create/rotate CA and agent certificates
+    httpsOnly: true # Disable the non-TLS HTTP listener
+    verify: true
+
+  acls:
+    manageSystemACLs: true # Automatically bootstrap ACL system and manage tokens and policies
+    
+  enterpriseLicense:
+    secretName: consul-license # license from secret - this needs to be added to k8s secrets first
+    secretKey: license
+    enableLicenseAutoload: true
+  
+  metrics:
+    enabled: true
+    agentMetricsRetentionTime: "1m"
+    enableGatewayMetrics: true
+    enableAgentMetrics: false
+
+  peering:
+    enabled: true # enable
+
+server:
+  image: hashicorp/consul-enterprise:1.16-ent
+  replicas: 6 # Six-node cluster
+  affinity: | # allow multiple servers on same node for testing or lab environment
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution: null
+  securityContext:
+    runAsNonRoot: false
+    runAsUser: 0
+  auditLogs:
+    enabled: true
+    sinks:
+      - name: "Audit sink"
+        type: file
+        format: json
+        path: "/tmp/audit.json"
+        delivery_guarantee: best-effort
+        rotate_duration: 24h
+        # Open Issue requiring both `rotate_max_files` and `rotate_bytes` to be disabled - https://github.com/hashicorp/consul-k8s/issues/2898
+        # rotate_max_files: 15
+        # rotate_bytes: 25165824
+  snapshotAgent:
+    enabled: true
+    interval: 1m
+    # A Kubernetes or Vault secret that should be manually created to contain the entire
+    # config to be used on the snapshot agent.
+    configSecret:
+      secretName: consul-snapshot
+      secretKey: snapshot-agent
+  extraConfig: |
+    {
+       "node_meta": {
+          "zone": "HOST_IP"
+      }
+    }
+
+ui:
+  enabled: true # Enable and configure the Consul UI.
+  metrics:
+    enabled: true # by default, this inherits from the value global.metrics.enabled
+    provider: "prometheus"
+    baseURL: http://prometheus-server.monitoring.svc.cluster.local
+  dashboardURLTemplates:
+    service: "https://grafana.example.com/"  
+
+dns:
+  enabled: true # Enable DNS config within k8s cluster
+
+connectInject:
+  enabled: true # Deploy an operator to automatically add Consul Connect proxy sidecars to k8s services
+  default: false # Don't inject for everything - use annotations on app instead
+  transparentProxy:
+    defaultEnabled: true # force all traffic thru proxy - use k8s/core dns for services
+  metrics:
+    defaultEnableMerging: true
+     
+controller:
+  enabled: true # Enable Kubernetes CRDs
+
+syncCatalog: # Sync K8s Catalog to Consul Service Discovery
+  enabled: true
+  toConsul: true # Enable sync to only Consul
+  toK8s: false
+  k8sAllowNamespaces: ['*']
+  k8sDenyNamespaces: ['argo', 'default'] # don't want to see argo/default services in Consul service catalog 
+
+meshGateway:
+  enabled: true # required for federating via mesh gateways
+
+ingressGateways:
+  enabled: true
+  defaults:
+    service:
+      ports: [{port: 21000}]
+  gateways:
+    - name: ingress-gateway
+      service:
+        type: LoadBalancer
+    - name: ingress-gateway-games
+      service:
+        type: LoadBalancer
+
+prometheus:
+  enabled: true

@@ -1,0 +1,9 @@
+apiVersion: consul.hashicorp.com/v1alpha1
+kind: SamenessGroup 
+metadata:
+  name: my-cool-app
+spec:
+  defaultForFailover: true
+  members:                                   
+    - partition: default
+    - peer: us-east-2
