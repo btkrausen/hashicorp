@@ -1,6 +1,6 @@
 provider "vault" {
   address = "http://127.0.0.1:8200"
-  token   = "s.Yfcg7YjdmDRBGGIyVrMn3f6L"
+  token   = "hvs.<add your own token here>"
 }
 
 data "vault_generic_secret" "phone_number" {
