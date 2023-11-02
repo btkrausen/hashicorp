@@ -30,7 +30,7 @@ locals {
     Service   = local.service_name
     AppTeam   = local.app_team
     CreatedBy = local.createdby
- } 
+  }
 }
 
 #Retrieve the list of AZs in the current AWS region
@@ -131,7 +131,7 @@ resource "aws_internet_gateway" "internet_gateway" {
 
 #Create EIP for NAT Gateway
 resource "aws_eip" "nat_gateway_eip" {
-  vpc        = true
+  domain     = "vpc"
   depends_on = [aws_internet_gateway.internet_gateway]
   tags = {
     Name = "demo_igw_eip"

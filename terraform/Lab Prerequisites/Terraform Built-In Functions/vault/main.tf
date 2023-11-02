@@ -1,6 +1,6 @@
 provider "vault" {
   address = "http://127.0.0.1:8200"
-  token = "s.Yfcg7YjdmDRBGGIyVrMn3f6L"
+  token   = "s.Yfcg7YjdmDRBGGIyVrMn3f6L"
 }
 
 data "vault_generic_secret" "phone_number" {
@@ -8,7 +8,7 @@ data "vault_generic_secret" "phone_number" {
 }
 
 output "phone_number" {
-  value = data.vault_generic_secret.phone_number.data["phone_number"]
+  value     = data.vault_generic_secret.phone_number.data["phone_number"]
   sensitive = true
 }
 

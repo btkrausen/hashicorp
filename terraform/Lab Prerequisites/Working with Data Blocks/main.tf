@@ -35,17 +35,17 @@ locals {
 
 locals {
   # Common tags to be assigned to all resources
-    prod      = {
-      cidr = "10.0.231.0/24"
-    }
-    dev       = {
-      cidr = "10.0.231.0/24"
-    }
-    App       = local.application
-    Service   = local.service_name
-    AppTeam   = local.app_team
-    CreatedBy = local.createdby
+  prod = {
+    cidr = "10.0.231.0/24"
   }
+  dev = {
+    cidr = "10.0.231.0/24"
+  }
+  App       = local.application
+  Service   = local.service_name
+  AppTeam   = local.app_team
+  CreatedBy = local.createdby
+}
 
 #Retrieve the list of AZs in the current AWS region
 data "aws_availability_zones" "available" {}
@@ -149,7 +149,7 @@ resource "aws_internet_gateway" "internet_gateway" {
 
 #Create EIP for NAT Gateway
 resource "aws_eip" "nat_gateway_eip" {
-  vpc        = true
+  domain     = "vpc"
   depends_on = [aws_internet_gateway.internet_gateway]
   tags = {
     Name = "demo_igw_eip"
@@ -203,7 +203,7 @@ resource "aws_instance" "ubuntu_server" {
   }
 
   # Leave the first part of the block unchanged and create our `local-exec` provisioner
- /*  provisioner "local-exec" {
+  /*  provisioner "local-exec" {
     command = "chmod 600 ${local_file.private_key_pem.filename}"
   } */
 
@@ -325,7 +325,7 @@ resource "aws_instance" "web_server" {
   }
 
   # Leave the first part of the block unchanged and create our `local-exec` provisioner
-/*   provisioner "local-exec" {
+  /*   provisioner "local-exec" {
     command = "chmod 600 ${local_file.private_key_pem.filename}"
   } */
 
@@ -382,16 +382,16 @@ resource "aws_iam_policy" "policy" {
   name        = "data_bucket_policy"
   description = "Deny access to my bucket"
   policy = jsonencode({
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:Get*",
-                "s3:List*"
-            ],
-            "Resource": "${data.aws_s3_bucket.data-bucket.arn}"
-        }
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Effect" : "Allow",
+        "Action" : [
+          "s3:Get*",
+          "s3:List*"
+        ],
+        "Resource" : "${data.aws_s3_bucket.data-bucket.arn}"
+      }
     ]
   })
 }

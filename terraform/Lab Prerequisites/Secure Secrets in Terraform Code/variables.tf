@@ -53,9 +53,9 @@ variable "variables_sub_auto_ip" {
 }
 
 variable "phone_number" {
-  type = string
+  type      = string
   sensitive = true
-  default = "867-5309"
+  default   = "867-5309"
 }
 
 output "phone_number" {

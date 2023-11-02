@@ -24,45 +24,45 @@ variable "cloud" {
 }
 
 variable "no_caps" {
-    type = string
+  type = string
 
-    validation {
-        condition = lower(var.no_caps) == var.no_caps
-        error_message = "Value must be in all lower case."
-    }
+  validation {
+    condition     = lower(var.no_caps) == var.no_caps
+    error_message = "Value must be in all lower case."
+  }
 
 }
 
 variable "character_limit" {
-    type = string
+  type = string
 
-    validation {
-        condition = length(var.character_limit) == 3
-        error_message = "This variable must contain only 3 characters."
-    }
+  validation {
+    condition     = length(var.character_limit) == 3
+    error_message = "This variable must contain only 3 characters."
+  }
 }
 
 variable "ip_address" {
-    type = string
+  type = string
 
-    validation {
-        condition = can(regex("^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$", var.ip_address))
-        error_message = "Must be an IP address of the form X.X.X.X."
-    }
+  validation {
+    condition     = can(regex("^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$", var.ip_address))
+    error_message = "Must be an IP address of the form X.X.X.X."
+  }
 }
 
 variable "phone_number" {
-  type = string
+  type      = string
   sensitive = true
-  default = "867-5309"
+  default   = "867-5309"
 }
 
 locals {
   contact_info = {
-      cloud = var.cloud
-      department = var.no_caps
-      cost_code = var.character_limit
-      phone_number = var.phone_number
+    cloud        = var.cloud
+    department   = var.no_caps
+    cost_code    = var.character_limit
+    phone_number = var.phone_number
   }
 
   my_number = nonsensitive(var.phone_number)
@@ -82,7 +82,7 @@ output "cost_code" {
 
 output "phone_number" {
   sensitive = true
-  value = local.contact_info.phone_number
+  value     = local.contact_info.phone_number
 }
 
 output "my_number" {
