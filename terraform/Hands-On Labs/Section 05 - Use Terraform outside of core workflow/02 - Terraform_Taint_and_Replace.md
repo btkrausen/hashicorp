@@ -73,7 +73,7 @@ terraform state list
 
 ```bash
 data.aws_ami.ubuntu
-data.aws_ami.ubuntu_16_04
+data.aws_ami.ubuntu_22_04
 data.aws_ami.windows_2019
 data.aws_availability_zones.available
 data.aws_region.current

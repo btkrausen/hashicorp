@@ -99,17 +99,17 @@ resource "aws_subnet" "private_subnets" {
 
 ### Step 5.1.1
 
-Add an aws_ami data source called "ubuntu_16_04" in `main.tf`. It will find the most recent instance of a Ubuntu 16.04
+Add an aws_ami data source called "ubuntu_22_04" in `main.tf`. It will find the most recent instance of a Ubuntu 22.04
 AMI from Canonical (owner ID 099720109477).
 
 ```hcl
-# Terraform Data Block - Lookup Ubuntu 16.04
-data "aws_ami" "ubuntu_16_04" {
+# Terraform Data Block - Lookup Ubuntu 22.04
+data "aws_ami" "ubuntu_22_04" {
   most_recent = true
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
   }
 
   owners = ["099720109477"]
@@ -122,7 +122,7 @@ Edit the aws_instance in `main.tf` so that its ami argument uses the AMI returne
 
 ```hcl
 resource "aws_instance" "web_server" {
-  ami                         = data.aws_ami.ubuntu_16_04.id
+  ami                         = data.aws_ami.ubuntu_22_04.id
   instance_type               = "t2.micro"
   subnet_id                   = aws_subnet.public_subnets["public_subnet_1"].id
   security_groups             = [aws_security_group.vpc-ping.id]
