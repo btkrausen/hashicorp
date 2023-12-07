@@ -49,7 +49,7 @@ server {
 # Client Configuration
 client {
   enabled = true
-  
+
   server_join {
     retry_join = ["provider=aws tag_key=nomad_cluster_id tag_value=us-east-1"]
   }

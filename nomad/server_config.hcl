@@ -42,14 +42,14 @@ log_file  = "/var/log/nomad.log"
 server {
   enabled          = true
   bootstrap_expect = 3
-  encrypt          = "Do7GerAsNtzK527dxRZJwpJANdS2NTFbKJIxIod84u0=" 
+  encrypt          = "Do7GerAsNtzK527dxRZJwpJANdS2NTFbKJIxIod84u0="
   license_path     = "/etc/nomad.d/nomad.hclic"
   server_join {
     retry_join = ["10.4.23.44", "10.4.54.112", "10.4.56.33"]
   }
-  default_scheduler_config { 
+  default_scheduler_config {
     scheduler_algorithm = "spread" # change from default of binpack
-  } 
+  }
 }
 
 # Client Configuration - Disable for Server nodes
@@ -66,15 +66,15 @@ acl {
 }
 
 # [optional] Specifies configuration for connecting to Consul
-consul { 
-  address = "consul.example.com:8500"
-  ssl = true
+consul {
+  address                = "consul.example.com:8500"
+  ssl                    = true
   verify_server_hostname = true
 }
 
 # [optional] Specifies configuration for connecting to Vault
 vault {
-  enabled     = true
-  address     = "https://vault.example.com:8200"
+  enabled          = true
+  address          = "https://vault.example.com:8200"
   create_from_role = "nomad-cluster"
 }

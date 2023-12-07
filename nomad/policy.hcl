@@ -9,3 +9,7 @@ node {
 plugin {
   policy = "list"
 }
+
+namespace "web-app" {
+  capabilities = ["submit-job", "read-logs", "alloc-exec", "scale-job"]
+}
