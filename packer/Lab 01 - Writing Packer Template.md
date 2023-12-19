@@ -20,16 +20,25 @@ Source blocks define what kind of virtualization to use for the image, how to la
 
 ### Step 1.1.1
 
-Create a `aws-ubuntu.pkr.hcl` file with the following Packer `source` block.
+Create a `aws-ubuntu.pkr.hcl` file with the following Packer `source` block and `required_plugins`.
 
 ```hcl
+packer {
+  required_plugins {
+    amazon = {
+      source  = "github.com/hashicorp/amazon"
+      version = "~> 1"
+    }
+  }
+}
+
 source "amazon-ebs" "ubuntu" {
   ami_name      = "packer-ubuntu-aws-{{timestamp}}"
   instance_type = "t2.micro"
   region        = "us-west-2"
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*"
+      name                = "ubuntu/images/*ubuntu-jammy-22.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
@@ -38,6 +47,13 @@ source "amazon-ebs" "ubuntu" {
   }
   ssh_username = "ubuntu"
 }
+```
+
+### Step 1.1.2
+The `packer init` command is used to download Packer plugin binaries. This is the first command that should be executed when working with a new or existing template. This command is always safe to run multiple times.
+
+```shell
+packer init aws-ubuntu.pkr.hcl
 ```
 
 ### Task 2: Validate the Packer Template
@@ -68,6 +84,22 @@ build {
 
 ### Task 4: Build a new Image using Packer
 The `packer build` command is used to initiate the image build process for a given Packer template. For this lab, please note that you will need credentials for your AWS account in order to properly execute a `packer build`. You can set your credentials using [environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html#linux), using [aws configure](https://docs.aws.amazon.com/cli/latest/reference/configure/) if you have the AWSCLI installed, or [embed the credentials](https://www.packer.io/docs/builders/amazon/ebsvolume#access-configuration) in the template.
+
+> Example using environment variables on a Linux or macOS:
+
+```shell
+export AWS_ACCESS_KEY_ID=<your access key>
+export AWS_SECRET_ACCESS_KEY=<your secret key>
+export AWS_DEFAULT_REGION=us-west-2
+```
+
+> Example via Powershell:
+
+```pwsh
+PS C:\> $Env:AWS_ACCESS_KEY_ID="<your access key>"
+PS C:\> $Env:AWS_SECRET_ACCESS_KEY="<your secret key>"
+PS C:\> $Env:AWS_DEFAULT_REGION="us-west-2"
+```
 
 ### Step 4.1.1
 Run a `packer build` for the `aws-ubuntu.pkr.hcl` template.
