@@ -8,6 +8,7 @@ Duration: 15 minutes
 - Task 3: Enable autocompletion for Packer CLI
 - Task 4: Explore Subcommands and Flags
 - Task 5: Packer fmt
+- Task 6: Packer Inspect
 
 ### Task 1: Use the Terraform CLI to Get Help
 
@@ -49,7 +50,7 @@ You should see:
 
 ```bash
 packer -version
-1.7.2
+Packer v1.10.0
 ```
 
 These labs will be building Packer configuration using HCL.  Your Packer version must be newer then 1.7.0 to utilize the HCL configuration.  If your version is older than 1.7.0, please reinstall Packer with a newer version.
@@ -123,7 +124,7 @@ aws-ubuntu.pkr.hcl
    ssh_username = "ubuntu"
 ```
 
-### Task 5: Packer Inspect
+### Task 6: Packer Inspect
 The `packer inspect` command shows all components of a Packer template including variables, builds, sources, provisioners and post-processsors.
 
 ```bash
