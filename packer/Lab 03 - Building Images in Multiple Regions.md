@@ -33,7 +33,7 @@ source "amazon-ebs" "ubuntu" {
   tags = {
     "Name"        = "MyUbuntuImage"
     "Environment" = "Production"
-    "OS_Version"  = "Ubuntu 16.04"
+    "OS_Version"  = "Ubuntu 22.04"
     "Release"     = "Latest"
     "Created-by"  = "Packer"
   }
