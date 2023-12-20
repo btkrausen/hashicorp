@@ -22,8 +22,8 @@ source "amazon-ebs" "centos" {
   ami_regions   = ["us-west-2"]
   source_ami_filter {
     filters = {
-      name                = "CentOS Linux 7 x86_64 HVM EBS *"
-      product-code        = "aw0evgkw8e5c1q413zgy5pjce"
+      name                = "CentOS*8*x86_64*"
+      product-code        = "bz4vuply68xrif53movwbkpnl"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
@@ -34,7 +34,7 @@ source "amazon-ebs" "centos" {
   tags = {
     "Name"        = "MyCentosImage"
     "Environment" = "Production"
-    "OS_Version"  = "Centos 7"
+    "OS_Version"  = "Centos 8"
     "Release"     = "Latest"
     "Created-by"  = "Packer"
   }
