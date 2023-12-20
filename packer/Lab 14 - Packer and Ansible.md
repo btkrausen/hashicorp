@@ -17,6 +17,14 @@ Create a `ansible` folder with the following Packer Template called `aws-clumsy-
 `aws-clumsy-bird.pkr.hcl`
 
 ```hcl
+packer {
+  required_plugins {
+    amazon = {
+      source  = "github.com/hashicorp/amazon"
+      version = "~> 1"
+    }
+}
+
 source "amazon-ebs" "ubuntu_20" {
   ami_name      = "${var.ami_prefix}-20-${local.timestamp}"
   instance_type = var.instance_type
@@ -163,6 +171,7 @@ Validate the directory structure is laid out as follows:
 Format and validate your configuration using the `packer fmt` and `packer validate` commands.
 
 ```shell
+packer init .
 packer fmt .
 packer validate .
 ```
