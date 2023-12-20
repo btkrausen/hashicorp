@@ -50,9 +50,8 @@ build {
 
   provisioner "shell" {
     inline = [
-      "echo Installing Updates",
       "sudo yum -y update",
-      "sudo yum install -y epel-release",
+      "sudo amazon-linux-extras install epel"
       "sudo yum install -y nginx"
     ]
   }
