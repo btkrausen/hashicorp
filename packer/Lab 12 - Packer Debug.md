@@ -27,13 +27,21 @@ $env:PACKER_LOG=1
 Create a `debug_lab` folder with the following Packer Template called `aws-clumsy-bird.pkr.hcl` the following code base:
 
 ```hcl
+packer {
+  required_plugins {
+    amazon = {
+      source  = "github.com/hashicorp/amazon"
+      version = "~> 1"
+    }
+}
+
 source "amazon-ebs" "ubuntu" {
   ami_name      = "packer-ubuntu-aws-{{timestamp}}"
   instance_type = "t2.micro"
   region        = "us-west-2"
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"
+      name                = "ubuntu/images/*ubuntu-jammy-22.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
@@ -44,7 +52,7 @@ source "amazon-ebs" "ubuntu" {
   tags = {
     "Name"        = "Clumsy Bird"
     "Environment" = "Production"
-    "OS_Version"  = "Ubuntu 20.04"
+    "OS_Version"  = "Ubuntu 22.04"
     "Release"     = "Latest"
     "Created-by"  = "Packer"
   }
@@ -60,11 +68,37 @@ build {
 **Example Output**
 
 ```shell
+packer init .
+```
+
+```shell
+2023/12/20 22:51:45 [INFO] Packer version: 1.10.0 [go1.20.11 linux amd64]
+2023/12/20 22:51:45 [TRACE] discovering plugins in /usr/local/bin
+2023/12/20 22:51:45 [TRACE] discovering plugins in .
+2023/12/20 22:51:45 [TRACE] discovering plugins in /root/.config/packer/plugins
+2023/12/20 22:51:45 [INFO] Discovered potential plugin: amazon = /root/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.2.9_x5.0_linux_amd64
+2023/12/20 22:51:45 [INFO] Discovered potential plugin: azure = /root/.config/packer/plugins/github.com/hashicorp/azure/packer-plugin-azure_v2.0.1_x5.0_linux_amd64
+2023/12/20 22:51:45 [INFO] found external [chroot ebs ebssurrogate ebsvolume instance] builders from amazon plugin
+2023/12/20 22:51:45 [INFO] found external [import] post-processors from amazon plugin
+2023/12/20 22:51:45 found external [ami parameterstore secretsmanager] datasource from amazon plugin
+2023/12/20 22:51:45 [INFO] found external [arm chroot dtl] builders from azure plugin
+2023/12/20 22:51:45 found external [dtlartifact] provisioner from azure plugin
+2023/12/20 22:51:45 [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2023/12/20 22:51:45 [INFO] PACKER_CONFIG env var set; attempting to open config file: /root/.packerconfig
+2023/12/20 22:51:45 [WARN] Config file doesn't exist: /root/.packerconfig
+2023/12/20 22:51:45 [INFO] Setting cache directory: /root/.cache/packer
+2023/12/20 22:51:45 [TRACE] init: plugingetter.ListInstallationsOptions{FromFolders:[]string{"/usr/local/bin", ".", "/root/.config/packer/plugins"}, BinaryInstallationOptions:plugingetter.BinaryInstallationOptions{APIVersionMajor:"5", APIVersionMinor:"0", OS:"linux", ARCH:"amd64", Ext:"", Checksummers:[]plugingetter.Checksummer{plugingetter.Checksummer{Type:"sha256", Hash:(*sha256.digest)(0xc000346f00)}}}}
+2023/12/20 22:51:45 [TRACE] listing potential installations for "github.com/hashicorp/amazon" that match "~> 1". plugingetter.ListInstallationsOptions{FromFolders:[]string{"/usr/local/bin", ".", "/root/.config/packer/plugins"}, BinaryInstallationOptions:plugingetter.BinaryInstallationOptions{APIVersionMajor:"5", APIVersionMinor:"0", OS:"linux", ARCH:"amd64", Ext:"", Checksummers:[]plugingetter.Checksummer{plugingetter.Checksummer{Type:"sha256", Hash:(*sha256.digest)(0xc000346f00)}}}}
+2023/12/20 22:51:45 [TRACE] listing potential installations for "github.com/hashicorp/azure" that match "~> 2". plugingetter.ListInstallationsOptions{FromFolders:[]string{"/usr/local/bin", ".", "/root/.config/packer/plugins"}, BinaryInstallationOptions:plugingetter.BinaryInstallationOptions{APIVersionMajor:"5", APIVersionMinor:"0", OS:"linux", ARCH:"amd64", Ext:"", Checksummers:[]plugingetter.Checksummer{plugingetter.Checksummer{Type:"sha256", Hash:(*sha256.digest)(0xc000346f00)}}}}
+2023/12/20 22:51:46 [INFO] (telemetry) Finalizing.
+2023/12/20 22:51:46 waiting for all plugin processes to complete...
+```
+
 packer validate .
 ```
 
 ```shell
-2021/06/29 21:22:19 [INFO] Packer version: 1.7.2 [go1.16.3 darwin amd64]
+2021/06/29 21:22:19 [INFO] Packer version: 1.10.0 [go1.20.11 linux amd64]
 2021/06/29 21:22:19 [TRACE] discovering plugins in /usr/local/bin
 2021/06/29 21:22:19 [TRACE] discovering plugins in /Users/gabe/.packer.d/plugins
 2021/06/29 21:22:19 [TRACE] discovering plugins in .
@@ -75,7 +109,7 @@ packer validate .
 2021/06/29 21:22:19 [TRACE] Starting internal plugin packer-builder-amazon-ebs
 2021/06/29 21:22:19 Starting plugin: /usr/local/bin/packer []string{"/usr/local/bin/packer", "plugin", "packer-builder-amazon-ebs"}
 2021/06/29 21:22:19 Waiting for RPC address for: /usr/local/bin/packer
-2021/06/29 21:22:19 packer-builder-amazon-ebs plugin: [INFO] Packer version: 1.7.2 [go1.16.3 darwin amd64]
+2021/06/29 21:22:19 packer-builder-amazon-ebs plugin: [INFO] Packer version: 1.10.0 [go1.20.11 linux amd64]
 2021/06/29 21:22:19 packer-builder-amazon-ebs plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
 2021/06/29 21:22:19 packer-builder-amazon-ebs plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/gabe/.packerconfig
 2021/06/29 21:22:19 packer-builder-amazon-ebs plugin: [WARN] Config file doesn't exist: /Users/gabe/.packerconfig
@@ -97,7 +131,7 @@ packer build .
 ```
 
 ```shell
-2021/06/29 21:43:50 [INFO] Packer version: 1.7.2 [go1.16.3 darwin amd64]
+2021/06/29 21:43:50 [INFO] Packer version: 1.10.0 [go1.20.11 linux amd64]
 2021/06/29 21:43:50 [TRACE] discovering plugins in /usr/local/bin
 2021/06/29 21:43:50 [TRACE] discovering plugins in /Users/gabe/.packer.d/plugins
 2021/06/29 21:43:50 [TRACE] discovering plugins in .
