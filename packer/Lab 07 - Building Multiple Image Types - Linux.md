@@ -16,7 +16,7 @@ Add the following blocks to the `aws-ubuntu.pkr.hcl` file with the following Pac
 
 ```hcl
 source "amazon-ebs" "amazon-linux" {
-  ami_name      = "packer-centos-aws-{{timestamp}}"
+  ami_name      = "packer-aws-linux-aws-{{timestamp}}"
   instance_type = "t2.micro"
   region        = "us-west-2"
   ami_regions   = ["us-west-2"]
