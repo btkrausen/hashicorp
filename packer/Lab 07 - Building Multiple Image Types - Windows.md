@@ -110,8 +110,8 @@ cmd.exe /c net start winrm
 Format and validate your configuration using the `packer fmt` and `packer validate` commands.
 
 ```shell
-packer fmt aws-linux.pkr.hcl 
-packer validate aws-linux.pkr.hcl
+packer fmt aws-windows.pkr.hcl 
+packer validate aws-windows.pkr.hcl
 ```
 
 ### Task 3: Build a new Image using Packer
