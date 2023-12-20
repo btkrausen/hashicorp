@@ -126,7 +126,7 @@ variable "tags" {
   default = {
     "Name"        = "MyUbuntuImage"
     "Environment" = "Production"
-    "OS_Version"  = "Ubuntu 16.04"
+    "OS_Version"  = "Ubuntu 22.04"
     "Release"     = "Latest"
     "Created-by"  = "Packer"
   }
@@ -143,7 +143,7 @@ source "amazon-ebs" "ubuntu" {
   ami_regions   = var.ami_regions
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*"
+      name                = "ubuntu/images/*ubuntu-jammy-22.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
@@ -160,4 +160,10 @@ Format and validate your configuration after replacing items using variables.
 ```bash
 packer fmt aws-ubuntu.pkr.hcl 
 packer validate aws-ubuntu.pkr.hcl
+```
+
+Optionally you can perform another image build if you like by performing
+
+```bash
+packer build .
 ```
