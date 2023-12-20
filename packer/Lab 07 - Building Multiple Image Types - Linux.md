@@ -43,7 +43,7 @@ Add a seperate build block for building the `amazon-linux` image using the `sour
 
 ```hcl
 build {
-  name = "centos"
+  name = "amazon-linux"
   sources = [
     "source.amazon-ebs.amazon-linux"
   ]
@@ -84,24 +84,17 @@ Run a `packer build` for the `aws-linux.pkr.hcl` template.
 packer build aws-linux.pkr.hcl
 ```
 
-> Note: To use a CentOS Image in AWS may require that you opt into using this image in the AWS Marketplace.  If you encounter this message you will need to visit the link provided to use this AMI.
-
-```bash
-==> centos.amazon-ebs.centos: Error launching source instance: OptInRequired: In order to use this AWS Marketplace product you need to accept terms and subscribe. To do so please visit https://aws.amazon.com/marketplace/pp?sku=bz4vuply68xrif53movwbkpnl
-==> centos.amazon-ebs.centos:   status code: 401, request id: 4c909fd0-5f95-4a4c-889f-910bd54a3e79
-```
-
 Packer will print output similar to what is shown below.
 
 ```bash
 
 amazon-ebs.ubuntu: output will be in this color.
-centos.amazon-ebs.centos: output will be in this color.
+centos.amazon-ebs.amazon-linux: output will be in this color.
 
 ==> amazon-ebs.ubuntu: Prevalidating any provided VPC information
 ==> amazon-ebs.ubuntu: Prevalidating AMI Name: my-ubuntu-20210513182940
-==> centos.amazon-ebs.centos: Prevalidating any provided VPC information
-==> centos.amazon-ebs.centos: Prevalidating AMI Name: packer-centos-aws-1620930580
+==> amazon-linux.amazon-ebs.amazon-linux: Prevalidating any provided VPC information
+==> amazon-linux.amazon-ebs.amazon-linux: Prevalidating AMI Name: packer-amazon-linux-aws-1620930580
     amazon-ebs.ubuntu: Found Image ID: ami-0ee02acd56a52998e
 ==> amazon-ebs.ubuntu: Creating temporary keypair: packer_609d7014-8b83-6e71-7598-8e59c15dc2ee
 ==> amazon-ebs.ubuntu: Creating temporary security group for this instance: packer_609d7016-f3d1-e50d-4f59-6b134dac59a5
@@ -113,22 +106,22 @@ centos.amazon-ebs.centos: output will be in this color.
 ...
 
 Build 'amazon-ebs.ubuntu' finished after 8 minutes 38 seconds.
-==> centos.amazon-ebs.centos: Adding tags to AMI (ami-05490eb55f2bc5e1b)...
-==> centos.amazon-ebs.centos: Tagging snapshot: snap-0a942ea9093613d2d
-==> centos.amazon-ebs.centos: Creating AMI tags
-    centos.amazon-ebs.centos: Adding tag: "Environment": "Production"
-    centos.amazon-ebs.centos: Adding tag: "Name": "MyCentosImage"
-    centos.amazon-ebs.centos: Adding tag: "OS_Version": "Centos 7"
-    centos.amazon-ebs.centos: Adding tag: "Release": "Latest"
-    centos.amazon-ebs.centos: Adding tag: "Created-by": "Packer"
-==> centos.amazon-ebs.centos: Creating snapshot tags
-==> centos.amazon-ebs.centos: Terminating the source AWS instance...
-==> centos.amazon-ebs.centos: Cleaning up any extra volumes...
-==> centos.amazon-ebs.centos: Destroying volume (vol-018cf1112438487e6)...
-==> centos.amazon-ebs.centos: Deleting temporary security group...
-==> centos.amazon-ebs.centos: Deleting temporary keypair...
-==> centos.amazon-ebs.centos: Running post-processor:  (type manifest)
-Build 'centos.amazon-ebs.centos' finished after 12 minutes 54 seconds.
+==> amazon-linux.centos.amazon-ebs.amazon-linux: Adding tags to AMI (ami-05490eb55f2bc5e1b)...
+==> amazon-linux.centos.amazon-ebs.amazon-linux: Tagging snapshot: snap-0a942ea9093613d2d
+==> amazon-linux.centos.amazon-ebs.amazon-linux: Creating AMI tags
+    amazon-linux.centos.amazon-ebs.amazon-linux: Adding tag: "Environment": "Production"
+    amazon-linux.centos.amazon-ebs.amazon-linux: Adding tag: "Name": "MyAmazonLinuxImage"
+    amazon-linux.centos.amazon-ebs.amazon-linux: Adding tag: "OS_Version": "Amazon 2"
+    amazon-linux.centos.amazon-ebs.amazon-linux: Adding tag: "Release": "Latest"
+    amazon-linux.centos.amazon-ebs.amazon-linux: Adding tag: "Created-by": "Packer"
+==> amazon-linux.centos.amazon-ebs.amazon-linux: Creating snapshot tags
+==> amazon-linux.centos.amazon-ebs.amazon-linux: Terminating the source AWS instance...
+==> amazon-linux.centos.amazon-ebs.amazon-linux: Cleaning up any extra volumes...
+==> amazon-linux.centos.amazon-ebs.amazon-linux: Destroying volume (vol-018cf1112438487e6)...
+==> amazon-linux.centos.amazon-ebs.amazon-linux: Deleting temporary security group...
+==> amazon-linux.centos.amazon-ebs.amazon-linux: Deleting temporary keypair...
+==> amazon-linux.centos.amazon-ebs.amazon-linux: Running post-processor:  (type manifest)
+Build 'amazon-linux.amazon-ebs.amazon-linux' finished after 12 minutes 54 seconds.
 
 ==> Wait completed after 12 minutes 54 seconds
 
