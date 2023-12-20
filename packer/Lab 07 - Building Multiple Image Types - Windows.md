@@ -15,10 +15,9 @@ The Packer AWS builder supports the ability to create an AMI for multiple operat
 Create a packer file named `aws-windows.pkr.hcl` file with the following Packer `source` block.
 
 ```hcl
-
-data "amazon-ami" "windows_2012r2" {
+data "amazon-ami" "windows_2019" {
   filters = {
-    name = "Windows_Server-2012-R2_RTM-English-64Bit-Base-*"
+    name = "Windows_Server-2019-English-Full-Base-*"
   }
   most_recent = true
   owners      = ["801119661308"]
@@ -28,12 +27,12 @@ data "amazon-ami" "windows_2012r2" {
 locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 
 
-source "amazon-ebs" "windows-2012r2" {
-  ami_name       = "my-windows-2012-aws-{{timestamp}}"
+source "amazon-ebs" "windows-2019" {
+  ami_name       = "my-windows-2019-aws-{{timestamp}}"
   communicator   = "winrm"
   instance_type  = "t2.micro"
   region         = "us-east-1"
-  source_ami     = "${data.amazon-ami.windows_2012r2.id}"
+  source_ami     = "${data.amazon-ami.windows_2019.id}"
   user_data_file = "./scripts/SetUpWinRM.ps1"
   winrm_insecure = true
   winrm_use_ssl  = true
@@ -48,11 +47,10 @@ source "amazon-ebs" "windows-2012r2" {
 }
 
 build {
-  sources = ["source.amazon-ebs.windows-2012r2"]
+  sources = ["source.amazon-ebs.windows-2019"]
 
   post-processor "manifest" {
   }
-}
 }
 ```
 
@@ -121,84 +119,89 @@ The `packer build` command is used to initiate the image build process for a giv
 Run a `packer build` for the `aws-windows.pkr.hcl` template.
 
 ```shell
-> packer build aws-windows.pkr.hcl
+packer build aws-windows.pkr.hcl
 ```
 
 Packer will print output similar to what is shown below.
 
 ```bash
-amazon-ebs.windows: output will be in this color.
+amazon-ebs.windows-2019: output will be in this color.
 
-==> amazon-ebs.windows: Prevalidating any provided VPC information
-==> amazon-ebs.windows: Prevalidating AMI Name: my-windows-aws-1621167537
-    amazon-ebs.windows: Found Image ID: ami-0ce14a8ecbae3e30e
-==> amazon-ebs.windows: Creating temporary keypair: packer_60a10db1-94bd-d7ca-91af-b9271f7eaec1
-==> amazon-ebs.windows: Creating temporary security group for this instance: packer_60a10db3-9b8d-398c-2896-5aa3087446c7
-==> amazon-ebs.windows: Authorizing access to port 5986 from [0.0.0.0/0] in the temporary security groups...
-==> amazon-ebs.windows: Launching a source AWS instance...
-==> amazon-ebs.windows: Adding tags to source instance
-    amazon-ebs.windows: Adding tag: "Name": "Packer Builder"
-    amazon-ebs.windows: Instance ID: i-06a5f3ba437819154
-==> amazon-ebs.windows: Waiting for instance (i-06a5f3ba437819154) to become ready...
-==> amazon-ebs.windows: Waiting for auto-generated password for instance...
-    amazon-ebs.windows: It is normal for this process to take up to 15 minutes,
-    amazon-ebs.windows: but it usually takes around 5. Please wait.
-    amazon-ebs.windows:  
-    amazon-ebs.windows: Password retrieved!
-==> amazon-ebs.windows: Using winrm communicator to connect: 3.208.31.209
-==> amazon-ebs.windows: Waiting for WinRM to become available...
-    amazon-ebs.windows: WinRM connected.
-==> amazon-ebs.windows: Connected to WinRM!
-==> amazon-ebs.windows: Provisioning with Powershell...
-==> amazon-ebs.windows: Provisioning with powershell script: ./scripts/EC2Config.ps1
-==> amazon-ebs.windows: Provisioning with powershell script: ./scripts/BundleConfig.ps1
-==> amazon-ebs.windows: Stopping the source instance...
-    amazon-ebs.windows: Stopping instance
-==> amazon-ebs.windows: Waiting for the instance to stop...
-==> amazon-ebs.windows: Creating AMI my-windows-aws-1621167537 from instance i-06a5f3ba437819154
-    amazon-ebs.windows: AMI: ami-0a4ae96c9bf70156b
-==> amazon-ebs.windows: Waiting for AMI to become ready...
-==> amazon-ebs.windows: Terminating the source AWS instance...
-==> amazon-ebs.windows: Cleaning up any extra volumes...
-==> amazon-ebs.windows: No volumes to clean up, skipping
-==> amazon-ebs.windows: Deleting temporary security group...
-==> amazon-ebs.windows: Deleting temporary keypair...
-==> amazon-ebs.windows: Running post-processor:  (type manifest)
-Build 'amazon-ebs.windows' finished after 4 minutes 4 seconds.
+==> amazon-ebs.windows-2019: Prevalidating any provided VPC information
+==> amazon-ebs.windows-2019: Prevalidating AMI Name: my-windows-2019-aws-1703109649
+    amazon-ebs.windows-2019: Found Image ID: ami-010b4f3cc590406f3
+==> amazon-ebs.windows-2019: Creating temporary keypair: packer_65836411-1222-869b-c6d0-5904e1d1da70
+==> amazon-ebs.windows-2019: Creating temporary security group for this instance: packer_65836412-7245-8be7-da70-bb76729bcd4e
+==> amazon-ebs.windows-2019: Authorizing access to port 5986 from [0.0.0.0/0] in the temporary security groups...
+==> amazon-ebs.windows-2019: Launching a source AWS instance...
+    amazon-ebs.windows-2019: Instance ID: i-007e5a5ad08ba5655
+==> amazon-ebs.windows-2019: Waiting for instance (i-007e5a5ad08ba5655) to become ready...
+==> amazon-ebs.windows-2019: Waiting for auto-generated password for instance...
+    amazon-ebs.windows-2019: It is normal for this process to take up to 15 minutes,
+    amazon-ebs.windows-2019: but it usually takes around 5. Please wait.
+    amazon-ebs.windows-2019:  
+    amazon-ebs.windows-2019: Password retrieved!
+==> amazon-ebs.windows-2019: Using WinRM communicator to connect: 52.90.81.120
+==> amazon-ebs.windows-2019: Waiting for WinRM to become available...
+    amazon-ebs.windows-2019: WinRM connected.
+==> amazon-ebs.windows-2019: Connected to WinRM!
+==> amazon-ebs.windows-2019: Stopping the source instance...
+    amazon-ebs.windows-2019: Stopping instance
+==> amazon-ebs.windows-2019: Waiting for the instance to stop...
+==> amazon-ebs.windows-2019: Creating AMI my-windows-2019-aws-1703109649 from instance i-007e5a5ad08ba5655
+    amazon-ebs.windows-2019: AMI: ami-0db0f27a8870be1ac
+==> amazon-ebs.windows-2019: Waiting for AMI to become ready...
+==> amazon-ebs.windows-2019: Skipping Enable AMI deprecation...
+==> amazon-ebs.windows-2019: Adding tags to AMI (ami-0db0f27a8870be1ac)...
+==> amazon-ebs.windows-2019: Tagging snapshot: snap-0b8cd5548eb9b7963
+==> amazon-ebs.windows-2019: Creating AMI tags
+    amazon-ebs.windows-2019: Adding tag: "Created-by": "Packer"
+    amazon-ebs.windows-2019: Adding tag: "Environment": "Production"
+    amazon-ebs.windows-2019: Adding tag: "Name": "MyWindowsImage"
+    amazon-ebs.windows-2019: Adding tag: "OS_Version": "Windows"
+    amazon-ebs.windows-2019: Adding tag: "Release": "Latest"
+==> amazon-ebs.windows-2019: Creating snapshot tags
+==> amazon-ebs.windows-2019: Terminating the source AWS instance...
+==> amazon-ebs.windows-2019: Cleaning up any extra volumes...
+==> amazon-ebs.windows-2019: No volumes to clean up, skipping
+==> amazon-ebs.windows-2019: Deleting temporary security group...
+==> amazon-ebs.windows-2019: Deleting temporary keypair...
+==> amazon-ebs.windows-2019: Running post-processor:  (type manifest)
+Build 'amazon-ebs.windows-2019' finished after 6 minutes 50 seconds.
 
-==> Wait completed after 4 minutes 4 seconds
+==> Wait completed after 6 minutes 50 seconds
 
 ==> Builds finished. The artifacts of successful builds are:
---> amazon-ebs.windows: AMIs were created:
-us-east-1: ami-0a4ae96c9bf70156b
+--> amazon-ebs.windows-2019: AMIs were created:
+us-east-1: ami-0db0f27a8870be1ac
 
---> amazon-ebs.windows: AMIs were created:
-us-east-1: ami-0a4ae96c9bf70156b
+--> amazon-ebs.windows-2019: AMIs were created:
+us-east-1: ami-0db0f27a8870be1ac
 ```
 
 
-### Task 4: Add a Windows 2019 Image for the build
+### Task 4: Add a Windows 2022 Image for the build
 If we wanted to add additional Windows versions, we can simply create another `data` and `source` block for the additional Windows version.
 
 ### Step 3.1.1
-Update our Packer template to account for adding a Windows 2019 Image
+Update our Packer template to account for adding a Windows 2022 Image
 
 ```hcl
-data "amazon-ami" "windows_2019" {
+data "amazon-ami" "windows_2022" {
   filters = {
-    name = "Windows_Server-2019-English-Full-Base-*"
+    name = "Windows_Server-2022-English-Full-Base-*"
   }
   most_recent = true
   owners      = ["801119661308"]
   region      = "us-east-1"
 }
 
-source "amazon-ebs" "windows-2019" {
-  ami_name       = "my-windows-2019-aws-{{timestamp}}"
+source "amazon-ebs" "windows-2022" {
+  ami_name       = "my-windows-2022-aws-{{timestamp}}"
   communicator   = "winrm"
   instance_type  = "t2.micro"
   region         = "us-east-1"
-  source_ami     = "${data.amazon-ami.windows_2019.id}"
+  source_ami     = "${data.amazon-ami.windows_2022.id}"
   user_data_file = "./scripts/SetUpWinRM.ps1"
   winrm_insecure = true
   winrm_use_ssl  = true
@@ -210,7 +213,7 @@ Update our `build` block to build both Windows versions.
 
 ```hcl
 build {
-  sources = ["source.amazon-ebs.windows-2012r2", "source.amazon-ebs.windows-2019", ]
+  sources = ["source.amazon-ebs.windows-2019", "source.amazon-ebs.windows-2022", ]
 
   post-processor "manifest" {
   }
