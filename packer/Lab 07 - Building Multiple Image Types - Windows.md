@@ -230,35 +230,95 @@ Packer will print output similar to what is shown below.
 
 ```bash
 ➜  packer build aws-windows.pkr.hcl
-amazon-ebs.windows_2012r2: output will be in this color.
-amazon-ebs.windows_2019: output will be in this color.
+amazon-ebs.windows-2019: output will be in this color.
+amazon-ebs.windows-2022: output will be in this color.
 
-==> amazon-ebs.windows_2019: Prevalidating any provided VPC information
-==> amazon-ebs.windows_2019: Prevalidating AMI Name: my-windows-aws-1621169911
-==> amazon-ebs.windows_2012r2: Prevalidating any provided VPC information
-==> amazon-ebs.windows_2012r2: Prevalidating AMI Name: my-windows-aws-1621169911
-    amazon-ebs.windows_2012r2: Found Image ID: ami-0ce14a8ecbae3e30e
+==> amazon-ebs.windows-2019: Prevalidating any provided VPC information
+==> amazon-ebs.windows-2022: Prevalidating any provided VPC information
+==> amazon-ebs.windows-2022: Prevalidating AMI Name: my-windows-2022-aws-1703110275
+==> amazon-ebs.windows-2019: Prevalidating AMI Name: my-windows-2019-aws-1703110275
+    amazon-ebs.windows-2022: Found Image ID: ami-06938c7701be658b4
+==> amazon-ebs.windows-2022: Creating temporary keypair: packer_65836683-c299-51cf-260f-8b9da2acccb8
+    amazon-ebs.windows-2019: Found Image ID: ami-010b4f3cc590406f3
+==> amazon-ebs.windows-2019: Creating temporary keypair: packer_65836683-3cec-bbd3-b884-3adab9aad4ab
+==> amazon-ebs.windows-2022: Creating temporary security group for this instance: packer_65836685-8760-f808-262a-6b2a71153d5c
+==> amazon-ebs.windows-2019: Creating temporary security group for this instance: packer_65836685-9d73-8d52-7bee-782536512762
+==> amazon-ebs.windows-2022: Authorizing access to port 5986 from [0.0.0.0/0] in the temporary security groups...
+==> amazon-ebs.windows-2019: Authorizing access to port 5986 from [0.0.0.0/0] in the temporary security groups...
+==> amazon-ebs.windows-2022: Launching a source AWS instance...
+==> amazon-ebs.windows-2019: Launching a source AWS instance...
+    amazon-ebs.windows-2019: Instance ID: i-0eb51ea5fce4dfa1e
+==> amazon-ebs.windows-2019: Waiting for instance (i-0eb51ea5fce4dfa1e) to become ready...
+    amazon-ebs.windows-2022: Instance ID: i-0a43eb41e04966aa5
+==> amazon-ebs.windows-2022: Waiting for instance (i-0a43eb41e04966aa5) to become ready...
+==> amazon-ebs.windows-2022: Waiting for auto-generated password for instance...
+    amazon-ebs.windows-2022: It is normal for this process to take up to 15 minutes,
+    amazon-ebs.windows-2022: but it usually takes around 5. Please wait.
+==> amazon-ebs.windows-2019: Waiting for auto-generated password for instance...
+    amazon-ebs.windows-2019: It is normal for this process to take up to 15 minutes,
+    amazon-ebs.windows-2019: but it usually takes around 5. Please wait.
+    amazon-ebs.windows-2022:  
+    amazon-ebs.windows-2022: Password retrieved!
+==> amazon-ebs.windows-2022: Using WinRM communicator to connect: 54.224.204.17
+==> amazon-ebs.windows-2022: Waiting for WinRM to become available...
+    amazon-ebs.windows-2022: WinRM connected.
+==> amazon-ebs.windows-2022: Connected to WinRM!
+==> amazon-ebs.windows-2022: Stopping the source instance...
+    amazon-ebs.windows-2022: Stopping instance
+==> amazon-ebs.windows-2022: Waiting for the instance to stop...
+==> amazon-ebs.windows-2022: Creating AMI my-windows-2022-aws-1703110275 from instance i-0a43eb41e04966aa5
+    amazon-ebs.windows-2022: AMI: ami-071afe12419dd4b33
+==> amazon-ebs.windows-2022: Waiting for AMI to become ready...
+    amazon-ebs.windows-2019:  
+    amazon-ebs.windows-2019: Password retrieved!
+==> amazon-ebs.windows-2019: Using WinRM communicator to connect: 54.225.12.149
+==> amazon-ebs.windows-2019: Waiting for WinRM to become available...
+==> amazon-ebs.windows-2022: Skipping Enable AMI deprecation...
+==> amazon-ebs.windows-2022: Terminating the source AWS instance...
+    amazon-ebs.windows-2019: WinRM connected.
+==> amazon-ebs.windows-2019: Connected to WinRM!
+==> amazon-ebs.windows-2019: Stopping the source instance...
+    amazon-ebs.windows-2019: Stopping instance
+==> amazon-ebs.windows-2019: Waiting for the instance to stop...
+==> amazon-ebs.windows-2022: Cleaning up any extra volumes...
+==> amazon-ebs.windows-2022: No volumes to clean up, skipping
+==> amazon-ebs.windows-2022: Deleting temporary security group...
+==> amazon-ebs.windows-2022: Deleting temporary keypair...
+==> amazon-ebs.windows-2022: Running post-processor:  (type manifest)
+Build 'amazon-ebs.windows-2022' finished after 4 minutes 44 seconds.
+==> amazon-ebs.windows-2019: Creating AMI my-windows-2019-aws-1703110275 from instance i-0eb51ea5fce4dfa1e
+    amazon-ebs.windows-2019: AMI: ami-019828e4594d916bd
+==> amazon-ebs.windows-2019: Waiting for AMI to become ready...
+==> amazon-ebs.windows-2019: Skipping Enable AMI deprecation...
+==> amazon-ebs.windows-2019: Adding tags to AMI (ami-019828e4594d916bd)...
+==> amazon-ebs.windows-2019: Tagging snapshot: snap-008e2050ff187bd06
+==> amazon-ebs.windows-2019: Creating AMI tags
+    amazon-ebs.windows-2019: Adding tag: "Created-by": "Packer"
+    amazon-ebs.windows-2019: Adding tag: "Environment": "Production"
+    amazon-ebs.windows-2019: Adding tag: "Name": "MyWindowsImage"
+    amazon-ebs.windows-2019: Adding tag: "OS_Version": "Windows"
+    amazon-ebs.windows-2019: Adding tag: "Release": "Latest"
+==> amazon-ebs.windows-2019: Creating snapshot tags
+==> amazon-ebs.windows-2019: Terminating the source AWS instance...
+==> amazon-ebs.windows-2019: Cleaning up any extra volumes...
+==> amazon-ebs.windows-2019: No volumes to clean up, skipping
+==> amazon-ebs.windows-2019: Deleting temporary security group...
+==> amazon-ebs.windows-2019: Deleting temporary keypair...
+==> amazon-ebs.windows-2019: Running post-processor:  (type manifest)
+Build 'amazon-ebs.windows-2019' finished after 8 minutes 45 seconds.
 
-...
-
-==> amazon-ebs.windows_2012r2: Deleting temporary security group...
-==> amazon-ebs.windows_2012r2: Deleting temporary keypair...
-==> amazon-ebs.windows_2012r2: Running post-processor:  (type manifest)
-Build 'amazon-ebs.windows_2012r2' finished after 3 minutes 55 seconds.
-==> amazon-ebs.windows_2019: Terminating the source AWS instance...
-==> amazon-ebs.windows_2019: Cleaning up any extra volumes...
-==> amazon-ebs.windows_2019: No volumes to clean up, skipping
-==> amazon-ebs.windows_2019: Deleting temporary security group...
-==> amazon-ebs.windows_2019: Deleting temporary keypair...
-==> amazon-ebs.windows_2019: Running post-processor:  (type manifest)
-Build 'amazon-ebs.windows_2019' finished after 5 minutes 1 second.
-
-==> Wait completed after 5 minutes 1 second
+==> Wait completed after 8 minutes 45 seconds
 
 ==> Builds finished. The artifacts of successful builds are:
---> amazon-ebs.windows_2019: AMIs were created:
-us-east-1: ami-05678cc2d5115cc39
+--> amazon-ebs.windows-2022: AMIs were created:
+us-east-1: ami-071afe12419dd4b33
 
---> amazon-ebs.windows_2019: AMIs were created:
-us-east-1: ami-05678cc2d5115cc39
+--> amazon-ebs.windows-2022: AMIs were created:
+us-east-1: ami-071afe12419dd4b33
+
+--> amazon-ebs.windows-2019: AMIs were created:
+us-east-1: ami-019828e4594d916bd
+
+--> amazon-ebs.windows-2019: AMIs were created:
+us-east-1: ami-019828e4594d916bd
 ```
