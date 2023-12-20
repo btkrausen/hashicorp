@@ -8,20 +8,39 @@ Duration: 30 minutes
 - Task 3: Validate the Packer Template
 - Task 4: Build Image across AWS and Azure
 
-### Task 1: Update Packer Template to support Multiple Regions
+### Task 1: Update Packer Template to support Multiple Clouds
 Packer supports seperate builders for deploying images accross clouds while allowing for a single build workflow.
 
 ### Step 1.1.1
 
-Update your `aws-linux.pkr.hcl` file with the following Packer `source` block for specifying an `azure-arm` image source.  This source contains the details for building this image in Azure.  We will keep the `aws-ebs` source untouched.
+Update your `aws-linux.pkr.hcl` file with the following Packer `required_plugins` block to use the `azure` plugin.
+
+```hcl
+packer {
+  required_plugins {
+    amazon = {
+      source  = "github.com/hashicorp/amazon"
+      version = "~> 1"
+    }
+    azure = {
+      source  = "github.com/hashicorp/azure"
+      version = "~> 2"
+    }
+  }
+}
+```
+
+In addition, update the `aws-linux.pkr.hcl` file with the following Packer `source` block for specifying an `azure-arm` image source.  This source contains the details for building this image in Azure.  We will keep the `aws-ebs` source untouched.
 
 You will need to specify your own Azure credentials in the `client_id`, `client_secret`, `subscription_id` and `tenant_id`.  You will also need to create your own Azure resource group name called `packer_images` along with a `vm_size` that is available in your region. See Note below.
 
 ```hcl
+
+
 source "azure-arm" "ubuntu" {
   client_id                         = "XXXX"
   client_secret                     = "XXXX"
-  managed_image_resource_group_name = "packer_images" # You 
+  managed_image_resource_group_name = "packer_images" # You must create a resource group to save the images to
   managed_image_name                = "packer-ubuntu-azure-{{timestamp}}"
   subscription_id                   = "XXXX"
   tenant_id                         = "XXXX"
@@ -82,6 +101,11 @@ DDDDDDDD-DDDD-DDDD-DDDD-DDDDDDDDDDDD is the Tenant ID
 > Use an appropriate size for the `vm_size` attribute.  If `Standard_A2` is not available consider `Standard_A2_V2`
 
 
+> Note: Based on your the access of your Azure credentials you may need to create a Azure Resource Group to save your Packer Images
+> ```shell
+> az group create -l eastus -n packer_images
+> ```
+
 ### Task 2: Specify Cloud Specific Attributes
 The packer `build` block will need to be updated to specify both an AWS and Azure build.  This can be done with the updated `build` block:
 
@@ -122,9 +146,10 @@ Now that the Packer template has been updated to be multi-cloud aware, we are go
 
 ### Step 3.1.1
 
-Format and validate your configuration using the `packer fmt` and `packer validate` commands.
+Initialize, format and validate your configuration using the `packer fmt` and `packer validate` commands.
 
 ```shell
+packer init linux.pkr.hcl
 packer fmt linux.pkr.hcl 
 packer validate linux.pkr.hcl
 ```
@@ -143,14 +168,14 @@ Packer will print output similar to what is shown below.  You should notice a di
 
 ```bash
 packer build linux.pkr.hcl
-amazon-ebs.ubuntu: output will be in this color.
-azure-arm.ubuntu: output will be in this color.
+ubuntu.amazon-ebs.ubuntu: output will be in this color.
+ubuntu.azure-arm.ubuntu: output will be in this color.
 
-==> azure-arm.ubuntu: Running builder ...
-==> azure-arm.ubuntu: Getting tokens using client secret
-==> azure-arm.ubuntu: Getting tokens using client secret
-==> amazon-ebs.ubuntu: Prevalidating any provided VPC information
-==> amazon-ebs.ubuntu: Prevalidating AMI Name: packer-ubuntu-aws-1620188684
+==> ubuntu.azure-arm.ubuntu: Running builder ...
+==> ubuntu.azure-arm.ubuntu: Getting tokens using client secret
+==> ubuntu.azure-arm.ubuntu: Getting tokens using client secret
+==> ubuntu.amazon-ebs.ubuntu: Prevalidating any provided VPC information
+==> ubuntu.amazon-ebs.ubuntu: Prevalidating AMI Name: packer-ubuntu-aws-1620188684
 
 ...
 ...
@@ -158,12 +183,12 @@ azure-arm.ubuntu: output will be in this color.
 ==> Wait completed after 8 minutes 36 seconds
 
 ==> Builds finished. The artifacts of successful builds are:
---> amazon-ebs.ubuntu: AMIs were created:
+--> ubuntu.amazon-ebs.ubuntu: AMIs were created:
 eu-central-1: ami-06cb993373624ec00
 us-east-1: ami-0c80e78a667406d87
 us-west-2: ami-0dd51ccb6faf2588d
 
---> azure-arm.ubuntu: Azure.ResourceManagement.VMImage:
+--> ubuntu.azure-arm.ubuntu: Azure.ResourceManagement.VMImage:
 
 OSType: Linux
 ManagedImageResourceGroupName: packer_images
