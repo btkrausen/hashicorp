@@ -15,39 +15,37 @@ The Packer AWS builder supports the ability to create an AMI for multiple operat
 Add the following blocks to the `aws-ubuntu.pkr.hcl` file with the following Packer `source` block.
 
 ```hcl
-source "amazon-ebs" "centos" {
+source "amazon-ebs" "amazon-linux" {
   ami_name      = "packer-centos-aws-{{timestamp}}"
   instance_type = "t2.micro"
   region        = "us-west-2"
   ami_regions   = ["us-west-2"]
   source_ami_filter {
     filters = {
-      name                = "CentOS*8*x86_64*"
-      product-code        = "bz4vuply68xrif53movwbkpnl"
-      root-device-type    = "ebs"
+      name                = "amzn2-ami-hvm*"
       virtualization-type = "hvm"
     }
     most_recent = true
-    owners      = ["679593333241"]
+    owners      = ["amazon"]
   }
-  ssh_username = "centos"
+  ssh_username = "ec2-user"
   tags = {
-    "Name"        = "MyCentosImage"
+    "Name"        = "MyAmazonLinuxImage"
     "Environment" = "Production"
-    "OS_Version"  = "Centos 8"
+    "OS_Version"  = "Amazon 2"
     "Release"     = "Latest"
     "Created-by"  = "Packer"
   }
 }
 ```
 
-Add a seperate build block for building the `centos` image using the `source.amazon-ebs.centos` source.
+Add a seperate build block for building the `amazon-linux` image using the `source.amazon-ebs.amazon-linux` source.
 
 ```hcl
 build {
   name = "centos"
   sources = [
-    "source.amazon-ebs.centos"
+    "source.amazon-ebs.amazon-linux"
   ]
 
   provisioner "shell" {
@@ -83,7 +81,14 @@ The `packer build` command is used to initiate the image build process for a giv
 Run a `packer build` for the `aws-linux.pkr.hcl` template.
 
 ```shell
-> packer build aws-linux.pkr.hcl
+packer build aws-linux.pkr.hcl
+```
+
+> Note: To use a CentOS Image in AWS may require that you opt into using this image in the AWS Marketplace.  If you encounter this message you will need to visit the link provided to use this AMI.
+
+```bash
+==> centos.amazon-ebs.centos: Error launching source instance: OptInRequired: In order to use this AWS Marketplace product you need to accept terms and subscribe. To do so please visit https://aws.amazon.com/marketplace/pp?sku=bz4vuply68xrif53movwbkpnl
+==> centos.amazon-ebs.centos:   status code: 401, request id: 4c909fd0-5f95-4a4c-889f-910bd54a3e79
 ```
 
 Packer will print output similar to what is shown below.
