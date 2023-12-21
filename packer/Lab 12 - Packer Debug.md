@@ -33,6 +33,7 @@ packer {
       source  = "github.com/hashicorp/amazon"
       version = "~> 1"
     }
+  }
 }
 
 source "amazon-ebs" "ubuntu" {
@@ -68,6 +69,7 @@ build {
 **Example Output**
 
 ```shell
+cd debug_lab
 packer init .
 ```
 
@@ -94,36 +96,41 @@ packer init .
 2023/12/20 22:51:46 waiting for all plugin processes to complete...
 ```
 
+```
 packer validate .
 ```
 
 ```shell
-2021/06/29 21:22:19 [INFO] Packer version: 1.10.0 [go1.20.11 linux amd64]
-2021/06/29 21:22:19 [TRACE] discovering plugins in /usr/local/bin
-2021/06/29 21:22:19 [TRACE] discovering plugins in /Users/gabe/.packer.d/plugins
-2021/06/29 21:22:19 [TRACE] discovering plugins in .
-2021/06/29 21:22:19 [INFO] PACKER_CONFIG env var not set; checking the default config file path
-2021/06/29 21:22:19 [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/gabe/.packerconfig
-2021/06/29 21:22:19 [WARN] Config file doesn't exist: /Users/gabe/.packerconfig
-2021/06/29 21:22:19 [INFO] Setting cache directory: /Users/gabe/repos/packer_training/labs/debug_lab/packer_cache
-2021/06/29 21:22:19 [TRACE] Starting internal plugin packer-builder-amazon-ebs
-2021/06/29 21:22:19 Starting plugin: /usr/local/bin/packer []string{"/usr/local/bin/packer", "plugin", "packer-builder-amazon-ebs"}
-2021/06/29 21:22:19 Waiting for RPC address for: /usr/local/bin/packer
-2021/06/29 21:22:19 packer-builder-amazon-ebs plugin: [INFO] Packer version: 1.10.0 [go1.20.11 linux amd64]
-2021/06/29 21:22:19 packer-builder-amazon-ebs plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
-2021/06/29 21:22:19 packer-builder-amazon-ebs plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/gabe/.packerconfig
-2021/06/29 21:22:19 packer-builder-amazon-ebs plugin: [WARN] Config file doesn't exist: /Users/gabe/.packerconfig
-2021/06/29 21:22:19 packer-builder-amazon-ebs plugin: [INFO] Setting cache directory: /Users/gabe/repos/packer_training/labs/debug_lab/packer_cache
-2021/06/29 21:22:19 packer-builder-amazon-ebs plugin: args: []string{"packer-builder-amazon-ebs"}
-2021/06/29 21:22:19 packer-builder-amazon-ebs plugin: Plugin address: unix /var/folders/1c/qvs1hwp964z_dwd5qg07lv_00000gn/T/packer-plugin369510082
-2021/06/29 21:22:19 packer-builder-amazon-ebs plugin: Waiting for connection...
-2021/06/29 21:22:19 Received unix RPC address for /usr/local/bin/packer: addr is /var/folders/1c/qvs1hwp964z_dwd5qg07lv_00000gn/T/packer-plugin369510082
-2021/06/29 21:22:19 packer-builder-amazon-ebs plugin: Serving a plugin connection...
-2021/06/29 21:22:19 packer-builder-amazon-ebs plugin: [INFO] (aws): No AWS timeout and polling overrides have been set. Packer will default to waiter-specific delays and timeouts. If you would like to customize the length of time between retries and max number of retries you may do so by setting the environment variables AWS_POLL_DELAY_SECONDS and AWS_MAX_ATTEMPTS or the configuration options aws_polling_delay_seconds and aws_polling_max_attempts to your desired values.
-2021/06/29 21:22:19 [INFO] (telemetry) Finalizing.
-2021/06/29 21:22:19 waiting for all plugin processes to complete...
-2021/06/29 21:22:19 /usr/local/bin/packer: plugin process exited
-...
+2023/12/21 21:02:35 [INFO] Packer version: 1.10.0 [go1.20.11 linux amd64]
+2023/12/21 21:02:35 [TRACE] discovering plugins in /usr/local/bin
+2023/12/21 21:02:35 [TRACE] discovering plugins in .
+2023/12/21 21:02:35 [TRACE] discovering plugins in /root/.config/packer/plugins
+2023/12/21 21:02:35 [INFO] Discovered potential plugin: amazon = /root/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.2.9_x5.0_linux_amd64
+2023/12/21 21:02:35 [INFO] found external [chroot ebs ebssurrogate ebsvolume instance] builders from amazon plugin
+2023/12/21 21:02:35 [INFO] found external [import] post-processors from amazon plugin
+2023/12/21 21:02:35 found external [ami parameterstore secretsmanager] datasource from amazon plugin
+2023/12/21 21:02:35 [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2023/12/21 21:02:35 [INFO] PACKER_CONFIG env var set; attempting to open config file: /root/.packerconfig
+2023/12/21 21:02:35 [WARN] Config file doesn't exist: /root/.packerconfig
+2023/12/21 21:02:35 [INFO] Setting cache directory: /root/.cache/packer
+2023/12/21 21:02:35 [TRACE] listing potential installations for "github.com/hashicorp/amazon" that match "~> 1". plugingetter.ListInstallationsOptions{FromFolders:[]string{"/usr/local/bin", ".", "/root/.config/packer/plugins"}, BinaryInstallationOptions:plugingetter.BinaryInstallationOptions{APIVersionMajor:"5", APIVersionMinor:"0", OS:"linux", ARCH:"amd64", Ext:"", Checksummers:[]plugingetter.Checksummer{plugingetter.Checksummer{Type:"sha256", Hash:(*sha256.digest)(0xc000346f00)}}}}
+2023/12/21 21:02:35 [TRACE] Found the following "github.com/hashicorp/amazon" installations: [{/root/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.2.9_x5.0_linux_amd64 v1.2.9}]
+2023/12/21 21:02:35 [INFO] found external [chroot ebs ebssurrogate ebsvolume instance] builders from amazon plugin
+2023/12/21 21:02:35 [INFO] found external [import] post-processors from amazon plugin
+2023/12/21 21:02:35 found external [ami parameterstore secretsmanager] datasource from amazon plugin
+2023/12/21 21:02:35 [INFO] Starting external plugin /root/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.2.9_x5.0_linux_amd64 start builder ebs
+2023/12/21 21:02:35 Starting plugin: /root/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.2.9_x5.0_linux_amd64 []string{"/root/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.2.9_x5.0_linux_amd64", "start", "builder", "ebs"}
+2023/12/21 21:02:35 Waiting for RPC address for: /root/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.2.9_x5.0_linux_amd64
+2023/12/21 21:02:35 packer-plugin-amazon_v1.2.9_x5.0_linux_amd64 plugin: 2023/12/21 21:02:35 Plugin address: unix /tmp/packer-plugin1611511683
+2023/12/21 21:02:35 Received unix RPC address for /root/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.2.9_x5.0_linux_amd64: addr is /tmp/packer-plugin1611511683
+2023/12/21 21:02:35 packer-plugin-amazon_v1.2.9_x5.0_linux_amd64 plugin: 2023/12/21 21:02:35 Waiting for connection...
+2023/12/21 21:02:35 packer-plugin-amazon_v1.2.9_x5.0_linux_amd64 plugin: 2023/12/21 21:02:35 Serving a plugin connection...
+2023/12/21 21:02:35 packer-plugin-amazon_v1.2.9_x5.0_linux_amd64 plugin: 2023/12/21 21:02:35 [TRACE] starting builder ebs
+2023/12/21 21:02:35 packer-plugin-amazon_v1.2.9_x5.0_linux_amd64 plugin: 2023/12/21 21:02:35 [INFO] (aws): No AWS timeout and polling overrides have been set. Packer will default to waiter-specific delays and timeouts. If you would like to customize the length of time between retries and max number of retries you may do so by setting the environment variables AWS_POLL_DELAY_SECONDS and AWS_MAX_ATTEMPTS or the configuration options aws_polling_delay_seconds and aws_polling_max_attempts to your desired values.
+The configuration is valid.
+2023/12/21 21:02:35 [INFO] (telemetry) Finalizing.
+2023/12/21 21:02:35 waiting for all plugin processes to complete...
+2023/12/21 21:02:35 /root/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.2.9_x5.0_linux_amd64: plugin process exited
 ```
 
 ```shell
