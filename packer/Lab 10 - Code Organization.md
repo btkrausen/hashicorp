@@ -25,13 +25,13 @@ Place the following code blocks into the respective files.
 
 `aws.pkr.hcl`
 ```hcl
-data "amazon-ami" "windows_2012r2" {
-  filters = {
-    name = "Windows_Server-2012-R2_RTM-English-64Bit-Base-*"
+packer {
+  required_plugins {
+    amazon = {
+      source  = "github.com/hashicorp/amazon"
+      version = "~> 1"
+    }
   }
-  most_recent = true
-  owners      = ["801119661308"]
-  region      = "us-east-1"
 }
 
 data "amazon-ami" "windows_2019" {
@@ -43,14 +43,25 @@ data "amazon-ami" "windows_2019" {
   region      = "us-east-1"
 }
 
-source "amazon-ebs" "ubuntu_16" {
+data "amazon-ami" "windows_2022" {
+  filters = {
+    name = "Windows_Server-2022-English-Full-Base-*"
+  }
+  most_recent = true
+  owners      = ["801119661308"]
+  region      = "us-east-1"
+}
+
+locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
+
+source "amazon-ebs" "ubuntu" {
   ami_name      = "${var.ami_prefix}-${local.timestamp}"
   instance_type = var.instance_type
   region        = var.region
   ami_regions   = var.ami_regions
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*"
+      name                = "ubuntu/images/*ubuntu-jammy-22.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
@@ -61,36 +72,35 @@ source "amazon-ebs" "ubuntu_16" {
   tags         = var.tags
 }
 
-source "amazon-ebs" "ubuntu_20" {
-  ami_name      = "packer-ubuntu-aws-{{timestamp}}"
+source "amazon-ebs" "amazon-linux" {
+  ami_name      = "packer-aws-linux-aws-{{timestamp}}"
   instance_type = "t2.micro"
   region        = "us-west-2"
+  ami_regions   = ["us-west-2"]
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"
-      root-device-type    = "ebs"
+      name                = "amzn2-ami-hvm*"
       virtualization-type = "hvm"
     }
     most_recent = true
-    owners      = ["099720109477"]
+    owners      = ["amazon"]
   }
-
-  ssh_username = "ubuntu"
+  ssh_username = "ec2-user"
   tags = {
-    "Name"        = "MyUbuntuImage"
+    "Name"        = "MyAmazonLinuxImage"
     "Environment" = "Production"
-    "OS_Version"  = "Ubuntu 20.04"
+    "OS_Version"  = "Amazon 2"
     "Release"     = "Latest"
     "Created-by"  = "Packer"
   }
 }
 
-source "amazon-ebs" "windows_2012r2" {
-  ami_name       = "my-windows-2012-aws-{{timestamp}}"
+source "amazon-ebs" "windows-2019" {
+  ami_name       = "my-windows-2019-aws-{{timestamp}}"
   communicator   = "winrm"
   instance_type  = "t2.micro"
   region         = "us-east-1"
-  source_ami     = "${data.amazon-ami.windows_2012r2.id}"
+  source_ami     = "${data.amazon-ami.windows_2019.id}"
   user_data_file = "./scripts/SetUpWinRM.ps1"
   winrm_insecure = true
   winrm_use_ssl  = true
@@ -104,12 +114,12 @@ source "amazon-ebs" "windows_2012r2" {
   }
 }
 
-source "amazon-ebs" "windows_2019" {
-  ami_name       = "my-windows-2019-aws-{{timestamp}}"
+source "amazon-ebs" "windows-2022" {
+  ami_name       = "my-windows-2022-aws-{{timestamp}}"
   communicator   = "winrm"
   instance_type  = "t2.micro"
   region         = "us-east-1"
-  source_ami     = "${data.amazon-ami.windows_2019.id}"
+  source_ami     = "${data.amazon-ami.windows_2022.id}"
   user_data_file = "./scripts/SetUpWinRM.ps1"
   winrm_insecure = true
   winrm_use_ssl  = true
