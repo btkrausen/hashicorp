@@ -18,7 +18,7 @@ Create a `cloud_images` folder and create the following files in this folder:
 - aws.pkr.hcl
 - azure.pkr.hcl
 - linux-build.pkr.hcl
-- windows-build.prk.hcl
+- windows-build.pkr.hcl
 - variables.pkr.hcl
 
 Place the following code blocks into the respective files.
