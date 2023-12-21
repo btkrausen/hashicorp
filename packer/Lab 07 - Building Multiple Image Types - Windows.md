@@ -15,6 +15,15 @@ The Packer AWS builder supports the ability to create an AMI for multiple operat
 Create a packer file named `aws-windows.pkr.hcl` file with the following Packer `source` block.
 
 ```hcl
+packer {
+  required_plugins {
+    amazon = {
+      source  = "github.com/hashicorp/amazon"
+      version = "~> 1"
+    }
+  }
+}
+
 data "amazon-ami" "windows_2019" {
   filters = {
     name = "Windows_Server-2019-English-Full-Base-*"
