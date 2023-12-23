@@ -1,3 +1,12 @@
+packer {
+  required_plugins {
+    vsphere = {
+      version = "~> 1"
+      source  = "github.com/hashicorp/vsphere"
+    }
+  }
+}
+
 source "vsphere-iso" "windows_2019" {
   vcenter_server      = "192.168.169.11"
   username            = "administrator@vsphere.local"
