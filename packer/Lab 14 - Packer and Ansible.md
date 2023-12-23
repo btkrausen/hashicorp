@@ -176,6 +176,7 @@ Validate the directory structure is laid out as follows:
 Format and validate your configuration using the `packer fmt` and `packer validate` commands.
 
 ```shell
+cd ansible
 packer init .
 packer fmt .
 packer validate .
