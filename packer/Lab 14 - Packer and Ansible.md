@@ -30,14 +30,14 @@ packer {
   }
 }
 
-source "amazon-ebs" "ubuntu_20" {
-  ami_name      = "${var.ami_prefix}-20-${local.timestamp}"
+source "amazon-ebs" "ubuntu_22" {
+  ami_name      = "${var.ami_prefix}-22-${local.timestamp}"
   instance_type = var.instance_type
   region        = var.region
   ami_regions   = var.ami_regions
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"
+      name                = "ubuntu/images/*ubuntu-jammy-22.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
@@ -50,7 +50,7 @@ source "amazon-ebs" "ubuntu_20" {
 
 build {
   sources = [
-    "source.amazon-ebs.ubuntu_20"
+    "source.amazon-ebs.ubuntu_22"
   ]
 
   provisioner "file" {
@@ -59,8 +59,8 @@ build {
   }
 
   provisioner "ansible" {
-    ansible_env_vars = ["ANSIBLE_HOST_KEY_CHECKING=False", "ANSIBLE_NOCOWS=1"]
-    extra_arguments  = ["--extra-vars", "desktop=false", "-v"]
+    ansible_env_vars = ["ANSIBLE_HOST_KEY_CHECKING=False", "ANSIBLE_COW_SELECTION=random"]
+    extra_arguments  = ["--extra-vars", "desktop=false"]
     playbook_file    = "${path.root}/playbooks/playbook.yml"
     user             = var.ssh_username
   }
@@ -283,7 +283,7 @@ We will update our `ansible` provisioner block to set the `"Cow Selection"` to `
 ```
 build {
   sources = [
-    "source.amazon-ebs.ubuntu_20"
+    "source.amazon-ebs.ubuntu_22"
   ]
 
   provisioner "file" {
