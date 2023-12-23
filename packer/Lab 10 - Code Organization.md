@@ -458,12 +458,6 @@ Before initiatiating the image build be sure your cloud credentials are set.  He
 export AWS_ACCESS_KEY_ID=<your access key>
 export AWS_SECRET_ACCESS_KEY=<your secret key>
 export AWS_DEFAULT_REGION=us-west-2
-
-# Azure Credentials
-export ARM_SUBSCRIPTION_ID=<your subscription key>
-export ARM_TENANT_ID=<your tenant key>
-export ARM_CLIENT_ID=<your client id>
-export ARM_CLIENT_SECRET=<your client secret>
 ```
 
 > Note: Example via Powershell:
@@ -473,12 +467,6 @@ export ARM_CLIENT_SECRET=<your client secret>
 PS C:\> $Env:AWS_ACCESS_KEY_ID="<your access key>"
 PS C:\> $Env:AWS_SECRET_ACCESS_KEY="<your secret key>"
 PS C:\> $Env:AWS_DEFAULT_REGION="us-west-2"
-
-# Azure Credentials
-PS C:\> $Env:ARM_SUBSCRIPTION_ID=<your subscription key>
-PS C:\> $Env:ARM_TENANT_ID=<your tenant key>
-PS C:\> $Env:ARM_CLIENT_ID=<your client id>
-PS C:\> $Env:ARM_CLIENT_SECRET=<your client secret>
 ```
 
 > Note: Based on your the access of your Azure credentials you may need to create a Azure Resource Group to save your Packer Images
