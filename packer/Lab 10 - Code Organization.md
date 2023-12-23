@@ -18,20 +18,20 @@ Create a `cloud_images` folder and create the following files in this folder:
 - aws.pkr.hcl
 - azure.pkr.hcl
 - linux-build.pkr.hcl
-- windows-build.pkr.hcl
+- windows-build.prk.hcl
 - variables.pkr.hcl
 
 Place the following code blocks into the respective files.
 
 `aws.pkr.hcl`
 ```hcl
-packer {
-  required_plugins {
-    amazon = {
-      source  = "github.com/hashicorp/amazon"
-      version = "~> 1"
-    }
+data "amazon-ami" "windows_2012r2" {
+  filters = {
+    name = "Windows_Server-2012-R2_RTM-English-64Bit-Base-*"
   }
+  most_recent = true
+  owners      = ["801119661308"]
+  region      = "us-east-1"
 }
 
 data "amazon-ami" "windows_2019" {
@@ -43,25 +43,14 @@ data "amazon-ami" "windows_2019" {
   region      = "us-east-1"
 }
 
-data "amazon-ami" "windows_2022" {
-  filters = {
-    name = "Windows_Server-2022-English-Full-Base-*"
-  }
-  most_recent = true
-  owners      = ["801119661308"]
-  region      = "us-east-1"
-}
-
-locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
-
-source "amazon-ebs" "ubuntu" {
+source "amazon-ebs" "ubuntu_16" {
   ami_name      = "${var.ami_prefix}-${local.timestamp}"
   instance_type = var.instance_type
   region        = var.region
   ami_regions   = var.ami_regions
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/*ubuntu-jammy-22.04-amd64-server-*"
+      name                = "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
@@ -72,35 +61,36 @@ source "amazon-ebs" "ubuntu" {
   tags         = var.tags
 }
 
-source "amazon-ebs" "amazon-linux" {
-  ami_name      = "packer-aws-linux-aws-{{timestamp}}"
+source "amazon-ebs" "ubuntu_20" {
+  ami_name      = "packer-ubuntu-aws-{{timestamp}}"
   instance_type = "t2.micro"
   region        = "us-west-2"
-  ami_regions   = ["us-west-2"]
   source_ami_filter {
     filters = {
-      name                = "amzn2-ami-hvm*"
+      name                = "ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"
+      root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
     most_recent = true
-    owners      = ["amazon"]
+    owners      = ["099720109477"]
   }
-  ssh_username = "ec2-user"
+
+  ssh_username = "ubuntu"
   tags = {
-    "Name"        = "MyAmazonLinuxImage"
+    "Name"        = "MyUbuntuImage"
     "Environment" = "Production"
-    "OS_Version"  = "Amazon 2"
+    "OS_Version"  = "Ubuntu 20.04"
     "Release"     = "Latest"
     "Created-by"  = "Packer"
   }
 }
 
-source "amazon-ebs" "windows-2019" {
-  ami_name       = "my-windows-2019-aws-{{timestamp}}"
+source "amazon-ebs" "windows_2012r2" {
+  ami_name       = "my-windows-2012-aws-{{timestamp}}"
   communicator   = "winrm"
   instance_type  = "t2.micro"
   region         = "us-east-1"
-  source_ami     = "${data.amazon-ami.windows_2019.id}"
+  source_ami     = "${data.amazon-ami.windows_2012r2.id}"
   user_data_file = "./scripts/SetUpWinRM.ps1"
   winrm_insecure = true
   winrm_use_ssl  = true
@@ -114,12 +104,12 @@ source "amazon-ebs" "windows-2019" {
   }
 }
 
-source "amazon-ebs" "windows-2022" {
-  ami_name       = "my-windows-2022-aws-{{timestamp}}"
+source "amazon-ebs" "windows_2019" {
+  ami_name       = "my-windows-2019-aws-{{timestamp}}"
   communicator   = "winrm"
   instance_type  = "t2.micro"
   region         = "us-east-1"
-  source_ami     = "${data.amazon-ami.windows_2022.id}"
+  source_ami     = "${data.amazon-ami.windows_2019.id}"
   user_data_file = "./scripts/SetUpWinRM.ps1"
   winrm_insecure = true
   winrm_use_ssl  = true
@@ -389,10 +379,42 @@ packer validate .
 ### Task 3: Build a new Image using Packer
 The `packer build` command can be run against all template files in a given folder.
 
+Before initiatiating the image build be sure your cloud credentials are set.  Here is an example of setting these credentials using environment variables.
+
+> Note: Example using environment variables on a Linux or macOS:
+```bash
+# AWS Credentials
+export AWS_ACCESS_KEY_ID=<your access key>
+export AWS_SECRET_ACCESS_KEY=<your secret key>
+export AWS_DEFAULT_REGION=us-west-2
+
+# Azure Credentials
+export ARM_SUBSCRIPTION_ID=<your subscription key>
+export ARM_TENANT_ID=<your tenant key>
+export ARM_CLIENT_ID=<your client id>
+export ARM_CLIENT_SECRET=<your client secret>
+```
+
+> Note: Example via Powershell:
+
+```pwsh
+# AWS Credentials
+PS C:\> $Env:AWS_ACCESS_KEY_ID="<your access key>"
+PS C:\> $Env:AWS_SECRET_ACCESS_KEY="<your secret key>"
+PS C:\> $Env:AWS_DEFAULT_REGION="us-west-2"
+
+# Azure Credentials
+PS C:\> $Env:ARM_SUBSCRIPTION_ID=<your subscription key>
+PS C:\> $Env:ARM_TENANT_ID=<your tenant key>
+PS C:\> $Env:ARM_CLIENT_ID=<your client id>
+PS C:\> $Env:ARM_CLIENT_SECRET=<your client secret>
+```
+
 ### Step 10.3.1
-Run a `packer build` across all files within the `cloud_images` 
+Initialize and Run a `packer build` across all files within the `cloud_images` 
 
 ```shell
+packer init .
 packer build .
 ```
 
