@@ -73,6 +73,7 @@ export AWS_SECRET_ACCESS_KEY="asecretkey"
 Initialize Terraform and run a plan.
 
 ```bash
+cd packer_terraform
 terraform init
 terraform plan
 ```
