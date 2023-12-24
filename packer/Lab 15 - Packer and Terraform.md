@@ -167,10 +167,10 @@ Terraform will perform the following actions:
       + source_dest_check                    = true
       + subnet_id                            = (known after apply)
       + tags                                 = {
-          + "Name" = "Clumsy Bird"
+          + "Name" = "ClumsyBird"
         }
       + tags_all                             = {
-          + "Name" = "Clumsy Bird"
+          + "Name" = "ClumsyBird"
         }
       + tenancy                              = (known after apply)
       + vpc_security_group_ids               = (known after apply)
