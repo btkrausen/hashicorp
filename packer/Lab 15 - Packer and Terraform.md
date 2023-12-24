@@ -59,7 +59,7 @@ resource "aws_security_group" "allow_clumsy_bird" {
 }
 
 resource "aws_instance" "test_ami" {
-  ami                    = var.ami
+  ami                    = data.aws_ami.packer_image.id
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.allow_clumsy_bird.id]
 
