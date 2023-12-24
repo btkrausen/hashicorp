@@ -31,7 +31,7 @@ packer {
 }
 
 source "amazon-ebs" "ubuntu_22" {
-  ami_name      = "${var.ami_prefix}-22-${local.timestamp}"
+  ami_name      = "${var.ami_prefix}-ubuntu22-${local.timestamp}"
   instance_type = var.instance_type
   region        = var.region
   ami_regions   = var.ami_regions
