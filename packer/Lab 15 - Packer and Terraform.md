@@ -16,7 +16,7 @@ Create a `packer_terraform` folder with the following Terraform configuration fi
 `main.tf`
 ```hcl
 variable "ami" {
-  type = string
+  type        = string
   description = "Application Image to Deploy"
 }
 
@@ -26,7 +26,7 @@ variable "region" {
 }
 
 variable "appname" {
-  type    = string
+  type        = string
   description = "Application Name"
 }
 
@@ -34,10 +34,34 @@ provider "aws" {
   region = var.region
 }
 
+resource "aws_security_group" "allow_clumsy_bird" {
+  name        = "allow_clumsy_bird"
+  description = "Allow inbound traffic to clumsy bird 8001"
+
+  ingress {
+    description = "Clumsy Bird Inbound Traffic"
+    from_port   = 8001
+    to_port     = 8001
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "allow_clumsy_bird"
+  }
+}
+
 resource "aws_instance" "test_ami" {
-  ami           = var.ami
-  instance_type = "t2.micro"
-  key_name      = "MyEC2Instance"
+  ami                    = data.aws_ami.packer_image.id
+  instance_type          = "t2.micro"
+  vpc_security_group_ids = [aws_security_group.allow_clumsy_bird.id]
 
   tags = {
     "Name" = var.appname
@@ -73,6 +97,7 @@ export AWS_SECRET_ACCESS_KEY="asecretkey"
 Initialize Terraform and run a plan.
 
 ```bash
+cd packer_terraform
 terraform init
 terraform plan
 ```
@@ -89,7 +114,7 @@ var.ami
 var.appname
   Application Name
 
-  Enter a value: Clumsy Bird
+  Enter a value: ClumsyBird
 ```
 
 View the `plan` details for the Terraform deployment.
@@ -103,7 +128,7 @@ var.ami
 var.appname
   Application Name
 
-  Enter a value: Clumsy Bird
+  Enter a value: ClumsyBird
 
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with
@@ -142,10 +167,10 @@ Terraform will perform the following actions:
       + source_dest_check                    = true
       + subnet_id                            = (known after apply)
       + tags                                 = {
-          + "Name" = "Clumsy Bird"
+          + "Name" = "ClumsyBird"
         }
       + tags_all                             = {
-          + "Name" = "Clumsy Bird"
+          + "Name" = "ClumsyBird"
         }
       + tenancy                              = (known after apply)
       + vpc_security_group_ids               = (known after apply)
@@ -236,7 +261,7 @@ var.ami
 var.appname
   Application Name
 
-  Enter a value: Clumsy Bird
+  Enter a value: ClumsyBird
 ```
 
 Validate the plan and enter `yes` to provision the instance.
@@ -291,9 +316,9 @@ data "aws_ami" "packer_image" {
 
 ```hcl
 resource "aws_instance" "test_ami" {
-  ami           = data.aws_ami.packer_image.image_id
-  instance_type = "t2.micro"
-  key_name      = "MyEC2Instance"
+  ami                    = var.ami
+  instance_type          = "t2.micro"
+  vpc_security_group_ids = [aws_security_group.allow_clumsy_bird.id]
 
   tags = {
     "Name" = var.appname

@@ -65,6 +65,15 @@ Now that we have a better understanding of some of the troubleshooting items ava
 Create a `aws-clumsy-bird.pkr.hcl` Packer Template.  This template will be Ubuntu based running in AWS.  The template contains several provisioners, including `breakpoints` before and after key parts of the build process.
 
 ```hcl
+packer {
+  required_plugins {
+    amazon = {
+      source  = "github.com/hashicorp/amazon"
+      version = "~> 1"
+    }
+  }
+}
+
 source "amazon-ebs" "ubuntu" {
   ami_name      = "packer-ubuntu-aws-{{timestamp}}"
   instance_type = "t2.micro"
@@ -169,6 +178,7 @@ Restart=on-failure
 Execute a `packer build` for the clumsy-bird image with debugging enabled.
 
 ```bash
+packer init aws-clumsy-bird.pkr.hcl
 packer build -debug aws-clumsy-bird.pkr.hcl
 ```
 

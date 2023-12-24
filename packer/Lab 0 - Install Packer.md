@@ -29,7 +29,7 @@ which packer
 
 ```bash
 packer version
-Packer v1.7.2
+Packer v1.10.0
 ```
 
 ### Task 3: Enable autocompletion for Packer CLI

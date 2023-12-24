@@ -17,14 +17,27 @@ Create a `ansible` folder with the following Packer Template called `aws-clumsy-
 `aws-clumsy-bird.pkr.hcl`
 
 ```hcl
-source "amazon-ebs" "ubuntu_20" {
-  ami_name      = "${var.ami_prefix}-20-${local.timestamp}"
+packer {
+  required_plugins {
+    amazon = {
+      source  = "github.com/hashicorp/amazon"
+      version = "~> 1"
+    }
+    ansible = {
+      version = "~> 1"
+      source  = "github.com/hashicorp/ansible"
+    }
+  }
+}
+
+source "amazon-ebs" "ubuntu_22" {
+  ami_name      = "${var.ami_prefix}-ubuntu22-${local.timestamp}"
   instance_type = var.instance_type
   region        = var.region
   ami_regions   = var.ami_regions
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"
+      name                = "ubuntu/images/*ubuntu-jammy-22.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
@@ -37,7 +50,7 @@ source "amazon-ebs" "ubuntu_20" {
 
 build {
   sources = [
-    "source.amazon-ebs.ubuntu_20"
+    "source.amazon-ebs.ubuntu_22"
   ]
 
   provisioner "file" {
@@ -46,8 +59,8 @@ build {
   }
 
   provisioner "ansible" {
-    ansible_env_vars = ["ANSIBLE_HOST_KEY_CHECKING=False", "ANSIBLE_NOCOWS=1"]
-    extra_arguments  = ["--extra-vars", "desktop=false", "-v"]
+    ansible_env_vars = ["ANSIBLE_HOST_KEY_CHECKING=False", "ANSIBLE_COW_SELECTION=random"]
+    extra_arguments  = ["--extra-vars", "desktop=false"]
     playbook_file    = "${path.root}/playbooks/playbook.yml"
     user             = var.ssh_username
   }
@@ -163,6 +176,8 @@ Validate the directory structure is laid out as follows:
 Format and validate your configuration using the `packer fmt` and `packer validate` commands.
 
 ```shell
+cd ansible
+packer init .
 packer fmt .
 packer validate .
 ```
@@ -269,7 +284,7 @@ We will update our `ansible` provisioner block to set the `"Cow Selection"` to `
 ```
 build {
   sources = [
-    "source.amazon-ebs.ubuntu_20"
+    "source.amazon-ebs.ubuntu_22"
   ]
 
   provisioner "file" {

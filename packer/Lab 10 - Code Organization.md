@@ -20,20 +20,12 @@ Create a `cloud_images` folder and create the following files in this folder:
 - linux-build.pkr.hcl
 - windows-build.prk.hcl
 - variables.pkr.hcl
+- example.auto.pkrvars.hcl
 
 Place the following code blocks into the respective files.
 
 `aws.pkr.hcl`
 ```hcl
-data "amazon-ami" "windows_2012r2" {
-  filters = {
-    name = "Windows_Server-2012-R2_RTM-English-64Bit-Base-*"
-  }
-  most_recent = true
-  owners      = ["801119661308"]
-  region      = "us-east-1"
-}
-
 data "amazon-ami" "windows_2019" {
   filters = {
     name = "Windows_Server-2019-English-Full-Base-*"
@@ -43,14 +35,23 @@ data "amazon-ami" "windows_2019" {
   region      = "us-east-1"
 }
 
-source "amazon-ebs" "ubuntu_16" {
-  ami_name      = "${var.ami_prefix}-${local.timestamp}"
+data "amazon-ami" "windows_2022" {
+  filters = {
+    name = "Windows_Server-2022-English-Full-Base-*"
+  }
+  most_recent = true
+  owners      = ["801119661308"]
+  region      = "us-east-1"
+}
+
+source "amazon-ebs" "ubuntu_20" {
+  ami_name      = "${var.ami_prefix}-ubuntu-20-${local.timestamp}"
   instance_type = var.instance_type
   region        = var.region
   ami_regions   = var.ami_regions
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*"
+      name                = "ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
@@ -61,44 +62,43 @@ source "amazon-ebs" "ubuntu_16" {
   tags         = var.tags
 }
 
-source "amazon-ebs" "ubuntu_20" {
-  ami_name      = "packer-ubuntu-aws-{{timestamp}}"
-  instance_type = "t2.micro"
-  region        = "us-west-2"
+source "amazon-ebs" "ubuntu_22" {
+  ami_name      = "${var.ami_prefix}-ubuntu-22-${local.timestamp}"
+  instance_type = var.instance_type
+  region        = var.region
+  ami_regions   = var.ami_regions
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"
+      name                = "ubuntu/images/*ubuntu-jammy-22.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
     most_recent = true
     owners      = ["099720109477"]
   }
-
   ssh_username = "ubuntu"
-  tags = {
-    "Name"        = "MyUbuntuImage"
-    "Environment" = "Production"
-    "OS_Version"  = "Ubuntu 20.04"
-    "Release"     = "Latest"
-    "Created-by"  = "Packer"
-  }
+  tags         = var.tags
 }
 
-source "amazon-ebs" "windows_2012r2" {
-  ami_name       = "my-windows-2012-aws-{{timestamp}}"
-  communicator   = "winrm"
-  instance_type  = "t2.micro"
-  region         = "us-east-1"
-  source_ami     = "${data.amazon-ami.windows_2012r2.id}"
-  user_data_file = "./scripts/SetUpWinRM.ps1"
-  winrm_insecure = true
-  winrm_use_ssl  = true
-  winrm_username = "Administrator"
+
+source "amazon-ebs" "amazon_linux" {
+  ami_name      = "packer-aws-linux-aws-{{timestamp}}"
+  instance_type = "t2.micro"
+  region        = "us-west-2"
+  ami_regions   = ["us-west-2"]
+  source_ami_filter {
+    filters = {
+      name                = "amzn2-ami-hvm*"
+      virtualization-type = "hvm"
+    }
+    most_recent = true
+    owners      = ["amazon"]
+  }
+  ssh_username = "ec2-user"
   tags = {
-    "Name"        = "MyWindowsImage"
+    "Name"        = "MyAmazonLinuxImage"
     "Environment" = "Production"
-    "OS_Version"  = "Windows"
+    "OS_Version"  = "Amazon 2"
     "Release"     = "Latest"
     "Created-by"  = "Packer"
   }
@@ -114,35 +114,37 @@ source "amazon-ebs" "windows_2019" {
   winrm_insecure = true
   winrm_use_ssl  = true
   winrm_username = "Administrator"
+  tags = {
+    "Name"        = "MyWindowsImage"
+    "Environment" = "Production"
+    "OS_Version"  = "Windows"
+    "Release"     = "Latest"
+    "Created-by"  = "Packer"
+  }
+}
+
+source "amazon-ebs" "windows_2022" {
+  ami_name       = "my-windows-2022-aws-{{timestamp}}"
+  communicator   = "winrm"
+  instance_type  = "t2.micro"
+  region         = "us-east-1"
+  source_ami     = "${data.amazon-ami.windows_2022.id}"
+  user_data_file = "./scripts/SetUpWinRM.ps1"
+  winrm_insecure = true
+  winrm_use_ssl  = true
+  winrm_username = "Administrator"
 }
 ```
 
 `azure.pkr.hcl`
 ```hcl
-source "azure-arm" "ubuntu_16" {
-  subscription_id                   = "e1f6a3f2-9d19-4e32-bcc3-1ef1517e0fa5"
-  managed_image_resource_group_name = "packer_images"
-  managed_image_name                = "packer-ubuntu-azure-{{timestamp}}"
-
-  os_type         = "Linux"
-  image_publisher = "Canonical"
-  image_offer     = "UbuntuServer"
-  image_sku       = "16.04-LTS"
-
-  azure_tags = {
-    Created-by = "Packer"
-    OS_Version = "Ubuntu 16.04"
-    Release    = "Latest"
-  }
-
-  location = "East US"
-  vm_size  = "Standard_A2"
-}
-
 source "azure-arm" "ubuntu_20" {
-  subscription_id                   = "e1f6a3f2-9d19-4e32-bcc3-1ef1517e0fa5"
+  subscription_id                   = var.azure_subscription_id
+  tenant_id                         = var.azure_tenant_id
+  client_id                         = var.azure_client_id
+  client_secret                     = var.azure_client_secret
   managed_image_resource_group_name = "packer_images"
-  managed_image_name                = "packer-ubuntu-azure-{{timestamp}}"
+  managed_image_name                = "packer-ubuntu-azure-${local.timestamp}"
 
   os_type         = "Linux"
   image_publisher = "Canonical"
@@ -156,40 +158,39 @@ source "azure-arm" "ubuntu_20" {
   }
 
   location = "East US"
-  vm_size  = "Standard_A2"
+  vm_size  = "Standard_D2s_v3"
 }
 
-source "azure-arm" "windows_2012r2" {
-  subscription_id                   = "e1f6a3f2-9d19-4e32-bcc3-1ef1517e0fa5"
+source "azure-arm" "ubuntu_22" {
+  subscription_id                   = var.azure_subscription_id
+  tenant_id                         = var.azure_tenant_id
+  client_id                         = var.azure_client_id
+  client_secret                     = var.azure_client_secret
   managed_image_resource_group_name = "packer_images"
-  managed_image_name                = "packer-w2k12r2-azure-{{timestamp}}"
+  managed_image_name                = "packer-ubuntu-azure-${local.timestamp}"
 
-  os_type         = "Windows"
-  image_publisher = "MicrosoftWindowsServer"
-  image_offer     = "WindowsServer"
-  image_sku       = "2012-R2-Datacenter"
-
-  communicator     = "winrm"
-  winrm_use_ssl    = true
-  winrm_insecure   = true
-  winrm_timeout    = "5m"
-  winrm_username   = "packer"
-  custom_data_file = "./scripts/SetUpWinRM.ps1"
+  os_type         = "Linux"
+  image_publisher = "Canonical"
+  image_offer     = "0001-com-ubuntu-server-jammy"
+  image_sku       = "22_04-lts"
 
   azure_tags = {
     Created-by = "Packer"
-    OS_Version = "Windows 2012R2"
+    OS_Version = "Ubuntu 22.04"
     Release    = "Latest"
   }
 
   location = "East US"
-  vm_size  = "Standard_A2"
+  vm_size  = "Standard_D2s_v3"
 }
 
 source "azure-arm" "windows_2019" {
-  subscription_id                   = "e1f6a3f2-9d19-4e32-bcc3-1ef1517e0fa5"
+  subscription_id                   = var.azure_subscription_id
+  tenant_id                         = var.azure_tenant_id
+  client_id                         = var.azure_client_id
+  client_secret                     = var.azure_client_secret
   managed_image_resource_group_name = "packer_images"
-  managed_image_name                = "packer-w2k19-azure-{{timestamp}}"
+  managed_image_name                = "packer-w2k19-azure-${local.timestamp}"
 
   os_type         = "Windows"
   image_publisher = "MicrosoftWindowsServer"
@@ -210,27 +211,70 @@ source "azure-arm" "windows_2019" {
   }
 
   location = "East US"
-  vm_size  = "Standard_A2"
+  vm_size  = "Standard_D2s_v3"
+}
+
+source "azure-arm" "windows_2022" {
+  subscription_id                   = var.azure_subscription_id
+  tenant_id                         = var.azure_tenant_id
+  client_id                         = var.azure_client_id
+  client_secret                     = var.azure_client_secret
+  managed_image_resource_group_name = "packer_images"
+  managed_image_name                = "packer-w2k22-azure-${local.timestamp}"
+
+  os_type         = "Windows"
+  image_publisher = "MicrosoftWindowsServer"
+  image_offer     = "WindowsServer"
+  image_sku       = "2022-Datacenter"
+
+  communicator     = "winrm"
+  winrm_use_ssl    = true
+  winrm_insecure   = true
+  winrm_timeout    = "5m"
+  winrm_username   = "packer"
+  custom_data_file = "./scripts/SetUpWinRM.ps1"
+
+  azure_tags = {
+    Created-by = "Packer"
+    OS_Version = "Windows 2022"
+    Release    = "Latest"
+  }
+
+  location = "East US"
+  vm_size  = "Standard_D2s_v3"
 }
 ```
 
 `linux-build.pkr.hcl`
 ```hcl
+packer {
+  required_plugins {
+    amazon = {
+      source  = "github.com/hashicorp/amazon"
+      version = "~> 1"
+    }
+    azure = {
+      source  = "github.com/hashicorp/azure"
+      version = "~> 2"
+    }
+  }
+}
+
 build {
   name        = "ubuntu"
   description = <<EOF
 This build creates ubuntu images for ubuntu versions :
-* 16.04
 * 20.04
+* 22.04
 For the following builers :
 * amazon-ebs
 * azure-arm
 EOF
   sources = [
-    "source.amazon-ebs.ubuntu_16",
     "source.amazon-ebs.ubuntu_20",
-    "source.azure-arm.ubuntu_16",
+    "source.amazon-ebs.ubuntu_22",
     "source.azure-arm.ubuntu_20",
+    "source.azure-arm.ubuntu_22",
   ]
 
   provisioner "shell" {
@@ -263,23 +307,22 @@ build {
   name        = "windows"
   description = <<EOF
 This build creates Windows images:
-* Windows 2012R2
 * Windows 2019
+* Windows 2022
 For the following builers :
 * amazon-ebs
 * azure-arm
 EOF
   sources = [
-    "source.amazon-ebs.windows_2012r2",
     "source.amazon-ebs.windows_2019",
-    "source.azure-arm.windows_2012r2",
-    "source.azure-arm.windows_2019"
+    "source.amazon-ebs.windows_2022",
+    "source.azure-arm.windows_2019",
+    "source.azure-arm.windows_2022"
   ]
 
   post-processor "manifest" {
   }
 }
-
 ```
 
 `variables.pkr.hcl`
@@ -301,7 +344,7 @@ variable "instance_type" {
 
 variable "ami_regions" {
   type    = list(string)
-  default = ["us-west-2", "us-east-1", "eu-central-1"]
+  default = ["us-west-2"]
 }
 
 variable "tags" {
@@ -309,15 +352,43 @@ variable "tags" {
   default = {
     "Name"        = "MyUbuntuImage"
     "Environment" = "Production"
-    "OS_Version"  = "Ubuntu 16.04"
     "Release"     = "Latest"
     "Created-by"  = "Packer"
   }
 }
 
+variable "azure_subscription_id" {
+  type        = string
+  description = "Azure subscription ID"
+}
+
+variable "azure_tenant_id" {
+  type        = string
+  description = "Azure tentant ID"
+}
+
+variable "azure_client_id" {
+  type        = string
+  description = "Azure client ID"
+}
+
+variable "azure_client_secret" {
+  type        = string
+  description = "Azure client secret"
+}
+
 locals {
   timestamp = regex_replace(timestamp(), "[- TZ:]", "")
 }
+```
+
+`example.auto.pkrvars.hcl`
+```hcl
+ami_prefix             = "my-ubuntu-var"
+azure_subscription_id  = "<your Azure subscription key>"
+azure_tenant_id        = "<your Azure tenant key>"
+azure_client_id        = "<your Azure client id>"
+azure_client_secret    = "<your Azure client secret>"
 ```
 
 ### Step 10.1.1
@@ -379,10 +450,36 @@ packer validate .
 ### Task 3: Build a new Image using Packer
 The `packer build` command can be run against all template files in a given folder.
 
+Before initiatiating the image build be sure your cloud credentials are set.  Here is an example of setting these credentials using environment variables.
+
+> Note: Example using environment variables on a Linux or macOS:
+```bash
+# AWS Credentials
+export AWS_ACCESS_KEY_ID=<your access key>
+export AWS_SECRET_ACCESS_KEY=<your secret key>
+export AWS_DEFAULT_REGION=us-west-2
+```
+
+> Note: Example via Powershell:
+
+```pwsh
+# AWS Credentials
+PS C:\> $Env:AWS_ACCESS_KEY_ID="<your access key>"
+PS C:\> $Env:AWS_SECRET_ACCESS_KEY="<your secret key>"
+PS C:\> $Env:AWS_DEFAULT_REGION="us-west-2"
+```
+
+> Note: Based on your the access of your Azure credentials you may need to create a Azure Resource Group to save your Packer Images
+
+```bash
+az group create -l eastus -n packer_images
+```
+
 ### Step 10.3.1
-Run a `packer build` across all files within the `cloud_images` 
+Initialize and Run a `packer build` across all files within the `cloud_images` 
 
 ```shell
+packer init .
 packer build .
 ```
 

@@ -101,6 +101,13 @@ cat web-vistors.json.pkr.hcl
 ```
 
 ```hcl
+packer {
+  required_plugins {
+    amazon = {
+      source  = "github.com/hashicorp/amazon"
+      version = "~> 1"
+    }
+}
 
 variable "aws_source_ami" {
   type    = string
@@ -136,8 +143,8 @@ build {
 5. Validate and Build the Image using the HCL template
 
 ```bash
+packer init web-vistors.json.pkr.hcl
 packer validate web-vistors.json.pkr.hcl
-
 packer build web-vistors.json.pkr.hcl
 ```
 
