@@ -316,9 +316,9 @@ data "aws_ami" "packer_image" {
 
 ```hcl
 resource "aws_instance" "test_ami" {
-  ami           = data.aws_ami.packer_image.image_id
-  instance_type = "t2.micro"
-  key_name      = "MyEC2Instance"
+  ami                    = var.ami
+  instance_type          = "t2.micro"
+  vpc_security_group_ids = [aws_security_group.allow_clumsy_bird.id]
 
   tags = {
     "Name" = var.appname
