@@ -16,7 +16,7 @@ Create a `packer_terraform` folder with the following Terraform configuration fi
 `main.tf`
 ```hcl
 variable "ami" {
-  type = string
+  type        = string
   description = "Application Image to Deploy"
 }
 
@@ -26,7 +26,7 @@ variable "region" {
 }
 
 variable "appname" {
-  type    = string
+  type        = string
   description = "Application Name"
 }
 
@@ -34,9 +34,34 @@ provider "aws" {
   region = var.region
 }
 
+resource "aws_security_group" "allow_clumsy_bird" {
+  name        = "allow_clumsy_bird"
+  description = "Allow inbound traffic to clumsy bird 8001"
+
+  ingress {
+    description = "Clumsy Bird Inbound Traffic"
+    from_port   = 8001
+    to_port     = 8001
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "allow_clumsy_bird"
+  }
+}
+
 resource "aws_instance" "test_ami" {
-  ami           = var.ami
-  instance_type = "t2.micro"
+  ami                    = var.ami
+  instance_type          = "t2.micro"
+  vpc_security_group_ids = [aws_security_group.allow_clumsy_bird.id]
 
   tags = {
     "Name" = var.appname
