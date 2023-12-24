@@ -114,7 +114,7 @@ var.ami
 var.appname
   Application Name
 
-  Enter a value: Clumsy Bird
+  Enter a value: ClumsyBird
 ```
 
 View the `plan` details for the Terraform deployment.
@@ -128,7 +128,7 @@ var.ami
 var.appname
   Application Name
 
-  Enter a value: Clumsy Bird
+  Enter a value: ClumsyBird
 
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with
@@ -261,7 +261,7 @@ var.ami
 var.appname
   Application Name
 
-  Enter a value: Clumsy Bird
+  Enter a value: ClumsyBird
 ```
 
 Validate the plan and enter `yes` to provision the instance.
