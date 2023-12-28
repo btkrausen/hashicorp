@@ -4,6 +4,12 @@ job "tetris" {
   group "games" {
     count = 5
 
+    network {
+      port "web" {
+        to = 80
+      }
+    }
+    
     task "tetris" {
       driver = "docker"
 
