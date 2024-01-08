@@ -17,7 +17,7 @@ In previous labs we begain using modules from the Terraform Public Module Regist
 ```hcl
 module "s3-bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
-  version = "3.11.0"
+  version = "2.11.1"
 }
 
 output "s3_bucket_name" {

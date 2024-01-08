@@ -59,8 +59,8 @@ build {
   }
 
   provisioner "ansible" {
-    ansible_env_vars = ["ANSIBLE_HOST_KEY_CHECKING=False", "ANSIBLE_COW_SELECTION=random"]
-    extra_arguments  = ["--extra-vars", "desktop=false"]
+    ansible_env_vars = ["ANSIBLE_HOST_KEY_CHECKING=False", "ANSIBLE_NOCOWS=1"]
+    extra_arguments  = ["--extra-vars", "desktop=false", "-v"]
     playbook_file    = "${path.root}/playbooks/playbook.yml"
     user             = var.ssh_username
   }
