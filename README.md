@@ -41,5 +41,6 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 | 11 | [HashiCorp Nomad Fundamentals: The Ultimate Beginner's Guide](https://btk.me/n) | JAN2024 | Feb 8, 2024 |
 | 12 | [Amazon S3 Deep Dive: The Ultimate Guide to AWS Cloud Storage](https://btk.me/s3) | JAN2024 | Feb 8, 2024 |
 | 13 | [Kubernetes and Cloud Native Associate (KCNA) Practice Exams](https://btk.me/kcna) | JAN2024 | Feb 8, 2024 |
+| 14 | [GitHub Foundations Practice Exams 2024](https://btk.me/ghp) | JAN2024 | Feb 8, 2024 |
 
 Please feel free to reach through [Twitter](https://twitter.com/btkrausen) or [LinkedIn](https://www.linkedin.com/in/bryan-krausen-5ab8794/) for questions or comments.
