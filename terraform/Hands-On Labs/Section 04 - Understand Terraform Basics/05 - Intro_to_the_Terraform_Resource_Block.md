@@ -172,7 +172,7 @@ Notice that this resource, the `aws_security_group` requires completely differen
 
 ### Task 3.1.1
 
-Run a `terraform plan` to see that this new Amazon security group will be added to our account. Don't worry, security group don't incur any fees.
+Run a `terraform plan` to see that this new Amazon security group will be added to our account. Don't worry, security groups don't incur any fees in AWS.
 
 ```bash
 terraform plan
@@ -254,7 +254,7 @@ resource "random_id" "randomness" {
 
 ### Task 4.1.1
 
-Run a `terraform plan` to see that this new Amazon security group will be added to our account. Don't worry, security group don't incur any fees.
+Run a `terraform plan` to see that this new Amazon security group will be added to our account. Don't worry, security groups in AWS don't incur any fees.
 
 ```bash
 terraform plan
@@ -371,7 +371,7 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 ## Task 5: Update the Amazon S3 bucket to use the random ID
 
-Now that we have a `random_id` being created by Terraform, let's see how we can use that for other resources. If you're not aware, Amazon S3 bucket names have to be globally unique, meaning nobody in the world can create a bucket with the same name as an existing bucket. That means if I create a bucket named "my-cool-s2-bucket", nobody else can create a bucket with the same name. This is where the random_id might come in handy, so let's update the name of our bucket to use a random ID.
+Now that we have a `random_id` being created by Terraform, let's see how we can use that for other resources. If you're not aware, Amazon S3 bucket names have to be globally unique, meaning nobody in the world can create a bucket with the same name as an existing bucket. That means if I create a bucket named "my-cool-s3-bucket", nobody else can create a bucket with the same name. This is where the random_id might come in handy, so let's update the name of our bucket to use a random ID.
 
 In your main.tf file, find the resource block where you created a new Amazon S3 bucket. It's the code we added in Task 2 above. Modify the `bucket` argument to include the following:
 
