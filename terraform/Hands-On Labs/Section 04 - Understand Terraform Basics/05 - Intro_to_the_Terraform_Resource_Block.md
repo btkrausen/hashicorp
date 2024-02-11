@@ -172,7 +172,7 @@ Notice that this resource, the `aws_security_group` requires completely differen
 
 ### Task 3.1.1
 
-Run a `terraform plan` to see that this new Amazon S3 bucket will be added to our account. Don't worry, S3 buckets don't incur any fees unless you upload data to the bucket.
+Run a `terraform plan` to see that this new Amazon security group will be added to our account. Don't worry, S3 buckets don't incur any fees unless you upload data to the bucket.
 
 ```bash
 terraform plan
@@ -254,7 +254,7 @@ resource "random_id" "randomness" {
 
 ### Task 4.1.1
 
-Run a `terraform plan` to see that this new Amazon S3 bucket will be added to our account. Don't worry, S3 buckets don't incur any fees unless you upload data to the bucket.
+Run a `terraform plan` to see that this new Amazon security group will be added to our account. Don't worry, S3 buckets don't incur any fees unless you upload data to the bucket.
 
 ```bash
 terraform plan
