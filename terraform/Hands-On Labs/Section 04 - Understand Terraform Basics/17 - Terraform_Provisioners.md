@@ -4,7 +4,7 @@ Provisioners can be used to model specific actions on the local machine or on a 
 
 To this point the EC2 web server we have created is useless. We created a server without any running code with no useful services are running on it.
 
-We will utilize Terraform provisoners to deploy a webapp onto the instance we've created. In order run these steps Terraform needs a connection block along with our generated SSH key from the previous labs in order to authenticate into our instance. Terraform can utilize both the `local-exec` provisioner to urn commands on our local workstation, and the `remote-exec` provisoner to install security updates along with our web application.
+We will utilize Terraform provisoners to deploy a webapp onto the instance we've created. In order run these steps Terraform needs a connection block along with our generated SSH key from the previous labs in order to authenticate into our instance. Terraform can utilize both the `local-exec` provisioner to run commands on our local workstation, and the `remote-exec` provisoner to install security updates along with our web application.
 
 - Task 1: Upload your SSH keypair to AWS and associate to your instance.
 - Task 2: Create a Security Group that allows SSH to your instance.
