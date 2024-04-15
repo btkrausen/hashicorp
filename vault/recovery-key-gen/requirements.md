@@ -24,7 +24,7 @@ The tool can be run directly on an existing Vault/Consul cluster node if the cur
 ### Network Requirements
 
 * Bi-directional communication between primary cluster (target) and the new node/cluster used for recovery over ports ```tcp/8200``` and ```tcp/8201```
-* Comunication between the Vault and Consul nodes (newly deployed resources)
+* Communication between the Vault and Consul nodes (newly deployed resources)
 * TLS certificate (if needed for replication)
 
 ### Preparation
