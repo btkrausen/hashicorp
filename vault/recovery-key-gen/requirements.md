@@ -1,5 +1,5 @@
 ## Recovery Key Recovery Tool Requirements
-If you've lost the recover keys for your cluster, you can use this Vault Recovery Key tool as an attempt to regenerate keys for the cluster. Once generated, I'd recommend using the official Vault CLI command ```vault operator rekey``` to regenerate them again. 
+If you've lost the recover keys for your cluster, you can use the Vault Recovery Key tool as an attempt to regenerate keys for the cluster. Once generated, I'd recommend using the official Vault CLI command ```vault operator rekey``` to regenerate them again. 
 
 https://github.com/jdfriedma/vault-recovery-key
 
@@ -9,11 +9,11 @@ The tool can be run directly on an existing Vault/Consul cluster node if the cur
 
 ### High-Level Steps for Recovery
 1. Deploy a new single-node Vault "cluster" that will be configured for DR replication. Use Consul as the backend using a new single-node Consul cluster. Both of these will be destroyed after so minimal configuration can be used.
-2. Configure the new Vault cluster to use an existing cluster for transit auto unseal. 
+2. Configure the new Vault cluster to use an existing cluster for ```transit``` auto unseal. 
 3. Initialize and unseal the new cluster
 4. Generate a DR secondary token on the primary cluster for replication
 5. Configure DR replication on the new Vault cluster using the secondary token
-6. Validate replication is working as expected (waiting for stream-wals status)
+6. Validate replication is working as expected (waiting for ```stream-wals``` status)
 7. Obtain the recovery key from Consul stored on the KV using the command ```consul kv get -base64 vault/core/recovery-key  | base64 -d >  consul.key```
 8. Configure all of the required environment variables found at the link above.
 9. Run the Vault recovery key tool to generate new keys.
@@ -58,7 +58,7 @@ GOOS=linux GOARCH=amd64 go build -o bin/vault-recovery-key ./main.go
 **Export Environment Variables for Tool Execution**
 ```
 export VAULT_ADDR="<vault-cluster-address>:8200"
-export VAULT_TOKEN="<token fro cluster above>"
+export VAULT_TOKEN="<token from cluster above>"
 export VAULT_TRANSIT_SEAL_KEY_NAME="auto-unseal"
 export VAULT_TRANSIT_SEAL_MOUNT_PATH="transit"
 export VAULT_NAMESPACE="admin"
