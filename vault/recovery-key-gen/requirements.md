@@ -17,7 +17,7 @@ The tool can be run directly on an existing Vault/Consul cluster node if the cur
 7. Obtain the recovery key from Consul stored on the KV using the command ```consul kv get -base64 vault/core/recovery-key  | base64 -d >  consul.key```
 8. Configure all of the required environment variables found at the link above.
 9. Run the Vault recovery key tool to generate new keys.
-10. Using the new keys, use the ````vault operator rekey``` command to regenerate "official" keys on the primary cluster.
+10. Using the new keys, use the ```vault operator rekey``` command to regenerate "official" keys on the primary cluster.
 11. Remove the DR cluster from replication on the primary cluster.
 12. Destroy the new Vault and Consul nodes.
 
