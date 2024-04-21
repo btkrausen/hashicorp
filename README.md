@@ -24,7 +24,7 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 
 [Udemy Profile for Bryan Krausen](https://www.udemy.com/user/bryan-krausen/ "Udemy Profile")
 
-## Video Courses
+## 🧑‍💻 🧑‍💻 Video Courses 🧑‍💻 🧑‍💻
 
 | Course Link | Coupon Code |
 | ----------- | ----------- |
@@ -38,7 +38,7 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 | [HashiCorp Nomad Fundamentals: The Ultimate Beginner's Guide](https://btk.me/n) | APRIL2024 |
 | [Amazon S3 Deep Dive: The Ultimate Guide to AWS Cloud Storage](https://btk.me/s3) | APRIL2024 |
 
-## Practice Exam Courses
+## 📝 📝 Practice Exam Courses 📝 📝
 | Course Link | Coupon Code |
 | ----------- | ----------- |
 | [HashiCorp Certified: Terraform Associate Practice Exam](https://btk.me/tf) | APRIL2024 |
