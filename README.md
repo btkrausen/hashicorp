@@ -19,8 +19,8 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 - 👉 [Running HashiCorp Vault in Production in PDF](https://gum.co/vaultbook/)
 - 👉 [The Best-Kept Secrets of HashiCorp Vault](https://btkrausen.gumroad.com/l/secretsofvault)
 <br>
- 
-### 👇👇👇 **Udemy Discount Coupons** 👇👇👇
+
+## **Udemy Discount Coupons**
 
 [Udemy Profile for Bryan Krausen](https://www.udemy.com/user/bryan-krausen/ "Udemy Profile")
 
