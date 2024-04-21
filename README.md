@@ -11,7 +11,7 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 
 <br>
 
-### **Buy my book on Amazon:**
+### **Buy my books on Amazon:**
 - 👉 [Running HashiCorp Vault in Production](https://amzn.to/2UeUjAI)
 - 👉 [The Best-Kept Secrets of HashiCorp Vault](https://amzn.to/3HAw4pF)
 
