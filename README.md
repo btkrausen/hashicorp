@@ -20,28 +20,32 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 - 👉 [The Best-Kept Secrets of HashiCorp Vault](https://btkrausen.gumroad.com/l/secretsofvault)
 <br>
  
-### Current Training Discounts and Coupons
-
-####
+### 👇👇👇 **Udemy Discount Coupons** 👇👇👇
 
 [Udemy Profile for Bryan Krausen](https://www.udemy.com/user/bryan-krausen/ "Udemy Profile")
 
-| No  | Course Link | Coupon Code | Valid Until |
-| --- | ----------- | ----------- | ----------- |
-| 1 | [HashiCorp Certified: Vault Associate (w/ Hands-On Labs)](https://btk.me/v) | APRIL2024 | MAY 9, 2024 |
-| 2 | [Integrating HashiCorp Vault with AWS](https://btk.me/vaws) | APRIL2024 | MAY 9, 2024 |
-| 3 | [HashiCorp Certified: Vault Operations Professional](https://btk.me/vp) | APRIL2024 | MAY 9, 2024 |
-| 4 | [Mastering Terraform Cloud with Hands-On Labs](https://btk.me/tfc) | APRIL2024 | MAY 9, 2024 |
-| 5 | [HashiCorp Certified: Terraform Associate Hands-On Lab Course](https://btk.me/tfhol) | APRIL2024 | MAY 9, 2024 |
-| 6 | [HashiCorp Certified: Terraform Associate Practice Exam](https://btk.me/tf) | APRIL2024 | MAY 9, 2024 |
-| 7 | [HashiCorp Certified: Vault Associate Practice Exam](https://btk.me/vpe) | APRIL2024 | MAY 9, 2024 |
-| 8 | [HashiCorp Certified: Consul Associate Practice Exam](https://btk.me/cpe) | APRIL2024 | MAY 9, 2024 |
-| 9 | [HashiCorp Certified: Consul Associate (w Hands-On Labs)](https://btk.me/c) | APRIL2024 | MAY 9, 2024 |
-| 10 | [Building Automated Machine Images using HashiCorp Packer](https://btk.me/p) | APRIL2024 | MAY 9, 2024 |
-| 11 | [HashiCorp Nomad Fundamentals: The Ultimate Beginner's Guide](https://btk.me/n) | APRIL2024 | MAY 9, 2024 |
-| 12 | [Amazon S3 Deep Dive: The Ultimate Guide to AWS Cloud Storage](https://btk.me/s3) | APRIL2024 | MAY 9, 2024 |
-| 13 | [Kubernetes and Cloud Native Associate (KCNA) Practice Exams](https://btk.me/kcna) | APRIL2024 | MAY 9, 2024 |
-| 14 | [GitHub Foundations Certification Practice Exams](https://btk.me/ghp) | APRIL2024 | MAY 9, 2024 |
-| 15 | [GitHub Actions Certification Practice Exams](https://btk.me/gha) | APRIL2024 | MAY 9, 2024 |
+## Video Courses
+
+| Course Link | Coupon Code |
+| ----------- | ----------- |
+| [HashiCorp Certified: Vault Associate (w/ Hands-On Labs)](https://btk.me/v) | APRIL2024 |
+| [Integrating HashiCorp Vault with AWS](https://btk.me/vaws) | APRIL2024 |
+| [HashiCorp Certified: Vault Operations Professional](https://btk.me/vp) | APRIL2024 |
+| [Mastering Terraform Cloud with Hands-On Labs](https://btk.me/tfc) | APRIL2024 |
+| [HashiCorp Certified: Terraform Associate Hands-On Lab Course](https://btk.me/tfhol) | APRIL2024 |
+| [HashiCorp Certified: Consul Associate (w Hands-On Labs)](https://btk.me/c) | APRIL2024 |
+| [Building Automated Machine Images using HashiCorp Packer](https://btk.me/p) | APRIL2024 |
+| [HashiCorp Nomad Fundamentals: The Ultimate Beginner's Guide](https://btk.me/n) | APRIL2024 |
+| [Amazon S3 Deep Dive: The Ultimate Guide to AWS Cloud Storage](https://btk.me/s3) | APRIL2024 |
+
+## Practice Exam Courses
+| Course Link | Coupon Code |
+| ----------- | ----------- |
+| [HashiCorp Certified: Terraform Associate Practice Exam](https://btk.me/tf) | APRIL2024 |
+| [GitHub Foundations Certification Practice Exams](https://btk.me/ghp) | APRIL2024 |
+| [GitHub Actions Certification Practice Exams](https://btk.me/gha) | APRIL2024 |
+| [Kubernetes and Cloud Native Associate (KCNA) Practice Exams](https://btk.me/kcna) | APRIL2024 |
+| [HashiCorp Certified: Vault Associate Practice Exam](https://btk.me/vpe) | APRIL2024 |
+| [HashiCorp Certified: Consul Associate Practice Exam](https://btk.me/cpe) | APRIL2024 |
 
 Please feel free to reach through [Twitter](https://twitter.com/btkrausen) or [LinkedIn](https://www.linkedin.com/in/bryan-krausen-5ab8794/) for questions or comments.
