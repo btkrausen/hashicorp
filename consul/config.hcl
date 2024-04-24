@@ -8,15 +8,19 @@ ui_config {
 }
 
 # TLS Configuration
-key_file               = "/etc/consul.d/cert.key"
-cert_file              = "/etc/consul.d/client.pem"
-ca_file                = "/etc/consul.d/chain.pem"
-verify_incoming        = true
-verify_outgoing        = true
-verify_server_hostname = true
+tls {
+  default {
+    key_file               = "/etc/consul.d/cert.key"
+    cert_file              = "/etc/consul.d/client.pem"
+    ca_file                = "/etc/consul.d/chain.pem"
+    verify_incoming        = true
+    verify_outgoing        = true
+    verify_server_hostname = true
+  }
+}
 
 # Gossip Encryption - generate key using consul keygen
-encrypt                = "pCOEKgL2SYHmDoFJqnolFUTJi7Vy+Qwyry04WIZUupc="
+encrypt = "pCOEKgL2SYHmDoFJqnolFUTJi7Vy+Qwyry04WIZUupc="
 
 leave_on_terminate = true
 data_dir           = "/opt/consul/data"
