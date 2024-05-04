@@ -9,7 +9,7 @@ One of the features of the Terraform CLI is that you can install a tab-completio
 ## Task 1: Install Terraform Auto Complete
 
 ```hcl
-$ terraform -install-auto-complete
+$ terraform -install-autocomplete
 ```
 
 ## Task 2: Test Auto Complete via CLI
