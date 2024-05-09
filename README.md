@@ -37,7 +37,7 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 | [Building Automated Machine Images using HashiCorp Packer](https://btk.me/p) | MAY2024 |
 | [HashiCorp Nomad Fundamentals: The Ultimate Beginner's Guide](https://btk.me/n) | MAY2024 |
 | [Amazon S3 Deep Dive: The Ultimate Guide to AWS Cloud Storage](https://btk.me/s3) | MAY2024 |
-| [Amazon Bedrock - The Complete Guide to AWS Generative AI](https://btk.me/ab) | MAY2024 |
+| [Amazon Bedrock - The Complete Guide to AWS Generative AI](https://btk.me/ab) | 47B2DCBC436A6E70B6BA |
 
 
 ## 📝 📝 Practice Exam Courses 📝 📝
