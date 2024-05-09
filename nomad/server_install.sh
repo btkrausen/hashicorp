@@ -75,13 +75,17 @@ client {
 // }
 
 # [optional] Specifies configuration for connecting to Vault
-// vault {
-//   enabled     = true
-//   address     = "https://vault.example.com:8200"
-//   ca_path     = "/etc/certs/ca"
-//   cert_file   = "/var/certs/vault.crt"
-//   key_file    = "/var/certs/vault.key"
-// }
+vault {
+  enabled          = true
+  address          = "https://vault.example.com:8200/"
+  create_from_role = "nomad-cluster"
+  namespace        = "admin"
+  
+  default_identity {
+    aud = ["vault.io"]
+    ttl = "1h"
+  }
+}
 EOF
 
 # Enable and Start the Nomad Service

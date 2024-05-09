@@ -48,8 +48,8 @@ ports {
 
 # TLS configurations
 tls {
-  http = false
-  rpc  = false
+  http = true
+  rpc  = true
 
   ca_file   = "/etc/certs/ca.crt"
   cert_file = "/etc/certs/nomad.crt"
@@ -74,6 +74,12 @@ client {
   server_join {
     retry_join = ["provider=aws tag_key=nomad_cluster_id tag_value=us-east-1"]
   }
+}
+# Optional if using Vault integration
+vault {
+  enabled          = true
+  address          = "https://vault.example.com:8200/"
+  namespace        = "admin"
 }
 EOF
 
