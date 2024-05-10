@@ -1,6 +1,8 @@
 log_level  = "INFO"
 server     = true
 datacenter = "us-east-1"
+
+# Authoritative datacenter for Federation
 primary_datacenter = "dc1"
 
 ui_config {
@@ -13,7 +15,7 @@ tls {
     key_file               = "/etc/consul.d/cert.key"
     cert_file              = "/etc/consul.d/client.pem"
     ca_file                = "/etc/consul.d/chain.pem"
-    verify_incoming        = true
+    verify_incoming        = false
     verify_outgoing        = true
     verify_server_hostname = true
   }
@@ -26,7 +28,7 @@ leave_on_terminate = true
 data_dir           = "/opt/consul/data"
 
 # Agent Network Configuration
-client_addr    = "0.0.0.0"
+client_addr    = "10.0.0.170"
 bind_addr      = "10.0.0.170"
 advertise_addr = "10.0.0.170"
 
