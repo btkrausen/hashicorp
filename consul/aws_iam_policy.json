@@ -1,0 +1,45 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "EnableKMSForRaftSnapshotsToS3",
+      "Effect": "Allow",
+      "Action": [
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey"
+      ],
+      "Resource": "arn:aws:kms:us-east-1:123456789012:key/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    },
+    {
+      "Sid": "PermitEC2ApiAccessForCloudAutoJoin",
+      "Effect": "Allow",
+      "Action": ["ec2:DescribeInstances"],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": "us-east-1"
+        }
+      }
+    },
+    {
+      "Sid": "PermitS3BucketAccessForCreatingDeletingSnapshots",
+      "Effect": "Allow",
+      "Action": ["s3:PutObject", "s3:DeleteObject"],
+      "Resource": ["arn:aws:s3:::consul_raft_snapshots/production/*.snap"]
+    },
+    {
+      "Sid": "PermitS3BucketAccessForSnapshots",
+      "Effect": "Allow",
+      "Action": ["s3:ListBucket", "s3:ListBucketVersions"],
+      "Resource": ["arn:aws:s3:::consul_raft_snapshots"]
+    },
+    {
+      "Sid": "PermitS3BucketGetAccessForSnapshots",
+      "Effect": "Allow",
+      "Action": ["s3:ListBucket", "s3:GetObject"],
+      "Resource": ["arn:aws:s3:::vconsul_raft_snapshots/*"]
+    }
+  ]
+}
