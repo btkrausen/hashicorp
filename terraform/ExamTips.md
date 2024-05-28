@@ -8,7 +8,7 @@ The HashiCorp Certified: Terraform Associate exam includes multiple-choice, mult
 
 ## How Do I Prepare for the Exam?
 
-There are a series of study materials and courses available that will help you to get ready for the certification exam.  This includes [HashiCorp's Certification Preperation](https://learn.hashicorp.com/collections/terraform/certification) tracks as well as our own [Terraform Hands on Lab Course](https://www.udemy.com/course/terraform-hands-on-labs).  These will go through all of the exam objectives and ensure you are comfortable with all the topics that might be covered. Regardless of what study materials you register for be sure to subscribe to a course that is actively maintained, as HashiCorp frequently updates its exams.
+There are a series of study materials and courses available that will help you to get ready for the certification exam.  This includes [HashiCorp's Certification Preperation](https://developer.hashicorp.com/terraform/tutorials/certification-003) tracks as well as our own [Terraform Hands on Lab Course](https://www.udemy.com/course/terraform-hands-on-labs).  These will go through all of the exam objectives and ensure you are comfortable with all the topics that might be covered. Regardless of what study materials you register for be sure to subscribe to a course that is actively maintained, as HashiCorp frequently updates its exams.
 
 ### Hands-On Practice
 
@@ -18,7 +18,7 @@ Let's be honest, when it comes to Terraform, there's no better way to study and 
 
 When you are getting comfortable with the topics presented in this exam, take a look at the practice questions that we've included in the course. These are designed to be similar to the real exam and test your knowledge on the information in each objective. It's not enough to just get them right, but know exactly WHY the correct answer is correct. Even better, know why the incorrect answers are clearly wrong. That's the real power of using practice exams to study.
 
-When you're ready for more practice questions, check out [Bryan's practice exam](https://www.udemy.com/course/terraform-associate-practice-exam/) on Udemy. He wrote the very first practice exam for the Terraform Associate exam and it's been used by thousands of people to help prepare and pass the exam. With close to 10,000 students, it still has a 4.5 rating. If you're interested, check out github.com/btkrausen/hashicorp for a link and available coupons. You won't be disappointed.
+When you're ready for more practice questions, check out [Bryan's practice exam](https://btk.me/tf) on Udemy. He wrote the very first practice exam for the Terraform Associate exam and it's been used by thousands of people to help prepare and pass the exam. With close to 50,000 students, it still has a 4.7 rating. If you're interested, check out [github.com/btkrausen/hashicorp](github.com/btkrausen/hashicorp) for a link and available coupons. You won't be disappointed.
 
 ### Use the HashiCorp official documentation
 
