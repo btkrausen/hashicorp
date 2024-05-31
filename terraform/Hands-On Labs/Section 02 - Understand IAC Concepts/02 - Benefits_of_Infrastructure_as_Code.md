@@ -62,7 +62,8 @@ Select the VPC created in Step 1 from the dropdown list. Give the subnet the nam
 Repeat the previous step to create the additional subnets required to build out the required infrastructure, including 2 additional private subnets and the 3 public subnets. Use the following information to complete this step:
 
 |   Subnet Name    | Availability Zone |  CIDR Block   |
-| :--------------: | :---------------: | :-----------: |
+|:----------------:|:-----------------:|:-------------:|
+| private-subnet-1 |    us-east-1a     |  10.0.0.0/24  |
 | private-subnet-2 |    us-east-1b     |  10.0.1.0/24  |
 | private-subnet-3 |    us-east-1c     |  10.0.2.0/24  |
 | public-subnet-1  |    us-east-1a     | 10.0.100.0/24 |
@@ -216,11 +217,11 @@ provider "aws" {
   region = "us-east-1"
 }
 
-#Retrieve the list of AZs in the current AWS region
+# Retrieve the list of AZs in the current AWS region
 data "aws_availability_zones" "available" {}
 data "aws_region" "current" {}
 
-#Define the VPC
+# Define the VPC
 resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr
 
@@ -231,7 +232,7 @@ resource "aws_vpc" "vpc" {
   }
 }
 
-#Deploy the private subnets
+# Deploy the private subnets
 resource "aws_subnet" "private_subnets" {
   for_each          = var.private_subnets
   vpc_id            = aws_vpc.vpc.id
@@ -244,7 +245,7 @@ resource "aws_subnet" "private_subnets" {
   }
 }
 
-#Deploy the public subnets
+# Deploy the public subnets
 resource "aws_subnet" "public_subnets" {
   for_each                = var.public_subnets
   vpc_id                  = aws_vpc.vpc.id
@@ -258,14 +259,14 @@ resource "aws_subnet" "public_subnets" {
   }
 }
 
-#Create route tables for public and private subnets
+# Create route tables for public and private subnets
 resource "aws_route_table" "public_route_table" {
   vpc_id = aws_vpc.vpc.id
 
   route {
     cidr_block     = "0.0.0.0/0"
     gateway_id     = aws_internet_gateway.internet_gateway.id
-    #nat_gateway_id = aws_nat_gateway.nat_gateway.id
+    # nat_gateway_id = aws_nat_gateway.nat_gateway.id
   }
   tags = {
     Name      = "demo_public_rtb"
@@ -287,7 +288,7 @@ resource "aws_route_table" "private_route_table" {
   }
 }
 
-#Create route table associations
+# Create route table associations
 resource "aws_route_table_association" "public" {
   depends_on     = [aws_subnet.public_subnets]
   route_table_id = aws_route_table.public_route_table.id
@@ -302,7 +303,7 @@ resource "aws_route_table_association" "private" {
   subnet_id      = each.value.id
 }
 
-#Create Internet Gateway
+# Create Internet Gateway
 resource "aws_internet_gateway" "internet_gateway" {
   vpc_id = aws_vpc.vpc.id
   tags = {
@@ -310,7 +311,7 @@ resource "aws_internet_gateway" "internet_gateway" {
   }
 }
 
-#Create EIP for NAT Gateway
+# Create EIP for NAT Gateway
 resource "aws_eip" "nat_gateway_eip" {
   domain     = "vpc"
   depends_on = [aws_internet_gateway.internet_gateway]
@@ -319,7 +320,7 @@ resource "aws_eip" "nat_gateway_eip" {
   }
 }
 
-#Create NAT Gateway
+# Create NAT Gateway
 resource "aws_nat_gateway" "nat_gateway" {
   depends_on    = [aws_subnet.public_subnets]
   allocation_id = aws_eip.nat_gateway_eip.id
