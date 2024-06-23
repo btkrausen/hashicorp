@@ -67,7 +67,7 @@ In our example, `data` is used since we're referring to a data block. The "**typ
 
 ## Task 3: View the data source used retrieve the availability zones within the region
 
-If you didn't noticed already, we were already using a data source to retrieve the availability zones in the region we are using. Towards the top of the main.tf file, look for the following code:
+If you didn't notice already, we were already using a data source to retrieve the availability zones in the region we are using. Towards the top of the main.tf file, look for the following code:
 
 ```hcl
 #Retrieve the list of AZs in the current AWS region
