@@ -38,7 +38,7 @@ By default the local state is stored in plain text as JSON. There is no addition
       "type": "string"
     },
     "size": {
-      "value": "t2.micro",
+      "value": "t3.micro",
       "type": "string"
     }
   },

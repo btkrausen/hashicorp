@@ -38,7 +38,7 @@ packer {
 
 source "amazon-ebs" "ubuntu" {
   ami_name      = "packer-ubuntu-aws-{{timestamp}}"
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
   region        = "us-west-2"
   source_ami_filter {
     filters = {

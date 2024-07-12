@@ -20,7 +20,7 @@ You should already have a Terraform Cloud account with Team and Governance capab
 Let's write a Sentinel policy to set guardrails around one of type of resources created by our Terraform configuration. We want to enforce two organization requirements for EC2:
 
 - EC2 instances must have a Name tag.
-- EC2 instances must be of type t2.micro, t2.small, or t2.medium.
+- EC2 instances must be of type t3.micro, t2.small, or t2.medium.
 
 First we need a place to store our policies. Sentinel is a policy as code framework, so just like Terraform code we should store Sentinel code in a Version Control System like GitHub.
 
@@ -35,7 +35,7 @@ The Sentinel policies we will be using from this forked repo are:
 - [enforce-mandatory-tags](https://github.com/btkrausen/hashicorp/blob/master/terraform/Lab%20Prerequisites/Terraform%20Cloud%20Sentinel/global/enforce-mandatory-tags.sentinel) policy.
 - [restrict-ec2-instance-type](https://github.com/btkrausen/hashicorp/blob/master/terraform/Lab%20Prerequisites/Terraform%20Cloud%20Sentinel/global/restrict-ec2-instance-type.sentinel) policy.
 
-The `enforce-mandatory-tags` policy requires all EC2 instances to have a `Name` tag and the `restrict-ec2-instance-type` policy only allows EC2 instances of type: `t2.micro`, `t2.small`, or `t2.medium`.
+The `enforce-mandatory-tags` policy requires all EC2 instances to have a `Name` tag and the `restrict-ec2-instance-type` policy only allows EC2 instances of type: `t3.micro`, `t2.small`, or `t2.medium`.
 
 These policies use some functions from a Sentinel module in a different repository called [terraform-guides](https://github.com/hashicorp/terraform-guides). You'll find many useful Sentinel policies and functions in its [governance/third-generation](https://github.com/hashicorp/terraform-guides/tree/master/governance/third-generation) directory.
 
@@ -146,7 +146,7 @@ Description:
 
 Print messages:
 
-aws_instance.web_server has instance_type with value m5.large that is not in the allowed list: [t2.micro, t2.small, t2.medium]
+aws_instance.web_server has instance_type with value m5.large that is not in the allowed list: [t3.micro, t2.small, t2.medium]
 ```
 
 The policy is set to `hard-mandatory` enforcement that prevents the plan from moving forward. The enforcement level can be adjusted within the policy set `sentinel.hcl` if desired.

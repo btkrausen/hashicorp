@@ -142,7 +142,7 @@ Append the following code to `main.tf`
 # Terraform Resource Block - To Build EC2 instance in Public Subnet
 resource "aws_instance" "web_server_2" {
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
   subnet_id     = aws_subnet.public_subnets["public_subnet_2"].id
   tags = {
     Name = "Web EC2 Server"
@@ -180,7 +180,7 @@ Terraform will perform the following actions:
       + id                                   = (known after apply)
       + instance_initiated_shutdown_behavior = (known after apply)
       + instance_state                       = (known after apply)
-      + instance_type                        = "t2.micro"
+      + instance_type                        = "t3.micro"
       + ipv6_address_count                   = (known after apply)
       + ipv6_addresses                       = (known after apply)
       + key_name                             = (known after apply)
@@ -335,7 +335,7 @@ resource "aws_instance" "web_server" {
     id                                   = "i-0d544e90777ca8c2f"
     instance_initiated_shutdown_behavior = "stop"
     instance_state                       = "running"
-    instance_type                        = "t2.micro"
+    instance_type                        = "t3.micro"
     ipv6_address_count                   = 0
     ipv6_addresses                       = []
     monitoring                           = false

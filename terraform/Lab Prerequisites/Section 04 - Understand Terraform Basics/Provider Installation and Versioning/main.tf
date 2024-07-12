@@ -142,7 +142,7 @@ resource "aws_nat_gateway" "nat_gateway" {
 # Terraform Resource Block - To Build EC2 instance in Public Subnet
 resource "aws_instance" "web_server" {                            # BLOCK
   ami           = data.aws_ami.ubuntu.id                          # Argument with data expression
-  instance_type = "t2.micro"                                      # Argument
+  instance_type = "t3.micro"                                      # Argument
   subnet_id     = aws_subnet.public_subnets["public_subnet_1"].id # Argument with value as expression
   tags = {
     Name = "Web EC2 Server"

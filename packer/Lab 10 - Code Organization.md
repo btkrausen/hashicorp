@@ -83,7 +83,7 @@ source "amazon-ebs" "ubuntu_22" {
 
 source "amazon-ebs" "amazon_linux" {
   ami_name      = "packer-aws-linux-aws-{{timestamp}}"
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
   region        = "us-west-2"
   ami_regions   = ["us-west-2"]
   source_ami_filter {
@@ -107,7 +107,7 @@ source "amazon-ebs" "amazon_linux" {
 source "amazon-ebs" "windows_2019" {
   ami_name       = "my-windows-2019-aws-{{timestamp}}"
   communicator   = "winrm"
-  instance_type  = "t2.micro"
+  instance_type  = "t3.micro"
   region         = "us-east-1"
   source_ami     = "${data.amazon-ami.windows_2019.id}"
   user_data_file = "./scripts/SetUpWinRM.ps1"
@@ -126,7 +126,7 @@ source "amazon-ebs" "windows_2019" {
 source "amazon-ebs" "windows_2022" {
   ami_name       = "my-windows-2022-aws-{{timestamp}}"
   communicator   = "winrm"
-  instance_type  = "t2.micro"
+  instance_type  = "t3.micro"
   region         = "us-east-1"
   source_ami     = "${data.amazon-ami.windows_2022.id}"
   user_data_file = "./scripts/SetUpWinRM.ps1"
@@ -339,7 +339,7 @@ variable "region" {
 
 variable "instance_type" {
   type    = string
-  default = "t2.micro"
+  default = "t3.micro"
 }
 
 variable "ami_regions" {

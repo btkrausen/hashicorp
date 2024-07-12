@@ -7,7 +7,7 @@ import "tfplan-functions" as plan
 
 # Allowed EC2 Instance Types
 # Include "null" to allow missing or computed values
-allowed_types = ["t2.micro", "t2.small", "t2.medium"]
+allowed_types = ["t3.micro", "t2.small", "t2.medium"]
 
 # Get all EC2 instances
 allEC2Instances = plan.find_resources("aws_instance")

@@ -49,7 +49,7 @@ resource "aws_instance" "web" {
 ```hcl
 variable "ami" {}
 variable "size" {
-  default = "t2.micro"
+  default = "t3.micro"
 }
 variable "subnet_id" {}
 variable "security_groups" {
@@ -87,7 +87,7 @@ Variables defined in modules that aren't given a default value are required, and
 ```
 variable "ami" {}
 variable "size" {
-  # default = "t2.micro"
+  # default = "t3.micro"
 }
 variable "subnet_id" {}
 variable "security_groups" {
@@ -115,7 +115,7 @@ Update the `server` module block to know specify the new required argument: `siz
 module "server" {
   source          = "./modules/server"
   ami             = data.aws_ami.ubuntu.id
-  size            = "t2.micro"
+  size            = "t3.micro"
   subnet_id       = aws_subnet.public_subnets["public_subnet_3"].id
   security_groups = [aws_security_group.vpc-ping.id, aws_security_group.ingress-ssh.id, aws_security_group.vpc-web.id]
 }

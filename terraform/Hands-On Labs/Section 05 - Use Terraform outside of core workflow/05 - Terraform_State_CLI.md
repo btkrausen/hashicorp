@@ -196,7 +196,7 @@ data "aws_ami" "ubuntu" {
 # Terraform Resource Block - To Build EC2 instance in Public Subnet
 resource "aws_instance" "web_server" {
   ami             = data.aws_ami.ubuntu.id
-  instance_type   = "t2.micro"
+  instance_type   = "t3.micro"
   subnet_id       = aws_subnet.public_subnets["public_subnet_1"].id
   security_groups = [aws_security_group.vpc-ping.id, aws_security_group.ingress-ssh.id, aws_security_group.vpc-web.id]
   key_name        = aws_key_pair.generated.key_name
@@ -536,7 +536,7 @@ resource "aws_instance" "web_server" {
     id                                   = "i-0f87913a4b4da9db5"
     instance_initiated_shutdown_behavior = "stop"
     instance_state                       = "running"
-    instance_type                        = "t2.micro"
+    instance_type                        = "t3.micro"
     ipv6_address_count                   = 0
     ipv6_addresses                       = []
     key_name                             = "MyAWSKey"

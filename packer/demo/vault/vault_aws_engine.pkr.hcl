@@ -9,7 +9,7 @@ packer {
 
 source "amazon-ebs" "ubuntu" {
   ami_name      = "packer-ubuntu-aws-{{timestamp}}"
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
   source_ami_filter {
     filters = {
       name                = "ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"

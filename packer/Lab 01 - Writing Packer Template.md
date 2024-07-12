@@ -16,7 +16,7 @@ cd packer_templates
 ```
 
 ### Task 1: Create a Source Block
-Source blocks define what kind of virtualization to use for the image, how to launch the image and how to connect to the image.  Sources can be used across multiple builds.  We will use the `amazon-ebs` source configuration to launch a `t2.micro` AMI in the `us-west-2` region.
+Source blocks define what kind of virtualization to use for the image, how to launch the image and how to connect to the image.  Sources can be used across multiple builds.  We will use the `amazon-ebs` source configuration to launch a `t3.micro` AMI in the `us-west-2` region.
 
 ### Step 1.1.1
 
@@ -34,7 +34,7 @@ packer {
 
 source "amazon-ebs" "ubuntu" {
   ami_name      = "packer-ubuntu-aws-{{timestamp}}"
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
   region        = "us-west-2"
   source_ami_filter {
     filters = {

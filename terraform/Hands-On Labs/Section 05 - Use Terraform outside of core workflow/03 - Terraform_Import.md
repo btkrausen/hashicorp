@@ -20,7 +20,7 @@ Choose a Amazon Linux 2 AMI
 
 ![Create EC2](./img/new_amazon_ec2.png)
 
-Choose `t2.micro` for the Instance Type which is Free Tier Eligible.
+Choose `t3.micro` for the Instance Type which is Free Tier Eligible.
 
 Select the appropriate VPC and Public Subnet
 
@@ -135,7 +135,7 @@ Add the required attributes to your resource block and rerun the apply.
 ```hcl
 resource "aws_instance" "aws_linux" {
   ami           = "ami-013a129d325529d4d"
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
 }
 ```
 

@@ -76,7 +76,7 @@ Let's update the `server.tf` inside our our `web_server` directory to now to all
 ```
 variable "ami" {}
 variable "size" {
-  default = "t2.micro"
+  default = "t3.micro"
 }
 variable "subnet_id" {}
 

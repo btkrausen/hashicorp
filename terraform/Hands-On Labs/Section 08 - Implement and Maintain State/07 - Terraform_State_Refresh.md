@@ -82,7 +82,7 @@ resource "aws_instance" "web_server" {
     id                                   = "i-0fdab85c96f92f0e9"
     instance_initiated_shutdown_behavior = "stop"
     instance_state                       = "running"
-    instance_type                        = "t2.micro"
+    instance_type                        = "t3.micro"
     ipv6_address_count                   = 0
     ipv6_addresses                       = []
     key_name                             = "MyAWSKey"

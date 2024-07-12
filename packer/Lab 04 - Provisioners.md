@@ -18,7 +18,7 @@ Validate that your `aws-ubuntu.pkr.hcl` file has the following Packer `source` b
 ```hcl
 source "amazon-ebs" "ubuntu" {
   ami_name      = "packer-ubuntu-aws-{{timestamp}}"
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
   region        = "us-west-2"
   ami_regions   = ["us-west-2", "us-east-1", "eu-central-1"]
   source_ami_filter {

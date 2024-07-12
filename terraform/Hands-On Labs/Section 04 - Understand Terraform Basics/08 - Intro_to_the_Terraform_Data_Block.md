@@ -123,7 +123,7 @@ Edit the aws_instance in `main.tf` so that its ami argument uses the AMI returne
 ```hcl
 resource "aws_instance" "web_server" {
   ami                         = data.aws_ami.ubuntu_22_04.id
-  instance_type               = "t2.micro"
+  instance_type               = "t3.micro"
   subnet_id                   = aws_subnet.public_subnets["public_subnet_1"].id
   security_groups             = [aws_security_group.vpc-ping.id]
   associate_public_ip_address = true

@@ -124,7 +124,7 @@ Replace the aws_instance" "ubuntu_server" resource block in your `main.tf` with 
 ```hcl
 resource "aws_instance" "ubuntu_server" {
   ami                         = data.aws_ami.ubuntu.id
-  instance_type               = "t2.micro"
+  instance_type               = "t3.micro"
   subnet_id                   = aws_subnet.public_subnets["public_subnet_1"].id
   security_groups             = [aws_security_group.vpc-ping.id, aws_security_group.ingress-ssh.id, aws_security_group.vpc-web.id] 
   associate_public_ip_address = true
@@ -408,7 +408,7 @@ resource "aws_instance" "ubuntu_server" {
     id                                   = "i-00eccad2a464a4aa3"
     instance_initiated_shutdown_behavior = "stop"
     instance_state                       = "running"
-    instance_type                        = "t2.micro"
+    instance_type                        = "t3.micro"
     ipv6_address_count                   = 0
     ipv6_addresses                       = []
     key_name                             = "MyAWSKey"

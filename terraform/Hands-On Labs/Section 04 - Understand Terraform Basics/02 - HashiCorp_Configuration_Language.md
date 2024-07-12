@@ -77,7 +77,7 @@ provider "aws" {
 
 resource "aws_instance" "web" {
   ami = "<AMI>"
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
 
   subnet_id = "<SUBNET>"
   vpc_security_group_ids = ["<SECURITY_GROUP>"]

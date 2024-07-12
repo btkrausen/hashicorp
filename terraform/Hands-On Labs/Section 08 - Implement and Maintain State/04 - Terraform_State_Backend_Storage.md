@@ -53,7 +53,7 @@ Enabling versioning on our terraform backend is important as it allows us to res
 
 Once versioning is enabled on your bucket let's make a configuration change that will result in a state change and execute that change with a `terraform apply`.
 
-Update the size of your web server from `t2.micro` to a `t2.small` and apply the change.
+Update the size of your web server from `t3.micro` to a `t2.small` and apply the change.
 
 ```hcl
 resource "aws_instance" "web_server_2" {
@@ -122,12 +122,12 @@ Successfully configured the backend "s3"! Terraform will automatically
 use this backend unless the backend configuration changes.
 ```
 
-Update the size of your web server from `t2.small` to a `t2.micro` and apply the change.
+Update the size of your web server from `t2.small` to a `t3.micro` and apply the change.
 
 ```hcl
 resource "aws_instance" "web_server_2" {
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
   subnet_id     = aws_subnet.public_subnets["public_subnet_2"].id
   tags = {
     Name = "Web EC2 Server 2"

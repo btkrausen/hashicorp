@@ -34,7 +34,7 @@ provider "aws" {
 
 resource "aws_instance" "test_ami" {
   ami           = var.ami
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
 }
 
 output "public_ip" {

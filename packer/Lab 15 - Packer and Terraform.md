@@ -60,7 +60,7 @@ resource "aws_security_group" "allow_clumsy_bird" {
 
 resource "aws_instance" "test_ami" {
   ami                    = data.aws_ami.packer_image.id
-  instance_type          = "t2.micro"
+  instance_type          = "t3.micro"
   vpc_security_group_ids = [aws_security_group.allow_clumsy_bird.id]
 
   tags = {
@@ -150,7 +150,7 @@ Terraform will perform the following actions:
       + id                                   = (known after apply)
       + instance_initiated_shutdown_behavior = (known after apply)
       + instance_state                       = (known after apply)
-      + instance_type                        = "t2.micro"
+      + instance_type                        = "t3.micro"
       + ipv6_address_count                   = (known after apply)
       + ipv6_addresses                       = (known after apply)
       + key_name                             = "MyEC2Instance"
@@ -317,7 +317,7 @@ data "aws_ami" "packer_image" {
 ```hcl
 resource "aws_instance" "test_ami" {
   ami                    = var.ami
-  instance_type          = "t2.micro"
+  instance_type          = "t3.micro"
   vpc_security_group_ids = [aws_security_group.allow_clumsy_bird.id]
 
   tags = {
