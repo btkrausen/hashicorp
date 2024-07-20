@@ -67,9 +67,18 @@ resource "aws_s3_bucket" "my-new-S3-bucket" {
   } 
 }
 
+resource "aws_s3_bucket_ownership_controls" "my_s3_bucket_ownership_controls" {
+  bucket = aws_s3_bucket.my_new_s3_bucket.id
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
 resource "aws_s3_bucket_ownership_controls" "my_new_bucket_acl" {   
+  depends_on = [aws_s3_bucket_ownership_controls.my_s3_bucket_ownership_controls]
+
   bucket = aws_s3_bucket.my-new-S3-bucket.id  
-  rule {     
+  rule {
     object_ownership = "BucketOwnerPreferred"   
   }
 }
