@@ -31,26 +31,26 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 
 | Course Link | Coupon Code |
 | ----------- | ----------- |
-| [HashiCorp Certified: Vault Associate (w/ Hands-On Labs)](https://btk.me/v) | JULY2024 |
-| [Integrating HashiCorp Vault with AWS](https://btk.me/vaws) | JULY2024 |
-| [HashiCorp Certified: Vault Operations Professional](https://btk.me/vp) | JULY2024 |
-| [Mastering Terraform Cloud with Hands-On Labs](https://btk.me/tfc) | JULY2024 |
-| [HashiCorp Certified: Terraform Associate Hands-On Lab Course](https://btk.me/tfhol) | JULY2024 |
-| [HashiCorp Certified: Consul Associate (w Hands-On Labs)](https://btk.me/c) | JULY2024 |
-| [Building Automated Machine Images using HashiCorp Packer](https://btk.me/p) | JULY2024 |
-| [HashiCorp Nomad Fundamentals: The Ultimate Beginner's Guide](https://btk.me/n) | JULY2024 |
-| [Amazon S3 Deep Dive: The Ultimate Guide to AWS Cloud Storage](https://btk.me/s3) | JULY2024 |
-| [Amazon Bedrock - The Complete Guide to AWS Generative AI](https://btk.me/ab) | JULY2024 |
+| [HashiCorp Certified: Vault Associate (w/ Hands-On Labs)](https://btk.me/v) | AUG2024 |
+| [Integrating HashiCorp Vault with AWS](https://btk.me/vaws) | AUG2024 |
+| [HashiCorp Certified: Vault Operations Professional](https://btk.me/vp) | AUG2024 |
+| [Mastering Terraform Cloud with Hands-On Labs](https://btk.me/tfc) | AUG2024 |
+| [HashiCorp Certified: Terraform Associate Hands-On Lab Course](https://btk.me/tfhol) | AUG2024 |
+| [HashiCorp Certified: Consul Associate (w Hands-On Labs)](https://btk.me/c) | AUG2024 |
+| [Building Automated Machine Images using HashiCorp Packer](https://btk.me/p) | AUG2024 |
+| [HashiCorp Nomad Fundamentals: The Ultimate Beginner's Guide](https://btk.me/n) | AUG2024 |
+| [Amazon S3 Deep Dive: The Ultimate Guide to AWS Cloud Storage](https://btk.me/s3) | AUG2024 |
+| [Amazon Bedrock - The Complete Guide to AWS Generative AI](https://btk.me/ab) | AUG2024 |
 
 
 ## 📝 📝 Practice Exam Courses 📝 📝
 | Course Link | Coupon Code |
 | ----------- | ----------- |
-| [HashiCorp Certified: Terraform Associate Practice Exam](https://btk.me/tf) | JULY2024 |
-| [GitHub Foundations Certification Practice Exams](https://btk.me/ghp) | JULY2024 |
-| [GitHub Actions Certification Practice Exams](https://btk.me/gha) | JULY2024 |
-| [Kubernetes and Cloud Native Associate (KCNA) Practice Exams](https://btk.me/kcna) | JULY2024 |
-| [HashiCorp Certified: Vault Associate Practice Exam](https://btk.me/vpe) | JULY2024 |
-| [HashiCorp Certified: Consul Associate Practice Exam](https://btk.me/cpe) | JULY2024 |
+| [HashiCorp Certified: Terraform Associate Practice Exam](https://btk.me/tf) | AUG2024 |
+| [GitHub Foundations Certification Practice Exams](https://btk.me/ghp) | AUG2024 |
+| [GitHub Actions Certification Practice Exams](https://btk.me/gha) | AUG2024 |
+| [Kubernetes and Cloud Native Associate (KCNA) Practice Exams](https://btk.me/kcna) | AUG2024 |
+| [HashiCorp Certified: Vault Associate Practice Exam](https://btk.me/vpe) | AUG2024 |
+| [HashiCorp Certified: Consul Associate Practice Exam](https://btk.me/cpe) | AUG2024 |
 
 Please feel free to reach through [Twitter](https://twitter.com/btkrausen) or [LinkedIn](https://www.linkedin.com/in/bryan-krausen-5ab8794/) for questions or comments.
