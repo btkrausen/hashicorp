@@ -19,8 +19,8 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 
 ### **Buy my books on Gumroad in PDF format**
 - 👉 [HashiCorp Nomad Fundamentals - The Ultimate Beginner's Guide](https://btkrausen.gumroad.com/l/nomad)
-- 👉 [Running HashiCorp Vault in Production in PDF](btkrausen.gumroad.com/l/vaultbook)
-- 👉 [The Best-Kept Secrets of HashiCorp Vault](btkrausen.gumroad.com/l/secretsofvault)
+- 👉 [Running HashiCorp Vault in Production in PDF](https://btkrausen.gumroad.com/l/vaultbook)
+- 👉 [The Best-Kept Secrets of HashiCorp Vault](https://btkrausen.gumroad.com/l/secretsofvault)
 <br>
 
 ## **Udemy Discount Coupons**
