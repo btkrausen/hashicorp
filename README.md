@@ -31,6 +31,7 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 
 | Course Link | Coupon Code |
 | ----------- | ----------- |
+| [GitHub Copilot: Use GenAI to Write Terraform for You!)](https://btk.me/cp) | SEPT2024 |
 | [HashiCorp Certified: Vault Associate (w/ Hands-On Labs)](https://btk.me/v) | AUG2024 |
 | [Integrating HashiCorp Vault with AWS](https://btk.me/vaws) | AUG2024 |
 | [HashiCorp Certified: Vault Operations Professional](https://btk.me/vp) | AUG2024 |
