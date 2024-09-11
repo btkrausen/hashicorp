@@ -29,8 +29,8 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 
 ## 🧑‍💻 🧑‍💻 Video Courses 🧑‍💻 🧑‍💻
 
-| Course Link | Coupon Code |
-| ----------- | ----------- |
+| Course Link | Repo Link | Coupon Code |
+| ----------- | --------- |------------ |
 | [GitHub Copilot: Use GenAI to Write Terraform for You!](https://btk.me/cp) | [Link](https://github.com/btkrausen/terraform)| SEPT2024 |
 | [HashiCorp Certified: Vault Associate (w/ Hands-On Labs)](https://btk.me/v) | [Link](https://github.com/btkrausen/hashicorp/tree/master/vault)| AUG2024 |
 | [Integrating HashiCorp Vault with AWS](https://btk.me/vaws) | [Link](https://github.com/btkrausen/hashicorp/tree/master/vault)| AUG2024 |
