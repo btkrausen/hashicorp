@@ -26,7 +26,7 @@ Terraform Code Configuration block types include:
 - Terraform Output Values Block
 - Terraform Modules Block
 
-We will be utilizing Terraform Provider, Terraform Resource, Data and Input Variables Blocks in this lab. This course
+We will be utilizing Terraform Provider, Terraform Resource, Data, and Input Variables Blocks in this lab. This course
 will go through each of these configuration blocks in more detail throughout the course.
 - Task 1: Connect to the Student Workstation
 - Task 2: Verify Terraform installation
@@ -41,7 +41,7 @@ will go through each of these configuration blocks in more detail throughout the
 ## Task 1: Connect to the Student Workstation
 In the previous lab, you learned how to connect to your workstation with either VSCode, SSH, or the web-based
 client.
-One you’ve connected, make sure you’ve navigated to the `/workstation/terraform` directory. This is where we’ll
+Once you’ve connected, make sure you’ve navigated to the `/workstation/terraform` directory. This is where we’ll
 do all of our work for this lab.
 
 ## Task 2: Verify Terraform installation
