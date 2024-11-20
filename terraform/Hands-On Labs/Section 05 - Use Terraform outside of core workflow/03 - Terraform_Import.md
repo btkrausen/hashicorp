@@ -157,7 +157,7 @@ terraform plan
     }
 ```
 
-You've successfully imported **and** declared your existing resource into your Terraform configuration. Notice that Terraform wants to update the default tags for this instance based on the default tags we specified in the [Terraform AWS Provider - Default Tags](./labs/3c-Terraform%20AWS%20Provider%20-%20Default%20Tags.md) lab.
+You've successfully imported **and** declared your existing resource into your Terraform configuration. Notice that Terraform wants to update the default tags for this instance based on the default tags we specified in previous labs.
 
 To apply these default tags you can run a `terraform apply`
 
