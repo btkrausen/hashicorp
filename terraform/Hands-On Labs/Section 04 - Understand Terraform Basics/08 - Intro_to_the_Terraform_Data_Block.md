@@ -76,7 +76,7 @@ data "aws_availability_zones" "available" {}
 
 It looks very similar to our first task, but this is retrieving different data for us. Obtaining this data might be helpful if you are building a fleet of web servers and you want to ensure each one is deployed in a different AZ. The benefit of using a data source, as opposed to manually typing in the availability zones, is that you can run the exact same Terraform in multiple regions and it would work without modifications, since the AZs are dynamically obtained by the data source.
 
-## Task 4: Validate the data source is being used in the Terraform configuration filee
+## Task 4: Validate the data source is being used in the Terraform configuration file
 
 Let's take a look at how we're already using this data source in our deployment. Look in the main.tf and find the resource block that is creating our private subnets. When you create a subnet, one of the required parameters is choosing an availability zone where the subnet will be created. Rather than hard code this, we can use our data source to dynamically choose an availability zone.
 

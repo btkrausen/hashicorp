@@ -129,7 +129,7 @@ module.server.aws_instance.web
 We can look at all the details of the server created using our `server` module.
 
 ```shell
-terraform show module.server.aws_instance.web
+terraform state show module.server.aws_instance.web
 ```
 
 We can add two output blocks to our `main.tf` to report back the IP and DNS information from our `server` module. Notice how Terraform references (interpolation syntax) information about the server build from a module.
