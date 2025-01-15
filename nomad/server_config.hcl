@@ -67,7 +67,7 @@ acl {
 
 # [optional] Specifies configuration for connecting to Consul
 consul {
-  address                = "consul.example.com:8500"
+  address                = "127.0.0.1:8500" # Nomad Agent talks to local agent
   ssl                    = true
   verify_server_hostname = true
 }
