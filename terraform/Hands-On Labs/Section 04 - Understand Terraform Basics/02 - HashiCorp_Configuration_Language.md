@@ -28,25 +28,18 @@ Terraform Code Configuration block types include:
 
 We will be utilizing Terraform Provider, Terraform Resource, Data, and Input Variables Blocks in this lab. This course
 will go through each of these configuration blocks in more detail throughout the course.
-- Task 1: Connect to the Student Workstation
-- Task 2: Verify Terraform installation
-- Task 3: Update Terraform Configuration to include EC2 instance
-- Task 4: Use the Terraform CLI to Get Help
-- Task 5: Apply your Configuration
-- Task 6: Verify EC2 Server in AWS Management Console
+- Task 1: Verify Terraform installation
+- Task 2: Update Terraform Configuration to include EC2 instance
+- Task 3: Use the Terraform CLI to Get Help
+- Task 4: Apply your Configuration
+- Task 5: Verify EC2 Server in AWS Management Console
 
 ![AWS Application Infrastructure Buildout](img/obj-2-hcl.png)
 
 
-## Task 1: Connect to the Student Workstation
-In the previous lab, you learned how to connect to your workstation with either VSCode, SSH, or the web-based
-client.
-Once you’ve connected, make sure you’ve navigated to the `/workstation/terraform` directory. This is where we’ll
-do all of our work for this lab.
+## Task 1: Verify Terraform installation
 
-## Task 2: Verify Terraform installation
-
-### Step 1.2.1
+### Step 1.1
 
 Run the following command to check the Terraform version:
 
@@ -59,9 +52,9 @@ You should see:
 Terraform v1.0.8
 ```
 
-## Task 3: Update Terraform Configuration to include EC2 instance
+## Task 2: Update Terraform Configuration to include EC2 instance
 
-### Step 1.3.1
+### Step 2.1
 
 In the `/workstation/terraform` directory, edit the file titled `main.tf` to create an AWS EC2 instance within one of the
 our public subnets.
@@ -91,9 +84,9 @@ resource "aws_instance" "web" {
 Don’t forget to save the file before moving on!
 
 
-## Task 4: Use the Terraform CLI to Get Help
+## Task 3: Use the Terraform CLI to Get Help
 
-### Step 1.4.1
+### Step 3.1
 
 Execute the following command to display available commands:
 
@@ -131,7 +124,7 @@ Or, you can use short-hand:
 terraform -h
 ```
 
-### Step 1.4.2
+### Step 3.2
 
 Navigate to the Terraform directory and initialize Terraform
 
@@ -147,7 +140,7 @@ terraform init
 Terraform has been successfully initialized!
 ```
 
-### Step 1.4.3
+### Step 3.3
 Get help on the plan command and then run it:
 
 ```hcl
@@ -157,9 +150,9 @@ terraform -h plan
 terraform plan
 ```
 
-## Task 5: Apply your Configuration
+## Task 4: Apply your Configuration
 
-### Step 1.5.1
+### Step 4.1
 Run the `terraform apply` command to generate real resources in AWS:
 
 ```hcl
@@ -168,7 +161,7 @@ terraform apply
 
 You will be prompted to confirm the changes before they’re applied. Respond with `yes`.
 
-## Task 6: Verify EC2 Server in AWS Management Console
+## Task 4: Verify EC2 Server in AWS Management Console
 
 Login to AWS Management Console -> Services -> EC2 to verify newly created EC2 instance:
 
