@@ -33,7 +33,7 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 ## 🧑‍💻 🧑‍💻 Video Courses 🧑‍💻 🧑‍💻
 
 | Course Link | Repo Link | Coupon Code |
-| ----------- | --------- |------------ |
+| ----------- | :---------: |:------------: |
 | HashiCorp Terraform: The Ultimate Beginner's Guide (with Labs) | COMING SOON | COMING SOON
 | [GitHub Copilot: Use GenAI to Write Terraform for You!](https://btk.me/cp) | [Link](https://github.com/btkrausen/terraform)| MARCH2025 |
 | [HashiCorp Vault for the Absolute Beginner](https://btk.me/vb) | [Link](https://github.com/btkrausen/hashicorp/tree/master/vault)| MARCH2025 |
@@ -50,7 +50,7 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 
 ## 📝 📝 Practice Exam Courses 📝 📝
 | Course Link | Coupon Code |
-| ----------- | ----------- |
+| ----------- | :-----------: |
 | [HashiCorp Certified: Terraform Associate Practice Exam](https://btk.me/tf) | MARCH2025 |
 | [GitHub Foundations Certification Practice Exams](https://btk.me/ghp) | MARCH2025 |
 | [GitHub Actions Certification Practice Exams](https://btk.me/gha) | MARCH2025 |
