@@ -52,10 +52,10 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 | Course Link | Coupon Code |
 | ----------- | :-----------: |
 | [HashiCorp Certified: Terraform Associate Practice Exam](https://btk.me/tf) | MARCH2025 |
-| [GitHub Foundations Certification Practice Exams](https://btk.me/ghp) | MARCH2025 |
-| [GitHub Actions Certification Practice Exams](https://btk.me/gha) | MARCH2025 |
 | [Kubernetes and Cloud Native Associate (KCNA) Practice Exams](https://btk.me/kcna) | MARCH2025 |
 | [HashiCorp Certified: Vault Associate Practice Exam](https://btk.me/vpe) | MARCH2025 |
 | [HashiCorp Certified: Consul Associate Practice Exam](https://btk.me/cpe) | MARCH2025 |
+| [GitHub Foundations Certification Practice Exams](https://btk.me/ghp) | MARCH2025 |
+| [GitHub Actions Certification Practice Exams](https://btk.me/gha) | MARCH2025 |
 
 Please feel free to reach through [Twitter](https://twitter.com/btkrausen) or [LinkedIn](https://www.linkedin.com/in/bryan-krausen-5ab8794/) for questions or comments.
