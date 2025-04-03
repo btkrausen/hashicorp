@@ -47,7 +47,7 @@ Create a file titled `terraform.tf` to define a minimum version of Terraform to 
 ```
 
 ```bash
-terraform int
+terraform init
 ```
 
 ```bash
