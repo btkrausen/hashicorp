@@ -34,28 +34,29 @@ Check out my profile on GitHub at [btk.me/btk](btk.me/btk)
 
 | Course Link | Repo Link | Coupon Code |
 | ----------- | :---------: |:------------: |
-| [HashiCorp Terraform: The Ultimate Beginner's Guide (with Labs)](https://btk.me/tb) | [Link](https://github.com/btkrausen/terraform-codespaces) | APRIL2025 |
-| [GitHub Copilot: Use GenAI to Write Terraform for You!](https://btk.me/cp) | [Link](https://github.com/btkrausen/terraform)| APRIL2025 |
-| [HashiCorp Vault for the Absolute Beginner](https://btk.me/vb) | [Link](https://github.com/btkrausen/hashicorp/tree/master/vault)| APRIL2025 |
-| [HashiCorp Certified: Vault Associate (w/ Hands-On Labs)](https://btk.me/v) | [Link](https://github.com/btkrausen/hashicorp/tree/master/vault)| APRIL2025 |
-| [Integrating HashiCorp Vault with AWS](https://btk.me/vaws) | [Link](https://github.com/btkrausen/hashicorp/tree/master/vault)| APRIL2025 |
-| [HashiCorp Certified: Vault Operations Professional](https://btk.me/vp) |[Link](https://github.com/btkrausen/hashicorp/tree/master/vault) | APRIL2025 |
-| [Mastering Terraform Cloud with Hands-On Labs](https://btk.me/tfc) | [Link](https://github.com/btkrausen/hashicorp/tree/master/terraform-cloud)| APRIL2025 |
-| [HashiCorp Certified: Terraform Associate Hands-On Lab Course](https://btk.me/tfhol) |[Link](https://github.com/btkrausen/hashicorp/tree/master/terraform) | APRIL2025 |
-| [HashiCorp Certified: Consul Associate (w Hands-On Labs)](https://btk.me/c) | [Link](https://github.com/btkrausen/hashicorp/tree/master/consul)| APRIL2025 |
-| [Building Automated Machine Images using HashiCorp Packer](https://btk.me/p) | [Link](https://github.com/btkrausen/hashicorp/tree/master/packer)| APRIL2025 |
-| [HashiCorp Nomad Fundamentals: The Ultimate Beginner's Guide](https://btk.me/n) | [Link](https://github.com/btkrausen/hashicorp/tree/master/nomad)| APRIL2025 |
-| [Amazon S3 Deep Dive: The Ultimate Guide to AWS Cloud Storage](https://btk.me/s3) | [Link](https://github.com/btkrausen/aws)| APRIL2025 |
-| [Amazon Bedrock - The Complete Guide to AWS Generative AI](https://btk.me/ab) | [Link](https://github.com/alexhddev/Bedrock_course)| APRIL2025 |
+| [Git Made Easy: A Crash Course for Beginners](https://btk.me/git) | [Link](https://github.com/btkrausen) | MAY2025 |
+| [HashiCorp Terraform: The Ultimate Beginner's Guide (with Labs)](https://btk.me/tb) | [Link](https://github.com/btkrausen/terraform-codespaces) | MAY2025 |
+| [GitHub Copilot: Use GenAI to Write Terraform for You!](https://btk.me/cp) | [Link](https://github.com/btkrausen/terraform)| MAY2025 |
+| [HashiCorp Vault for the Absolute Beginner](https://btk.me/vb) | [Link](https://github.com/btkrausen/hashicorp/tree/master/vault)| MAY2025 |
+| [HashiCorp Certified: Vault Associate (w/ Hands-On Labs)](https://btk.me/v) | [Link](https://github.com/btkrausen/hashicorp/tree/master/vault)| MAY2025 |
+| [Integrating HashiCorp Vault with AWS](https://btk.me/vaws) | [Link](https://github.com/btkrausen/hashicorp/tree/master/vault)| MAY2025 |
+| [HashiCorp Certified: Vault Operations Professional](https://btk.me/vp) |[Link](https://github.com/btkrausen/hashicorp/tree/master/vault) | MAY2025 |
+| [Mastering Terraform Cloud with Hands-On Labs](https://btk.me/tfc) | [Link](https://github.com/btkrausen/hashicorp/tree/master/terraform-cloud)| MAY2025 |
+| [HashiCorp Certified: Terraform Associate Hands-On Lab Course](https://btk.me/tfhol) |[Link](https://github.com/btkrausen/hashicorp/tree/master/terraform) | MAY2025 |
+| [HashiCorp Certified: Consul Associate (w Hands-On Labs)](https://btk.me/c) | [Link](https://github.com/btkrausen/hashicorp/tree/master/consul)| MAY2025 |
+| [Building Automated Machine Images using HashiCorp Packer](https://btk.me/p) | [Link](https://github.com/btkrausen/hashicorp/tree/master/packer)| MAY2025 |
+| [HashiCorp Nomad Fundamentals: The Ultimate Beginner's Guide](https://btk.me/n) | [Link](https://github.com/btkrausen/hashicorp/tree/master/nomad)| MAY2025 |
+| [Amazon S3 Deep Dive: The Ultimate Guide to AWS Cloud Storage](https://btk.me/s3) | [Link](https://github.com/btkrausen/aws)| MAY2025 |
+| [Amazon Bedrock - The Complete Guide to AWS Generative AI](https://btk.me/ab) | [Link](https://github.com/alexhddev/Bedrock_course)| MAY2025 |
 
 ## 📝 📝 Practice Exam Courses 📝 📝
 | Course Link | Coupon Code |
 | ----------- | :-----------: |
-| [HashiCorp Certified: Terraform Associate Practice Exam](https://btk.me/tf) | APRIL2025 |
-| [Kubernetes and Cloud Native Associate (KCNA) Practice Exams](https://btk.me/kcna) | APRIL2025 |
-| [HashiCorp Certified: Vault Associate Practice Exam](https://btk.me/vpe) | APRIL2025 |
-| [HashiCorp Certified: Consul Associate Practice Exam](https://btk.me/cpe) | APRIL2025 |
-| [GitHub Foundations Certification Practice Exams](https://btk.me/ghp) | APRIL2025 |
-| [GitHub Actions Certification Practice Exams](https://btk.me/gha) | APRIL2025 |
+| [HashiCorp Certified: Terraform Associate Practice Exam](https://btk.me/tf) | MAY2025 |
+| [Kubernetes and Cloud Native Associate (KCNA) Practice Exams](https://btk.me/kcna) | MAY2025 |
+| [HashiCorp Certified: Vault Associate Practice Exam](https://btk.me/vpe) | MAY2025 |
+| [HashiCorp Certified: Consul Associate Practice Exam](https://btk.me/cpe) | MAY2025 |
+| [GitHub Foundations Certification Practice Exams](https://btk.me/ghp) | MAY2025 |
+| [GitHub Actions Certification Practice Exams](https://btk.me/gha) | MAY2025 |
 
 Please feel free to reach through [Twitter](https://twitter.com/btkrausen) or [LinkedIn](https://www.linkedin.com/in/bryan-krausen-5ab8794/) for questions or comments.
