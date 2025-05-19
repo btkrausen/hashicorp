@@ -1,11 +1,11 @@
 ### Support My Content Here: 
 [![Udemy](https://img.shields.io/badge/Udemy-A435F0?style=for-the-badge&logo=Udemy&logoColor=white)](https://btk.me/vb) [![Github Sponsor](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/btkrausen?frequency=one-time&sponsor=btkrausen)
 
-## HashiCorp-related training courses, projects, and book
+## HashiCorp-related training courses, projects, and books
 
 This repo is intended to supplement training courses and external projects related to HashiCorp training and community-based engagement. It is not affiliated with HashiCorp and should not be treated as such. Content shared here is targeted for students looking for additional content or content referenced in material created for educational purposes.
 
-Check out my profile on GitHub at [btk.me/btk](https://btk.me/btk)
+Check out my list of courses at [btk.me/btk](https://btk.me/btk)
 
 *********************************************************************************
 
