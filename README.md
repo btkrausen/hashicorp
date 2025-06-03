@@ -37,7 +37,7 @@ Check out my list of courses at [btk.me/btk](https://btk.me/btk)
 | [Git Made Easy: A Crash Course for Beginners](https://btk.me/git) | [Link](https://github.com/btkrausen) | JUNE2025 |
 | [HashiCorp Terraform: The Ultimate Beginner's Guide (with Labs)](https://btk.me/tb) | [Link](https://github.com/btkrausen/terraform-codespaces) | JUNE2025 |
 | [GitHub Copilot: Use GenAI to Write Terraform for You!](https://btk.me/cp) | [Link](https://github.com/btkrausen/terraform)| JUNE2025 |
-| [HashiCorp Vault for the Absolute Beginner](https://btk.me/vb) | [Link](https://github.com/btkrausen/hashicorp/tree/master/vault)| JUNE2025 |
+| [HashiCorp Vault for the Absolute Beginner](https://btk.me/vb) | [Link](https://github.com/btkrausen/vault-codespaces)| JUNE2025 |
 | [HashiCorp Certified: Vault Associate (w/ Hands-On Labs)](https://btk.me/v) | [Link](https://github.com/btkrausen/hashicorp/tree/master/vault)| JUNE2025 |
 | [Integrating HashiCorp Vault with AWS](https://btk.me/vaws) | [Link](https://github.com/btkrausen/hashicorp/tree/master/vault)| JUNE2025 |
 | [HashiCorp Certified: Vault Operations Professional](https://btk.me/vp) |[Link](https://github.com/btkrausen/hashicorp/tree/master/vault) | JUNE2025 |
