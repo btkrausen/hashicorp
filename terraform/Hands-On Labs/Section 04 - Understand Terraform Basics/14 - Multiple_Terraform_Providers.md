@@ -173,7 +173,7 @@ terraform init -upgrade
 ```
 
 ```bash
-`terraform verson
+terraform version
 ```
 
 ```bash

@@ -79,7 +79,7 @@ on linux_amd64
 
 ## Task 3: Creates a self-signed certificate with TLS Provider
 
-Update the `main.tf` file with the followig configuration blocks for generating a TLS self signed certificate and saving the private key locally.
+Update the `main.tf` file with the following configuration blocks for generating a TLS self signed certificate and saving the private key locally.
 
 ```hcl
 resource "tls_private_key" "generated" {

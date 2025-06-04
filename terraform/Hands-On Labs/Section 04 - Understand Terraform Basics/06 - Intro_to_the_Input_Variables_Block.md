@@ -124,7 +124,7 @@ variable "variables_sub_az" {
 }
 
 variable "variables_sub_auto_ip" {
-  description = "Set Automatic IP Assigment for Variables Subnet"
+  description = "Set Automatic IP Assignment for Variables Subnet"
   type        = bool
 }
 ```
@@ -154,7 +154,7 @@ We now have new variables declared in our `variables.tf` file along with a modif
 ```text
 $ terraform plan
 var.variables_sub_auto_ip
-  Set Automatic IP Assigment for variables Subnet
+  Set Automatic IP Assignment for variables Subnet
 
   Enter a value:
 ```
@@ -193,7 +193,7 @@ variable "variables_sub_az" {
 }
 
 variable "variables_sub_auto_ip" {
-  description = "Set Automatic IP Assigment for Variables Subnet"
+  description = "Set Automatic IP Assignment for Variables Subnet"
   type        = bool
   default     = true
 }

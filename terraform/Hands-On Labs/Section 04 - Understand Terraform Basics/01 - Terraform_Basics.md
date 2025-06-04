@@ -15,7 +15,7 @@ These commands make up the terraform workflow that we will cover in objective 6 
 - Task 1: Verify Terraform installation and version
 - Task 2: Initialize Terraform Working Directory: `terraform init`
 - Task 3: Validating a Configuration: `terraform validate`
-- Task 4: Genenerating a Terraform Plan: `terraform plan`
+- Task 4: Generating a Terraform Plan: `terraform plan`
 - Task 5: Applying a Terraform Plan: `terraform apply`
 - Task 6: Terraform Destroy: `terraform destroy`
 
@@ -71,7 +71,7 @@ terraform validate
 Success! The configuration is valid.
 ```
 
-## Task 4: Genenerating a Terraform Plan
+## Task 4: Generating a Terraform Plan
 
 Terraform has a dry run mode where you can preview what Terraform will change without making any actual changes to your infrastructure. This dry run is performed by running a `terraform plan`.
 

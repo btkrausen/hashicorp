@@ -47,7 +47,7 @@ resource "aws_route_table" "public_route_table" {
 }
 ```
 
-Let's look at the details in this resource block. First, all resource blocks will be declared using the resouce block type. Next, you'll find the type of resource that is going to be deployed. In this case, it's `aws_route_table` which is part of the AWS provider. Finally, we gave this resource a local name of `public_route_table`.
+Let's look at the details in this resource block. First, all resource blocks will be declared using the resource block type. Next, you'll find the type of resource that is going to be deployed. In this case, it's `aws_route_table` which is part of the AWS provider. Finally, we gave this resource a local name of `public_route_table`.
 
 > Note: Your resource blocks must have a unique resource id (combination of resource type along with resource name). In our example, our resource id is `aws_route_table.public_route_table`, which is the combination of our resource type `aws_route_table` and resource name `public_route_table`. This naming and interpolation nomenclature is powerful part of HCL that allows us to reference arguments from other resource blocks.
 

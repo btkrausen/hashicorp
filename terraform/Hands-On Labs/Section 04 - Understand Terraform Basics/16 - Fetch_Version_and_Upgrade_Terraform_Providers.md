@@ -134,11 +134,11 @@ provider "registry.terraform.io/hashicorp/random" {
 }
 ```
 
-By default, if a `.terraform.lock.hcl` file exists within a Terraform working directory, the provider versions specified in this file will be used. This lock file helps to ensure that runs accross teams will be consistent. As new versions of Terraform providers are released it is often beneficial to upgrade provider versions to take advantage of these updates. This can be accomplisehd by updating our configuration definiton to the desired provider version and running an upgrade.
+By default, if a `.terraform.lock.hcl` file exists within a Terraform working directory, the provider versions specified in this file will be used. This lock file helps to ensure that runs accross teams will be consistent. As new versions of Terraform providers are released it is often beneficial to upgrade provider versions to take advantage of these updates. This can be accomplished by updating our configuration definition to the desired provider version and running an upgrade.
 
 In this case we are going to update the Terraform random provider from `3.0.0` to `3.1.0`.
 
-> Note: If the provider is already at version `3.1.0` then youo can downgrade it to `3.0.0` following similar steps.
+> Note: If the provider is already at version `3.1.0` then you can downgrade it to `3.0.0` following similar steps.
 
 ```hcl
 terraform {
