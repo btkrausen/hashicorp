@@ -236,7 +236,7 @@ resource "aws_security_group" "vpc-ping" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   egress {
-    description = "Allow all ip and ports outboun"
+    description = "Allow all ip and ports outbound"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
@@ -375,7 +375,7 @@ variable "public_subnets" {
 }
 ```
 
-Save your files and issue a `terrraform init` and `terraform apply` to build out the infrastructure.
+Save your files and issue a `terraform init` and `terraform apply` to build out the infrastructure.
 
 ```bash
 terraform init
@@ -441,7 +441,7 @@ You will note that there is a lot of information Terraform stores about all the 
 
 ## Task 3: Utilize the `terraform state` command to show state information
 
-You can issue a `terraform state` to see the options for performing more granualar operations related to the resources stored within Terraform state.
+You can issue a `terraform state` to see the options for performing more granular operations related to the resources stored within Terraform state.
 
 ```bash
 terraform state

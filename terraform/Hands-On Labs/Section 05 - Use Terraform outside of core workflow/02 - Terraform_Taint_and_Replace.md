@@ -9,7 +9,7 @@ The terraform `taint` command allows for you to manually mark a resource for rec
 
 ## Task 1: Manually mark a resource to be rebuilt by using the terraform `taint` command
 
-There are some situations where we want to recreate a resource without modifying any terraform configuration. An example of this might be to rebuild a server and force it to rerun it's bootsrap process. This can be accomplished by manually "tainting" the resoruce.
+There are some situations where we want to recreate a resource without modifying any terraform configuration. An example of this might be to rebuild a server and force it to rerun it's bootsrap process. This can be accomplished by manually "tainting" the resource.
 
 ### Step 1.1 - Create a new Web Server
 
@@ -209,7 +209,7 @@ resource "aws_instance" "web_server" {
 }
 ```
 
-Manaully `taint` the resource and run a `terraform apply` and observe that the `remote-exec` provisioner fails.
+Manually `taint` the resource and run a `terraform apply` and observe that the `remote-exec` provisioner fails.
 
 ```bash
 terraform taint aws_instance.web_server
@@ -257,7 +257,7 @@ This informs Terraform that this resource does not need to be rebuilt upon the n
 
 As of Terraform v0.15.2 and later the `taint` command is deprecated, because there are better alternatives available.
 
-If your intent is to force replacement of a particular object even though there are no configuration changes that would require it, it is recommended to use the `-replace` option with terraform apply in place of the depcreated `taint` command.
+If your intent is to force replacement of a particular object even though there are no configuration changes that would require it, it is recommended to use the `-replace` option with terraform apply in place of the deprecated `taint` command.
 
 Remove the offending error from the `remote-exec` provisioner and rebuild the web server resource using the `terraform apply -replace` command.
 
@@ -275,7 +275,7 @@ provisioner "remote-exec" {
 terraform apply -replace="aws_instance.web_server"
 ```
 
-```
+```bash
 Plan: 1 to add, 0 to change, 1 to destroy.
 
 Do you want to perform these actions?
@@ -285,7 +285,7 @@ Do you want to perform these actions?
   Enter a value: yes
 ```
 
-```
+```bash
 aws_instance.web_server: Destroying... [id=i-00f52f68eec42518b]
 aws_instance.web_server: Still destroying... [id=i-00f52f68eec42518b, 10s elapsed]
 aws_instance.web_server: Still destroying... [id=i-00f52f68eec42518b, 20s elapsed]
