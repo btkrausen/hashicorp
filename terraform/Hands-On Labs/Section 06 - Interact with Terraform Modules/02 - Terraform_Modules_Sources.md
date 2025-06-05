@@ -22,7 +22,7 @@ Create a `modules` directory and move your `server` directory into this director
 
 Update the `source` of your module block to point to the modified source.
 
-```
+```hcl
 module "server" {
   source          = "./modules/server"
   ami             = data.aws_ami.ubuntu.id
@@ -42,7 +42,7 @@ module "server_subnet_1" {
 }
 ```
 
-Any time that the source of a module is update, the working directory (root module) needs to be reintilized.
+Any time that the source of a module is update, the working directory (root module) needs to be reinitialized.
 
 ```shell
 terraform init
@@ -61,7 +61,7 @@ needed.
 
 ### Step 1.2 - Create a new module source locally
 
-Within our `modules` directory let's create another directory where we will include some enhancements to our `server` module. We will create these enhancments in a new directory called `web_server` and make a copy of our `server.tf` folder to this directory.
+Within our `modules` directory let's create another directory where we will include some enhancements to our `server` module. We will create these enhancements in a new directory called `web_server` and make a copy of our `server.tf` folder to this directory.
 
 ```shell
 |-- modules
@@ -73,7 +73,7 @@ Within our `modules` directory let's create another directory where we will incl
 
 Let's update the `server.tf` inside our our `web_server` directory to now to allow us to provision our web application.
 
-```
+```hcl
 variable "ami" {}
 variable "size" {
   default = "t3.micro"
@@ -134,7 +134,7 @@ output "public_dns" {
 
 ### Step 1.2 - Update our `server_subnet_1` module to use the new `web_server` source
 
-Let's now update our `server_subnet_1` module to use the new web_server source configuaration by updating the `source` arguement.
+Let's now update our `server_subnet_1` module to use the new web_server source configuration by updating the `source` argument.
 
 ```hcl
 module "server_subnet_1" {
@@ -150,7 +150,7 @@ module "server_subnet_1" {
 }
 ```
 
-Any time that the source of a module is updated or added to our configuration, the working directory needs to be reintilized.
+Any time that the source of a module is updated or added to our configuration, the working directory needs to be reinitialized.
 
 ```shell
 terraform init
@@ -173,7 +173,7 @@ terraform plan
 
 You will see that because we are now updating our server configuration via the new module to specify a key pair, that the server will need to be rebuilt.
 
-```
+```bash
 Plan: 1 to add, 0 to change, 1 to destroy.
 ```
 
@@ -218,7 +218,7 @@ module "autoscaling" {
 }
 ```
 
-Any time that the source of a module is updated or added to our configuration, the working directory needs to be reintilized.
+Any time that the source of a module is updated or added to our configuration, the working directory needs to be reinitialized.
 
 ```shell
 terraform init
@@ -240,7 +240,7 @@ terraform apply
 
 Another source of modules that we can use are those that are published directly on GitHub. Terraform will recognize unprefixed github.com URLs and interpret them automatically as Git repository sources. Let's update the `source` of our autoscaling group module from the Public Module registry to use github.com instead.  This will require us to remove the `version` argument from our module block.
 
-```
+```hcl
 module "autoscaling" {
   source = "github.com/terraform-aws-modules/terraform-aws-autoscaling?ref=v4.9.0"
 
