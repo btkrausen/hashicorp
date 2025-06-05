@@ -49,7 +49,7 @@ This module combines four different AWS resources, accepts up to 86 inputs and r
 
 ![Autoscaling Module](img/autoscale_scope_resources.png)
 
-```
+```hcl
 aws_autoscaling_group
 aws_autoscaling_schedule
 aws_launch_configuration
@@ -70,15 +70,15 @@ This module built out an autoscaling group and launch template as well as looked
 
 ## Task 2: Scoping Module Inputs and Outputs
 
-When looking at the scope of a module block, this diagram provides a helpful way to understand the relationshiop between root modules and child modules.
+When looking at the scope of a module block, this diagram provides a helpful way to understand the relationship between root modules and child modules.
 
-![](img/fileStructure-4.png)
+![File Structure](img/fileStructure-4.png)
 
-Modules are simply terraform configuration files that have optional/required inputs and will return a specifed number of outputs. The configuration within the module can be akin to a black box, as the module is abstracting away the configuration blocks which it contains. The module code for child modules is still typically availabe for us to review if we like, but not required to be able to get resources built out without having to worry about all of the details within the child module.
+Modules are simply terraform configuration files that have optional/required inputs and will return a specified number of outputs. The configuration within the module can be akin to a black box, as the module is abstracting away the configuration blocks which it contains. The module code for child modules is still typically availabe for us to review if we like, but not required to be able to get resources built out without having to worry about all of the details within the child module.
 
 When creating a module, consider which resource arguments to expose to module end users as input variables. In our example, the autoscaling module provides up to 86 different inputs that can be used for configuring the ASG. Variables declared in child module map to arguments within root module block, where outputs declared in child module map to attributes that can used by the root module. You should also consider which values to add as outputs, since outputs are the only supported way for users to get information about resources configured by the module. In our example, the autoscaling module provides 20 available outputs that the module will return.
 
-To view the outputs returned by our autosclaing module and their values you can issue the following:
+To view the outputs returned by our autoscaling module and their values you can issue the following:
 
 ```bash
 terraform console
@@ -121,7 +121,7 @@ terraform console
 
 In order to reference items that are returned by modules (by the child module's `outputs.tf` file) you must use the interpolation syntax referring to the output name returned by the module. Eg: `module.autoscaling.autoscaling_group_max_size`
 
-Refering to the `autoscaling_group_max_size` of the autoscaling module within the root module:
+Referring to the `autoscaling_group_max_size` of the autoscaling module within the root module:
 
 Let's add an output block inside the `main.tf` of root module to showcase the `autoscaling_group_max_size` returned by the autoscaling group child module.
 
@@ -153,7 +153,7 @@ output "autoscaling_group_max_size" {
 
 All we need to be concerned about is the `autoscaling_group_max_size` output that is returned. In fact, unless a child module provides us with an output that we can consume we will not be able to reference items within the child module. Individual resource arguments are not accessible outside the child module.
 
-```
+```hcl
 module "my-module" {
   # Source can be any URL or file path
   source = "../../my-module"
@@ -205,7 +205,7 @@ output "asg_group_size" {
 ```
 
 ```bash
-teraform validate
+terraform validate
 
 Success! The configuration is valid.
 ```

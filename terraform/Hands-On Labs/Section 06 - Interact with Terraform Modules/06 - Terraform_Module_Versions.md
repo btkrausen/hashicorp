@@ -89,7 +89,7 @@ module "vpc" {
 
 After changing the module version run a `terraform init` to install the `1.73.0` version of the module.
 
-```
+```bash
 terraform init
 Initializing modules...
 Downloading registry.terraform.io/terraform-aws-modules/vpc/aws 1.73.0 for vpc...
@@ -122,7 +122,7 @@ Initializing provider plugins...
 | (and 2 more similar warnings elsewhere)
 ```
 
-Notice that during the installation of this module version we recieved warnings that there are depcreated commands that this version of the module uses. Remember that Terraform modules are simply terraform configuration files and this version of the module is using terraform configuration that has been depcreated. This highlights why it is important to be sure we specify a version of a module that works within the Terraform core version we are using.
+Notice that during the installation of this module version we received warnings that there are deprecated commands that this version of the module uses. Remember that Terraform modules are simply terraform configuration files and this version of the module is using terraform configuration that has been deprecated. This highlights why it is important to be sure we specify a version of a module that works within the Terraform core version we are using.
 
 Run a `terraform validate` to showcase other errors surfaced with this older version of the module.
 
@@ -184,13 +184,13 @@ terraform validate
 | longer available; use tomap({ ... }) syntax to write a literal map.
 ```
 
-It should now be obvious that this version of the VPC module is not compatiable with our current version of Terraform. Let's look at how we can incorporate module verison constraints to make sure our code is using a compatible version of our module.
+It should now be obvious that this version of the VPC module is not compatiable with our current version of Terraform. Let's look at how we can incorporate module version constraints to make sure our code is using a compatible version of our module.
 
 ## Task 3: Terraform Module Version Constraints
 
 When using modules installed from a module registry it is highly recommended to explicitly constrain the acceptable version numbers to avoid unexpected or unwanted changes. Terraform provides the ability to resolve any provided module version constraints and using them is highly recommended to avoid pulling in breaking changes. The version argument accepts a version constraint string. Terraform will use the newest installed version of the module that meets the constraint; if no acceptable versions are installed, it will download the newest version that meets the constraint.
 
-Update the VPC module block to utilze any version greater then 3.0.0
+Update the VPC module block to utilize any version greater then 3.0.0
 
 ```hcl
 module "vpc" {

@@ -11,7 +11,7 @@ To make a Terraform module configurable you can add input parameters to the modu
 
 You can create a module with a single .tf file, or use any other file structure you like. Modules can be a bit daunting at first. We are suddenly working with a number of files in different file hierarchies, and those files are referencing each other in a few different ways. An example of this can be found in the diagram below:
 
-![](./img/module-structure.png){ width=50% align="center"}
+![Module Structure](./img/module-structure.png){ width=50% align="center"}
 
 The example modules contain the following files:
 
@@ -183,7 +183,7 @@ output "public_ip" {
 }
 ```
 
-Refering to the `public_ip` of the server module within the root module:
+Referring to the `public_ip` of the server module within the root module:
 
 `main.tf` of root module:
 

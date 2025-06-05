@@ -10,7 +10,7 @@ Modules on the public Terraform Registry can be sourced using a registry source 
 
 ## Task 1: Consuming Modules from the Terraform Module Registry
 
-In previous labs we begain using modules from the Terraform Public Module Registry, including the auto scaling module. Let's add an S3 bucket to our configuration using the S3 public module.
+In previous labs we began using modules from the Terraform Public Module Registry, including the auto scaling module. Let's add an S3 bucket to our configuration using the S3 public module.
 
 `main.tf`
 

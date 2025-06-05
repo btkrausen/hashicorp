@@ -73,7 +73,7 @@ Now run `terraform init` to install the module. Terraform configuration files lo
 terraform init
 ```
 
-You can see that our configuaration now depends on this module to be installed and used by using the `terraform providers` command.
+You can see that our configuration now depends on this module to be installed and used by using the `terraform providers` command.
 
 ```shell
 terraform providers
@@ -101,7 +101,7 @@ Providers required by state:
 
 Run `terraform apply` to create a new server using the `server` module. It may take a few minutes for the server to be built using the module.
 
-```
+```bash
 Do you want to perform these actions?
   Terraform will perform the actions described above.
   Only 'yes' will be accepted to approve.
@@ -146,7 +146,7 @@ output "public_dns" {
 
 ## Task 3: Reuse the module to build a server in a different subnet
 
-One of the benefits of Terraform modules is that they can easily be reused across your organization. Let's use our local module again to build out another server in a seperate subnet.
+One of the benefits of Terraform modules is that they can easily be reused across your organization. Let's use our local module again to build out another server in a separate subnet.
 
 ![Desired Infrastructure](./img/obj-1-desired-infrastructure.png)
 
@@ -165,7 +165,7 @@ module "server_subnet_1" {
 
 Run `terraform apply` to create a new server using the `server` module. It may take a few minutes for the server to be built using the module.
 
-```
+```bash
 Do you want to perform these actions?
   Terraform will perform the actions described above.
   Only 'yes' will be accepted to approve.
