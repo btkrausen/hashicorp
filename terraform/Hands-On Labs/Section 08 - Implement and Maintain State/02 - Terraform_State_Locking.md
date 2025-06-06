@@ -28,7 +28,7 @@ resource "aws_instance" "web_server_2" {
 
 # Task 2: Generate a Terraform State Lock
 
-This task requires that you open two seperate terminal windows to your working directory.
+This task requires that you open two separate terminal windows to your working directory.
 
 In Terminal #1 generate a lock on your state file by issuing a `terraform apply`
 

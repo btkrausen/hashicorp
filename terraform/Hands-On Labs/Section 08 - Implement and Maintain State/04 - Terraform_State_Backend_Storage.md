@@ -15,7 +15,7 @@ The built in Terraform standard backends store state remotely and perform terraf
 - [Google Cloud Storage Backend](https://www.terraform.io/docs/language/settings/backends/gcs.html)
 - [Azure Storage Backend](https://www.terraform.io/docs/language/settings/backends/azurerm.html)
 
-Consult Terraform documentaion for a [full list of Terraform standard backends](https://www.terraform.io/docs/language/settings/backends/index.html)
+Consult Terraform documentation for a [full list of Terraform standard backends](https://www.terraform.io/docs/language/settings/backends/index.html)
 
 Most backends also support collaboration features so using a backend is a must-have both from a security and teamwork perspective. Not all of these features need to be configured and enabled, but we will walk you some of the most beneficial items including versioning, encryption and state locking.
 
@@ -241,7 +241,7 @@ Apply complete! Resources: 27 added, 0 changed, 0 destroyed.
 
 View the HTTP Logs in the webserver terminal to showcase the use of the `http` backend
 
-```
+```log
 127.0.0.1 - - [] "GET /terraform_state/my_state HTTP/1.1" 404 -
 [,636] DEBUG in stateserver: PUT for http://localhost:5000/terraform_lock/my_state...
     Header -- Host = localhost:5000
@@ -263,7 +263,7 @@ View the HTTP Logs in the webserver terminal to showcase the use of the `http` b
     Body -- {"ID":"12cae7fb-5f47-d751-8d8d-00ac15b25a00","Operation":"OperationTypeApply","Info":"","Who":"gabe@MacBook-Pro","Version":"1.0.10","Created":"06:47.629496Z","Path":""}
 ```
 
-### Step 2.4 - View the state, log and lock files.
+### Step 2.4 - View the state, log and lock files
 
 You can view the remote state file in the `http` backend by going into the webserver directory and looking inside the `.stateserver` directory. Both the state file and the log are located in this directory. This backend also supports state locking creating a `my_state.lock` when a lock is applied.
 

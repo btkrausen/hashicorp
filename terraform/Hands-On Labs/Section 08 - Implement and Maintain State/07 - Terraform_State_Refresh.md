@@ -224,7 +224,7 @@ Change the tag of a given object inside the AWS Console
 
 ![AWS Tag - Drift](img/aws_tag_myapp.png)
 
-```
+```bash
 terraform plan -refresh-only
 
 ...

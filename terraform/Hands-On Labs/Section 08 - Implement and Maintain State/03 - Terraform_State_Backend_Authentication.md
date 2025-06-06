@@ -80,13 +80,13 @@ export AWS_SECRET_ACCESS_KEY="YOUR_AWS_SECRET_ACCESS_KEY"
 
 (Optional): If using Multi-Factor Authentication you can source the token using the `AWS_SESSION_TOKEN` environment variable.
 
-(Optional): In lieu of setting environment varialbes you can also utilize an AWS shared credentials file by specifying the path to the file useing the `shared_credentials_file` arguement within the backend configuration block. This defaults to ~/.aws/credentials.
+(Optional): In lieu of setting environment variables you can also utilize an AWS shared credentials file by specifying the path to the file using the `shared_credentials_file` argument within the backend configuration block. This defaults to ~/.aws/credentials.
 
 ### Step 1.4 - Verify Authentication to S3 Backend
 
 Once the configuration is complete, you can verify authentication to the S3 backend by first removing infrastructure that has already been deployed with a `terraform destroy` and performing a `terraform init`
 
-```
+```shell
 terraform init
 
 Initializing the backend...
@@ -97,7 +97,7 @@ use this backend unless the backend configuration changes.
 
 ### Step 1.5 - Write Terraform State to S3 Backend
 
-Now that autentication has been verified, we can build out the infrastructure with our S3 backend for storing state we can issue a `terraform apply`
+Now that authentication has been verified, we can build out the infrastructure with our S3 backend for storing state we can issue a `terraform apply`
 
 ```shell
 terraform apply
@@ -113,7 +113,7 @@ Do you want to perform these actions?
 
 ![S3 Backend Object](img/s3_backend_apply.png)
 
-Now the state file for your infrastructure build out is stored remotely on the S3 object store in your bucket. This can now be utilized by others who have appropriate permissions to the S3 bucket as we have succesfully centralized the terraform state file.
+Now the state file for your infrastructure build out is stored remotely on the S3 object store in your bucket. This can now be utilized by others who have appropriate permissions to the S3 bucket as we have successfully centralized the terraform state file.
 
 ### Step 1.6 - Remove Terraform AWS credentials to connect to S3 Bucket
 
@@ -144,7 +144,7 @@ terraform state list
 
 # Task 2: Authentication: Remote Enhanced Backend
 
-The Terraform `remote` backend stores Terraform state and may be used to run operations in Terraform Cloud. This backend supports the ability to store Terraform state information and perform operations all within Terraform Cloud, based on privelaged access.
+The Terraform `remote` backend stores Terraform state and may be used to run operations in Terraform Cloud. This backend supports the ability to store Terraform state information and perform operations all within Terraform Cloud, based on privileged access.
 
 ### Step 2.1
 
