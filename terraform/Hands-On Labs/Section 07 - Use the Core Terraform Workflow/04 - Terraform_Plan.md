@@ -58,7 +58,7 @@ terraform show myplan
 
 # Task 3: No Change Plans
 
-As you can see the plan command within Terraofrm is extremly powerful for identifying any changes that need to occur against your configuration and the already deployed infrastructure. The plan command is also extremely powerful to validate that your real insfrastructure and configuration are in sync. If this is true, the plan command will indicate that there are `No changes`. This is sometimes referred to a a `No Change Plan` or `Zero Change Plan` and is extremly valuable.
+As you can see the plan command within Terraform is extremely powerful for identifying any changes that need to occur against your configuration and the already deployed infrastructure. The plan command is also extremely powerful to validate that your real insfrastructure and configuration are in sync. If this is true, the plan command will indicate that there are `No changes`. This is sometimes referred to a a `No Change Plan` or `Zero Change Plan` and is extremely valuable.
 
 ```shell
 No changes. Your infrastructure matches the configuration.
@@ -66,7 +66,7 @@ No changes. Your infrastructure matches the configuration.
 Terraform has compared your real infrastructure against your configuration and found no differences, so no changes are needed.
 ```
 
-Because the `terraform plan` makes no changes to your infrastructure it can be run at any time without any penalty. In fact it should be run freqently to detect drift between your deployed infrastructure and configuration. A `No Change Plan` indicates that there is no drift.
+Because the `terraform plan` makes no changes to your infrastructure it can be run at any time without any penalty. In fact it should be run frequently to detect drift between your deployed infrastructure and configuration. A `No Change Plan` indicates that there is no drift.
 
 The `terraform plan` should also be run after any terraform configuration has been refactored. Perhaps the configuration has been refactored to make use of variables or a different set of data constructs to make the code more reusable or easier to read. If these changes are merely to refactor code but should not result in an changes to your deployed infrastructure, a `No Change Plan` can be used to verify that the refactoring exercise were benign.
 
@@ -78,7 +78,7 @@ Change the tag of a given object inside the AWS Console
 
 ![AWS Tag](img/aws_tag.png)
 
-```
+```shell
 terraform plan -refresh-only`
 ```
 

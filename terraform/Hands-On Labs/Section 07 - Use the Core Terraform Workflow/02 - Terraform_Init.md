@@ -118,7 +118,7 @@ Add a Terraform module to your configuration.
 
 `main.tf`
 
-```
+```hcl
 module "s3-bucket_example_complete" {
   source  = "terraform-aws-modules/s3-bucket/aws//examples/complete"
   version = "2.10.0"
@@ -207,9 +207,9 @@ You can validate that your state file lives in the current directory by looking 
 |-- variables.tf
 ```
 
-You an modify the default backend that terraform uses by updating the terraform configuration block. Update the `terraform.tf` configuaration to move terraform state to a different directory by including a `backend` block to the configuration.
+You an modify the default backend that terraform uses by updating the terraform configuration block. Update the `terraform.tf` configuration to move terraform state to a different directory by including a `backend` block to the configuration.
 
-```shell
+```hcl
 terraform {
   backend "local" {
     path = "mystate/terraform.tfstate"
@@ -234,7 +234,7 @@ use this backend unless the backend configuration changes.
 
 If your state file is not empty then you would be presented with the following when re-initializing:
 
-```
+```shell
 Initializing the backend...
 Do you want to copy existing state to the new backend?
   Pre-existing state was found while migrating the previous "local" backend to the
@@ -279,7 +279,7 @@ Migrate the state to the `mystate` directory
 terraform init -migrate-state
 ```
 
-Now the state information (when the next `terraform apply` is run) will be updated in the `/mystate` directory.) Let's configure terraform back to the default current directory by removing the `backend` block within our `terraform.tf` and reinitalizing.
+Now the state information (when the next `terraform apply` is run) will be updated in the `/mystate` directory. Let's configure terraform back to the default current directory by removing the `backend` block within our `terraform.tf` and reinitializing.
 
 ```shell
 terraform init -migrate-state
@@ -300,7 +300,7 @@ Do you want to copy existing state to the new backend?
 Successfully unset the backend "local". Terraform will now operate locally.
 ```
 
-Once succesfully migrating back to the default you can delete the `mystate` directory.
+Once successfully migrating back to the default you can delete the `mystate` directory.
 
 # Task 5: Other initialization steps/considerations
 
