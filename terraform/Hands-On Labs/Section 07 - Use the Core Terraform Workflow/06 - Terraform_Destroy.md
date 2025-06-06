@@ -33,7 +33,7 @@ You'll need to confirm the action by responding with `yes`. You could achieve th
 
 You could also execute a `terraform apply` with a `-destroy` flag to achieve the same results.
 
-```
+```shell
 terraform apply -destroy
 ```
 

@@ -65,11 +65,11 @@ resource "aws_vpc" "vpc" {
 }
 ```
 
-```script
+```shell
 terraform validate
 ```
 
-```script
+```shell
 Success! The configuration is valid.
 ```
 
@@ -92,7 +92,7 @@ resource "local_file" "private_key_pem" {
 
 If we run a `terraform validate` against we will generate a success.
 
-```script
+```shell
 Success! The configuration is valid.
 ```
 
@@ -109,12 +109,12 @@ resource "local_file" "private_key_pem" {
 }
 ```
 
-```script
+```shell
 terraform validate
 Success! The configuration is valid.
 ```
 
-```script
+```shell
 terraform apply
 
 tls_private_key.generated: Refreshing state... [id=502de2c3e0a15eaf6e20a5a8cd616378daaafd62]
