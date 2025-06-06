@@ -40,13 +40,13 @@ Create a two new directories. One called `state_configuration` containing two ne
 
 `dev_local.hcl`
 
-```
+```text
 path = "state_data/terraform.dev.tfstate"
 ```
 
 `test_local.hcl`
 
-```
+```text
 path = "state_data/terraform.test.tfstate"
 ```
 
@@ -73,7 +73,7 @@ terraform apply
 
 Notice that a new state file that will be created called: `terraform.dev.tfstate`. Cancel out of the apply, and show how you can do the same for your test environment configuration.
 
-> Note: If you make a state file configuaration change, you most likely will need to provide the `-migrate-state` option to migrate state from one state file to the other. If that is not the intended action, then you will need to use `-reconfigure`. When modifying any teraform backend configuration it is important to understand the intent of your actions and the appropriate commands for that intent.
+> Note: If you make a state file configuration change, you most likely will need to provide the `-migrate-state` option to migrate state from one state file to the other. If that is not the intended action, then you will need to use `-reconfigure`. When modifying any terraform backend configuration it is important to understand the intent of your actions and the appropriate commands for that intent.
 
 ```bash
 terraform init -backend-config=state_configuration/test_local.hcl -migrate-state
@@ -95,7 +95,7 @@ Note that many shells retain command-line flags in a history file, so this isn't
 
 ## Task 4: Specifying multiple partial backend configurations
 
-Terraform backend configuaration can also be split up into multiple files. If we update our `terraform.tf` to use the Terraform S3 backend we can break out each of the configuration items into a seperate configuration files if desired.
+Terraform backend configuration can also be split up into multiple files. If we update our `terraform.tf` to use the Terraform S3 backend we can break out each of the configuration items into a separate configuration files if desired.
 
 ### 4.1 Full configuration within the `terraform.tf`
 
@@ -182,7 +182,7 @@ terraform apply
 
 ## Task 5: Partial backend configuration via CLI prompt
 
-If a required value for a backend configuration item is not specifed, Terraform will interactively ask you for the required values, unless interactive input is disabled. Terraform will not prompt for optional values.
+If a required value for a backend configuration item is not specified, Terraform will interactively ask you for the required values, unless interactive input is disabled. Terraform will not prompt for optional values.
 
 Initialize terraform but intentionally leave out the `key` value which is required as part of the s3 backend.
 
@@ -236,7 +236,7 @@ terraform init -backend-config=state_configuration/s3-state-bucket.hcl \
 -migrate-state
 ```
 
-```
+```bash
 Initializing modules...
 
 Initializing the backend...
@@ -326,9 +326,9 @@ Successfully unset the backend "s3". Terraform will now operate locally.
 
 ```
 
-```
+```bash
 terraform plan
 terraform apply
 ```
 
-Once succesfully migrated you can delete the partial state backend configurations, the `state_configuration` and `state_data` directories.
+Once successfully migrated you can delete the partial state backend configurations, the `state_configuration` and `state_data` directories.
