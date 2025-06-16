@@ -12,10 +12,10 @@ As you continue to work with Terraform, you're going to need a way to organize a
 
 Strings, numbers, and bools are sometimes called primitive types. Lists/tuples and maps/objects are sometimes called complex types, structural types, or collection types. Up until this point, we've primarily worked with string, number, or bool, although there have been some instances where we've provided a collection by way of input variables. In this lab, we will learn how to use the different collections and structure types available to us.
 
-- Task 1: Create a new list and reference its values using the index
-- Task 2: Add a new map variable to replace static values in a resource
-- Task 3: Iterate over a map to create multiple resources
-- Task 4: Use a more complex map variable to group information to simplify readability
+* Task 1: Create a new list and reference its values using the index
+* Task 2: Add a new map variable to replace static values in a resource
+* Task 3: Iterate over a map to create multiple resources
+* Task 4: Use a more complex map variable to group information to simplify readability
 
 ## Task 1: Create a new list and reference its values
 
@@ -126,7 +126,7 @@ Go ahead and apply the new configuration using a `terraform apply -auto-approve`
 Using `terraform state list`, check out the new resources:
 
 ```bash
-$ terraform state list
+terraform state list
 ...
 aws_subnet.list_subnet["dev"]
 aws_subnet.list_subnet["prod"]
@@ -135,7 +135,7 @@ aws_subnet.list_subnet["prod"]
 You can also use `terraform console` to view the resources and more detailed information about each one (use CTLR-C to get out when you're done):
 
 ```bash
-$ terraform console
+terraform console
 > aws_subnet.list_subnet
 {
   "dev" = {
@@ -143,9 +143,10 @@ $ terraform console
     "assign_ipv6_address_on_creation" = false
 ...
 ```
+
 ### Task 4: Use a more complex map variable to group information to simplify readability
 
-While the previous configuration works great, we're still limited to using only a single availability zone for both of our subnets. What if we wanted to use a single resource block but have unique settings for each subnet? Well, we can use a map of maps to group information together to make it easier to iterate over and, more importantly, make it easier to read for you and others using the code. 
+While the previous configuration works great, we're still limited to using only a single availability zone for both of our subnets. What if we wanted to use a single resource block but have unique settings for each subnet? Well, we can use a map of maps to group information together to make it easier to iterate over and, more importantly, make it easier to read for you and others using the code.
 
 Create a "map of maps" to group information per environment. In `variables.tf`, add the following variable:
 

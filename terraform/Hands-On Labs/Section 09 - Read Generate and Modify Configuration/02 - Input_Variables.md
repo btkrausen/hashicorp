@@ -16,8 +16,8 @@ To set a value using an environment variable, we will use the `TF_VAR_` prefix, 
 
 On the CLI, use the following command to set an environment variable to set the value of our subnet CIDR block:
 
-```bash
-$ export TF_VAR_variables_sub_cidr="10.0.203.0/24"
+```shell
+export TF_VAR_variables_sub_cidr="10.0.203.0/24"
 ```
 
 ### Task 1.1
@@ -114,8 +114,8 @@ Finally, the last way that you can set the value for a Terraform variable is to 
 
 On the CLI, run the following command:
 
-```text
-$ terraform plan -var variables_sub_az="us-east-1e" -var variables_sub_cidr="10.0.205.0/24"
+```shell
+terraform plan -var variables_sub_az="us-east-1e" -var variables_sub_cidr="10.0.205.0/24"
 ```
 
 You'll see that we've now set the variable `variables_sub_az` equal to "us-east-1e" and the variable `variables_sub_cidr` to "10.0.205.0/24" which are different from our current infrastructure. As a result, Terraform wants to replace the existing subnet. Terraform uses the last value it finds, overriding any previous values.

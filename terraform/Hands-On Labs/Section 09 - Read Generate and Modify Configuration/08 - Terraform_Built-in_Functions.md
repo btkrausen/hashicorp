@@ -34,7 +34,7 @@ variable "num_3" {
 }
 ```
 
-In the `main.tf`, let's add a new local variable that uses a numercial function:
+In the `main.tf`, let's add a new local variable that uses a numerical function:
 
 ```hcl
 locals {
@@ -55,7 +55,7 @@ Go ahead and run a `terraform apply -auto-approve` so we can see the result of o
 
 ## Task 2: Manipulate strings using Terraform functions
 
-Now that we know how to use functions with numbers, let's play around with strings. Many of the resources we deploy with Terraform and the related aruments require a string for input, such as a subnet ID, security group, or instance size.
+Now that we know how to use functions with numbers, let's play around with strings. Many of the resources we deploy with Terraform and the related arguments require a string for input, such as a subnet ID, security group, or instance size.
 
 Let's modify our VPC to make use of a string function. Update your VPC resource in the `main.tf` file to look something like this:
 

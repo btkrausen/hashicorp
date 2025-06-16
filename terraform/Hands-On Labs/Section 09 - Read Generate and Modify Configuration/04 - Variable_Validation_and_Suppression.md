@@ -170,7 +170,7 @@ phone_number = <sensitive>
 
 Even though items are marked as sensitive within the Terraform configuration, they are stored within the Terraform state file. It is therefore critical to limit the access to the Terraform state file.
 
-View the `terraform.tfstate` within your `variable_validation` diredtory.
+View the `terraform.tfstate` within your `variable_validation` directory.
 
 ```json
 {
