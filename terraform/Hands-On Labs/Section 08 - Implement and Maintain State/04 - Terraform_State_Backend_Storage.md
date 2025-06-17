@@ -15,7 +15,7 @@ The built in Terraform standard backends store state remotely and perform terraf
 - [Google Cloud Storage Backend](https://www.terraform.io/docs/language/settings/backends/gcs.html)
 - [Azure Storage Backend](https://www.terraform.io/docs/language/settings/backends/azurerm.html)
 
-Consult Terraform documentaion for a [full list of Terraform standard backends](https://www.terraform.io/docs/language/settings/backends/index.html)
+Consult Terraform documentation for a [full list of Terraform standard backends](https://www.terraform.io/docs/language/settings/backends/index.html)
 
 Most backends also support collaboration features so using a backend is a must-have both from a security and teamwork perspective. Not all of these features need to be configured and enabled, but we will walk you some of the most beneficial items including versioning, encryption and state locking.
 
@@ -243,7 +243,7 @@ Apply complete! Resources: 27 added, 0 changed, 0 destroyed.
 
 View the HTTP Logs in the webserver terminal to showcase the use of the `http` backend
 
-```
+```log
 127.0.0.1 - - [] "GET /terraform_state/my_state HTTP/1.1" 404 -
 [,636] DEBUG in stateserver: PUT for http://localhost:5000/terraform_lock/my_state...
     Header -- Host = localhost:5000

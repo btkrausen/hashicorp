@@ -82,7 +82,7 @@ If you open and view the `terraform.tfstate` file you will notice that it is sto
 
 ## Task 3: View/Update Terraform local backend configuration
 
-The terrafrom backend end configuration for a given working directory is specified in the Terraform configuration block. Our terraform configuaration block for this lab is located in the `terraform.tf` file.
+The terrafrom backend end configuration for a given working directory is specified in the Terraform configuration block. Our terraform configuration block for this lab is located in the `terraform.tf` file.
 
 ```hcl
 terraform {

@@ -1,6 +1,6 @@
 # Lab: Terraform State Migration
 
-As your maturity and use of Terraform develops there may come a time when you need change the backend type you are using. Perhaps you are onboarding new employees and now need to centralize state. You might be part of a merger/acquistion where you need to onboard another organization's Terraform code to your standard configuration. You may simply like to move from a standard backend to an enhanced backend to leverage some of those backend features. Luckily Terraform makes it relatively easy to change your state backend configuration and migrate the state between backends along with all of the data that the state file contains.
+As your maturity and use of Terraform develops there may come a time when you need change the backend type you are using. Perhaps you are onboarding new employees and now need to centralize state. You might be part of a merger/acquisition where you need to onboard another organization's Terraform code to your standard configuration. You may simply like to move from a standard backend to an enhanced backend to leverage some of those backend features. Luckily Terraform makes it relatively easy to change your state backend configuration and migrate the state between backends along with all of the data that the state file contains.
 
 - Task 1: Use Terraform's default `local` backend
 - Task 2: Migrate State to `s3` backend
@@ -9,7 +9,7 @@ As your maturity and use of Terraform develops there may come a time when you ne
 
 ## Task 1: Use Terraform's default `local` backend
 
-Update the terraform configuration block within the `terraform.tf` and remove the `backend`. This will indicate to Terraform to use it's deafult `local` backend and store the contents of state inside a `terraform.tfstate` file locally inside the working directory.
+Update the terraform configuration block within the `terraform.tf` and remove the `backend`. This will indicate to Terraform to use it's default `local` backend and store the contents of state inside a `terraform.tfstate` file locally inside the working directory.
 
 ```hcl
 terraform {
@@ -39,7 +39,7 @@ terraform {
 }
 ```
 
-Validate your configuration and re-intialize to terraform's default `local` backend.
+Validate your configuration and re-initialize to terraform's default `local` backend.
 
 ```shell
 terraform validate
@@ -118,7 +118,7 @@ terraform {
 }
 ```
 
-Validate your configuration and re-intialize to terraform's `s3` backend.
+Validate your configuration and re-initialize to terraform's `s3` backend.
 
 ```shell
 terraform validate
@@ -151,9 +151,9 @@ terraform state list
 
 ![Remote State S3](img/remote_state_s3.png)
 
-Congratulations! You have succesfully migrated active state from the `local` to `s3` backend and are now storing state remotely. With the `s3` standard backend you are able to share your workspace with teammates, leverage state locking, versioning and the encryption features of the `s3` backend.
+Congratulations! You have successfully migrated active state from the `local` to `s3` backend and are now storing state remotely. With the `s3` standard backend you are able to share your workspace with teammates, leverage state locking, versioning and the encryption features of the `s3` backend.
 
-If you can read the state information then the migration was sucessful. You can now remove the local `terraform.tfstate` and `terraform.tfstate.backup` files locally in your working directory.
+If you can read the state information then the migration was successful. You can now remove the local `terraform.tfstate` and `terraform.tfstate.backup` files locally in your working directory.
 
 ## Task 3: Migrate State to `remote` backend
 
@@ -178,7 +178,7 @@ terraform {
 }
 ```
 
-Validate your configuration and re-intialize to terraform's `remote` backend.
+Validate your configuration and re-initialize to terraform's `remote` backend.
 
 ```shell
 terraform validate
@@ -214,13 +214,13 @@ terraform state list
 
 ![Remote State TFC](img/remote_state_tfc.png)
 
-Congratulations! You have succesfully migrated active state from the `s3` to `remote` backend and are now storing state remotely in Terraform Cloud. With the `remote` enhanced backend you are able to share your workspace with teammates, leverage state locking, versioning, encryption and centerally perform operations using the features of Terraform Cloud.
+Congratulations! You have successfully migrated active state from the `s3` to `remote` backend and are now storing state remotely in Terraform Cloud. With the `remote` enhanced backend you are able to share your workspace with teammates, leverage state locking, versioning, encryption and centerally perform operations using the features of Terraform Cloud.
 
 ## Task 4: Migrate back to `local` backend
 
 Now that we have migrated our state to several different backend types, let's show how to restore the Terraform state back to it's default `local` backend.
 
-Update the terraform configuration block within the `terraform.tf` and remove the `backend`. This will indicate to Terraform to use it's deafult `local` backend and store the contents of state inside a `terraform.tfstate` file locally inside the working directory.
+Update the terraform configuration block within the `terraform.tf` and remove the `backend`. This will indicate to Terraform to use it's default `local` backend and store the contents of state inside a `terraform.tfstate` file locally inside the working directory.
 
 ```hcl
 terraform {
@@ -250,7 +250,7 @@ terraform {
 }
 ```
 
-Validate your configuration and re-intialize to terraform's `local` backend.
+Validate your configuration and re-initialize to terraform's `local` backend.
 
 ```shell
 terraform validate
@@ -279,4 +279,4 @@ terraform state list
 
 As part of this migration back to the `local` backend you will see that terraform created a `terraform.tfstate` file in which the state is now being managed.
 
-Congratulations! You have succesfully migrated active state from `local` to `s3` to `remote` and back again. You are once again storing state locally within a `terraform.tfstate` file of your working directory. As you can see, Terraform makes it relatively easy to change your state backend configuration and migrate to the backend that is appropriate for your team.
+Congratulations! You have successfully migrated active state from `local` to `s3` to `remote` and back again. You are once again storing state locally within a `terraform.tfstate` file of your working directory. As you can see, Terraform makes it relatively easy to change your state backend configuration and migrate to the backend that is appropriate for your team.
