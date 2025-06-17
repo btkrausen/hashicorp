@@ -151,7 +151,7 @@ provider "aws" {
 }
 ```
 
-```
+```bash
   # aws_vpc.vpc will be updated in-place
   ~ resource "aws_vpc" "vpc" {
         id                               = "vpc-00d26110d48784808"
