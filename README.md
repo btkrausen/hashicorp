@@ -58,8 +58,8 @@ Check out my list of courses at [btk.me/btk](https://btk.me/btk)
 | [GitHub Actions Certification Practice Exams](https://btk.me/gha) | JUNE2025 |
 
 ## 👬 👬 Collab Courses 👬 👬
-| Course Link | Coupon Code |
-| ----------- | :-----------: |
+| Course Link | Repo Link | Coupon Code |
+| ----------- | :---------: |:------------: |
 | [Amazon Bedrock - The Complete Guide to AWS Generative AI](https://btk.me/ab) | [Link](https://github.com/alexhddev/Bedrock_course)| JUNE2025 |
 | [Building Automated Machine Images using HashiCorp Packer](https://btk.me/p) | [Link](https://github.com/btkrausen/hashicorp/tree/master/packer)| JUNE2025 |
 | [HashiCorp Certified: Terraform Associate Hands-On Lab Course](https://btk.me/tfhol) |[Link](https://github.com/btkrausen/hashicorp/tree/master/terraform) | JUNE2025 |
