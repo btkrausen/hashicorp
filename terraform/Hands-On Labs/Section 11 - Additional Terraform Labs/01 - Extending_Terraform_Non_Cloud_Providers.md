@@ -64,8 +64,7 @@ password = <sensitive>
 
 > Note: The password was NOT regenerated, why is this?
 
-
-Now **update** the `random_guid` resource to use a "keepers" arguement:
+Now **update** the `random_guid` resource to use a "keepers" argument:
 
 ```hcl
 resource "random_uuid" "guid" {
