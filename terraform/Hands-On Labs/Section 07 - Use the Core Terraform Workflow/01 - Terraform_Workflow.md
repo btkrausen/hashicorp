@@ -13,7 +13,7 @@ The command line interface to Terraform is via the terraform command, which acce
 - Task 1: Verify Terraform installation
 - Task 2: Using the Terraform CLI
 - Task 3: Initializing a Terraform Workspace
-- Task 4: Genenerating a Terraform Plan
+- Task 4: Generating a Terraform Plan
 - Task 5: Applying a Terraform Plan
 - Task 6: Terraform Destroy
 
@@ -73,7 +73,7 @@ Once your Terraform workspace has been initialized you are ready to begin planni
 
 > Note: You can validate that your workspace is initialized by looking for the presence of a `.terraform` directory. This is a hiddent directory, which Terraform uses to manage cached provider plugins and modules, record which workspace is currently active, and record the last known backend configuration in case it needs to migrate state. This directory is automatically managed by Terraform, and is created during initialization.
 
-## Task 4: Genenerating a Terraform Plan
+## Task 4: Generating a Terraform Plan
 
 Terraform has a dry run mode where you can preview what Terraform will change without making any actual changes to your infrastructure. This dry run is performed by running a `terraform plan`.
 
