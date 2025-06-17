@@ -40,7 +40,7 @@ terraform apply
 
 ### 1.2: Change the name of the security group
 
-In order to see how some resources cannot be recreated under the default `lifecyle` settings, let's attempt to change the name of the security group from `core-sg` to something like `core-sg-global`.
+In order to see how some resources cannot be recreated under the default `lifecycle` settings, let's attempt to change the name of the security group from `core-sg` to something like `core-sg-global`.
 
 ```bash
 resource "aws_security_group" "main" {
@@ -126,7 +126,7 @@ Do you want to perform these actions?
 
 **NOTE:** This action takes many minutes and eventually shows an error. You may choose to terminate the `apply` action with `^C` before the 15 minutes elapses. You may have to terminate twice to exit.
 
-```
+```bash
 aws_security_group.main: Destroying... [id=sg-00157499a6de61832]
 aws_security_group.main: Still destroying... [id=sg-00157499a6de61832, 10s elapsed]
 aws_security_group.main: Still destroying... [id=sg-00157499a6de61832, 20s elapsed]
@@ -144,7 +144,7 @@ aws_security_group.main: Still destroying... [id=sg-00157499a6de61832, 15m0s ela
 |
 ```
 
-This is occuring because we have other resources that are dependent on this security group, and therefore the default Terraform behavior of destroying and then recreating the new security group is causing a dependency violation. We can solve this by using the `create_before_destroy` lifecycle directive to tell Terraform to first create the new security group before destroying the original.
+This is occurring because we have other resources that are dependent on this security group, and therefore the default Terraform behavior of destroying and then recreating the new security group is causing a dependency violation. We can solve this by using the `create_before_destroy` lifecycle directive to tell Terraform to first create the new security group before destroying the original.
 
 ### 1.3: Use `create_before_destroy`
 
@@ -238,7 +238,7 @@ Do you want to perform these actions?
   Enter a value: yes
 ```
 
-It should now succeed within a short amount of time as the new security group is created frist, applied to our server and then the old security group is destroyed. Using the lifecyle block we controlled the order in which Terraform creates and destroys resources, removing the dependency violation of renaming a security group.
+It should now succeed within a short amount of time as the new security group is created first, applied to our server and then the old security group is destroyed. Using the lifecycle block we controlled the order in which Terraform creates and destroys resources, removing the dependency violation of renaming a security group.
 
 ```bash
 aws_security_group.main: Creating...
@@ -253,7 +253,7 @@ Apply complete! Resources: 1 added, 1 changed, 1 destroyed.
 
 ## Task 2: Use `prevent_destroy` with an instance
 
-Another lifecycle directive that we may wish to include in our configuraiton is `prevent_destroy`. This warns if any change would result in destroying a resource. All resources that this resource depends on must also be set to `prevent_destroy`. We'll demonstrate how `prevent_destroy` can be used to guard an instance from being destroyed.
+Another lifecycle directive that we may wish to include in our configuration is `prevent_destroy`. This warns if any change would result in destroying a resource. All resources that this resource depends on must also be set to `prevent_destroy`. We'll demonstrate how `prevent_destroy` can be used to guard an instance from being destroyed.
 
 ### 2.1: Use `prevent_destroy`
 
@@ -278,8 +278,7 @@ Attempt to destroy the existing infrastructure. You should see the error that fo
 terraform destroy -auto-approve
 ```
 
-```
-
+```bash
 Error: Instance cannot be destroyed
 
   on main.tf line 378:
@@ -316,4 +315,4 @@ terraform destroy -auto-approve
 
 The command should succeed and you should see a message confirming `Destroy complete!`
 
-The `prevent_destroy` lifecycle directive can be used on resources that are stateful in nature (s3 buckets, RDS instances, long lived VMs, etc.) as a mechanism to help prevent accidently destroying items that have long lived data within them.
+The `prevent_destroy` lifecycle directive can be used on resources that are stateful in nature (s3 buckets, RDS instances, long lived VMs, etc.) as a mechanism to help prevent accidentally destroying items that have long lived data within them.
