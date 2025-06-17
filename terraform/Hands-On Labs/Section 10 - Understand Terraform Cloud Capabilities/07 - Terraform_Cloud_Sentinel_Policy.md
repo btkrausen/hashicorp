@@ -26,7 +26,7 @@ First we need a place to store our policies. Sentinel is a policy as code framew
 
 Create a fork of the following GitHub repo, which contains several Sentinel policies that you can use in your own organization. Use the **Fork** button in the upper right corner of the screen to create your own copy into your GitHub account.
 
-https://github.com/btkrausen/hashicorp
+<https://github.com/btkrausen/hashicorp>
 
 ### 2.1 Sentinel Policies
 
@@ -63,7 +63,7 @@ policy "restrict-ec2-instance-type" {
 }
 ```
 
-Policy enforcment levels are also defined inside the policy set. Sentinel has three enforcement levels:
+Policy enforcement levels are also defined inside the policy set. Sentinel has three enforcement levels:
 
 - **Advisory**: The policy is allowed to fail. However, a warning should be shown to the user or logged.
 
@@ -77,7 +77,7 @@ Now that the policies and policy sets are defined, let's connect them to our Ter
 
 1. Go into the **Organization Settings** for your training organization and click on **Policy Sets**.
 
-![](img/sentinel-policyset-add-new.png)
+![Sentinel Policy Sets](img/sentinel-policyset-add-new.png)
 
 2. Use the **Connect a new policy set** button to connect your new GitHub repo to your organization. Remember, the repository is named **hashicorp**.
 3. Under **Name** enter "AWS-Global-Policies"
@@ -109,7 +109,7 @@ Confirm & Apply the plan.
 
 Now let's update our code to specify an instance size that is not allowed via policy. Navigate to the `web_server` resource block and update the `instance_type` to `m5.large`
 
-```
+```hcl
 resource "aws_instance" "web_server" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = "m5.large"
@@ -129,7 +129,7 @@ resource "aws_instance" "web_server" {
 
 Queue a new terraform run that includes this change by initiating a `terraform init` and `terraform plan`
 
-```
+```bash
 terraform init
 terraform plan
 ```
@@ -138,7 +138,7 @@ terraform plan
 
 Will see the plan was unsuccessful because of a policy failure in moving to an `instance_type` that is not allowed.
 
-```
+```bash
 Result: false
 
 Description:
@@ -157,7 +157,7 @@ The policy is set to `hard-mandatory` enforcement that prevents the plan from mo
 
 Now let's update our code to specify an instance size that is allowed via policy. Navigate to the `web_server` resource block and update the `instance_type` to `t2.medium`
 
-```
+```hcl
 resource "aws_instance" "web_server" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = "t2.medium"
@@ -174,7 +174,7 @@ resource "aws_instance" "web_server" {
 
 Queue a new terraform run:
 
-```
+```bash
 terraform plan
 ```
 

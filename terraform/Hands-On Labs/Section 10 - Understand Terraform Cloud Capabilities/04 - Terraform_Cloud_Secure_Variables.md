@@ -34,7 +34,7 @@ Terraform requires credentials in order to communicate with your cloud provider'
 - In the `Variables` tab of your `my-aws-app` you can add environment variables for the AWS Credentials
 - To do this, first select the `+ Add variable` button
 - Lets add a Environment variable named `AWS_ACCESS_KEY_ID` with your AWS Access Key
-- Lets add a second Environment variable named `AWS_SECRET_ACCESS_KEY ` with your AWS Secret Key. Be sure to mark this variable as sensitive. Sensitive variables will not be displayed within the environment, and can only be overwritten - not read.
+- Lets add a second Environment variable named `AWS_SECRET_ACCESS_KEY` with your AWS Secret Key. Be sure to mark this variable as sensitive. Sensitive variables will not be displayed within the environment, and can only be overwritten - not read.
 
 ## Task 2: Run a plan locally
 
@@ -88,7 +88,7 @@ Next, we will be testing to make sure that our variables in TFC are working corr
 
 ## Task 4: Run an apply remotely
 
-Now that we've tested that our configuration is still working and that our variables can be stored and manipulated withing Terraform Cloud, let's also test an apply within Terraform Cloud itself.
+Now that we've tested that our configuration is still working and that our variables can be stored and manipulated within Terraform Cloud, let's also test an apply within Terraform Cloud itself.
 
 ### Step 4.1 - Queue a plan in Terraform Cloud
 
@@ -101,17 +101,17 @@ Now that your variable value has changed, let's queue the plan in Terraform Clou
 
 ## Task 5: Utilize Variable sets
 
-Variable sets allow Terraform Cloud users to reuse both Terraform-defined and environment variables not just from root to child modules, but across certain workspaces or an entire organization. One of the most common use cases for variable sets is credential and identity management. Variable sets allow for a convienent way to reuse variables across workspaces within a Terraform Cloud organization.
+Variable sets allow Terraform Cloud users to reuse both Terraform-defined and environment variables not just from root to child modules, but across certain workspaces or an entire organization. One of the most common use cases for variable sets is credential and identity management. Variable sets allow for a convenient way to reuse variables across workspaces within a Terraform Cloud organization.
 
 - In the `Settings` tab of your Terraform Cloud Organization go to `Variable sets`.
 - Select the `Create Variable set` button
 - Give your variable set a name - `AWS Credentials` and description.
-- Apply the variable set to your `my-aws-app` workspace. 
+- Apply the variable set to your `my-aws-app` workspace.
 - You can add environment variables for the AWS Credentials
 - To do this, first select the `+ Add variable` button
 - Lets add a Environment variable named `AWS_ACCESS_KEY_ID` with your AWS Access Key
-- Lets add a second Environment variable named `AWS_SECRET_ACCESS_KEY ` with your AWS Secret Key. Be sure to mark this variable as sensitive.
+- Lets add a second Environment variable named `AWS_SECRET_ACCESS_KEY` with your AWS Secret Key. Be sure to mark this variable as sensitive.
 
-Now you can use these AWS credentials on any new workspace you create in Terraform Cloud by adding the variable set to the workspace.  While storing cloud credentials is a common use of variable sets, they are not limited to credentials.  Variable sets can be utlized for any set of variables that you want to reuse accross workspaces within the organization.
+Now you can use these AWS credentials on any new workspace you create in Terraform Cloud by adding the variable set to the workspace.  While storing cloud credentials is a common use of variable sets, they are not limited to credentials. Variable sets can be utilized for any set of variables that you want to reuse accross workspaces within the organization.
 
-## Congratulations! You're now storing your variable definitions remotely and can control the behavior of your Terraform code by adjusting their values. With Terraform Cloud you are able to centralize and secure the variable definintions for your workspace.
+## Congratulations! You're now storing your variable definitions remotely and can control the behavior of your Terraform code by adjusting their values. With Terraform Cloud you are able to centralize and secure the variable definitions for your workspace

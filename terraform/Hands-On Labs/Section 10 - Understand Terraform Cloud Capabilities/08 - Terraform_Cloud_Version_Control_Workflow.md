@@ -16,7 +16,7 @@ Terraform Cloud can integrate with the most popular VCS systems including GitHub
 
 ## Task 1: Create a new GitHub repository
 
-You will need a free GitHub.com account for this lab. We recommend using a personal account that was configured in previous labs. You can sign up or login in to an existing account at https://github.com/
+You will need a free GitHub.com account for this lab. We recommend using a personal account that was configured in previous labs. You can sign up or login in to an existing account at <https://github.com/>
 
 Login to github and create a new repository by navigating to <https://github.com/new>
 
@@ -39,7 +39,7 @@ In your repository create a `.gitignore` file to filter out any items we don't w
 
 `.gitignore`
 
-```
+```text
 # Local .terraform directories
 **/.terraform/*
 
@@ -93,7 +93,7 @@ Check out the 70+ labs that follow the HashiCorp Certified: Terraform Associate 
 
 Commit the changes in GitHub.
 
-```
+```bash
 git add .
 git commit -m "terraform code update for my app"
 git push --set-upstream origin master
@@ -117,7 +117,7 @@ You can see that we are connected to our GitHub my-app project that we reviewed 
 
 ## Task 4: Validate variables for each Terraform Cloud Workspace
 
-Version control allows us to store our Terraform configuration in a centeralized location and reuse the same code base across branches withing our code repository. We however may wish to change a few specific settings to distiguish our development and production deployments. We will utilize Terraform variables within Terraform Cloud to specify these unique environment settings.
+Version control allows us to store our Terraform configuration in a centeralized location and reuse the same code base across branches within our code repository. We however may wish to change a few specific settings to distinguish our development and production deployments. We will utilize Terraform variables within Terraform Cloud to specify these unique environment settings.
 
 Update the variables for each of the `myapp` Terraform Cloud workspaces for the `environment` variable.
 
@@ -160,7 +160,7 @@ In the `my-app` github repository, create a `development` branch from the `main`
 
 We will be using GitHub to promote a change to our app through Development and then into Production. Let's look how a change promotion would look in this configuration we outlined. We are going to start in our "Development" environment and move, or promote, that change to our production environments.
 
-### 6.1 Pull down development branch locally:
+### 6.1 Pull down development branch locally
 
 The first step is to pull down the development code locally from the development branch of our repository. Currently this branch matches the main branch.
 
@@ -181,7 +181,7 @@ Let's make a few changes in our development environment.
 
 To remove the additional server, remove it's resource block from your `main.tf`
 
-```
+```hcl
 # Terraform Resource Block - To Build EC2 instance in Public Subnet
 resource "aws_instance" "ubuntu_server" {
   ami                         = data.aws_ami.ubuntu.id
@@ -233,7 +233,7 @@ output "public_dns" {
 
 The last change will be to refactor our code to rename our output blocks and move them to an `outputs.tf` file. Remove the following blocks from our `main.tf`:
 
-```
+```hcl
 output "public_ip_server_subnet_1" {
   value = aws_instance.web_server.public_ip
 }
@@ -245,7 +245,7 @@ output "public_dns_server_subnet_1" {
 
 Create an `outputs.tf` file within our working directory with the following output blocks.
 
-```
+```hcl
 output "environment" {
   value = var.environment
 }
@@ -266,7 +266,7 @@ terraform init -backend-config=dev.hcl -reconfigure
 terraform validate
 ```
 
-```
+```bash
 Success! The configuration is valid.
 ```
 
@@ -277,20 +277,20 @@ terraform plan
 terraform apply
 ```
 
-```
+```bash
 | Error: Apply not allowed for workspaces with a VCS connection
 |
 | A workspace that is connected to a VCS requires the VCS-driven workflow to ensure that
 | the VCS remains the single source of truth.
 ```
 
-This is to be expected. Now that we are centrally storing all of our Terraform configuration inside version control, and have connected our Terraform Cloud workspaces to the version control workflow, all updates should be triggerd by commiting our code up into GitHub.
+This is to be expected. Now that we are centrally storing all of our Terraform configuration inside version control, and have connected our Terraform Cloud workspaces to the version control workflow, all updates should be triggerd by committing our code up into GitHub.
 
 ### 6.3 Commit changes to development branch
 
 Now that our changes are valid, let's commit them to our development branch. Before we do, make sure you have both GitHub and Terraform Cloud web pages up to see the change being committed to the development branch with then triggers a Terraform Run inside our `devop-aws-myapp-dev` workspace.
 
-```
+```bash
 git add .
 git commit -m "remove extra server and refactor outputs"
 git push
@@ -306,7 +306,7 @@ Navigate to Terraform Cloud. You should see that a new run has been triggered wi
 
 ![Development Workspace - Run Details](img/tfc_workspace_deploy_development_details.png)
 
-### 6.5 Confirm and apply our changes to development.
+### 6.5 Confirm and apply our changes to development
 
 We can confirm and apply our changes to development environment from within Terraform Cloud.
 
