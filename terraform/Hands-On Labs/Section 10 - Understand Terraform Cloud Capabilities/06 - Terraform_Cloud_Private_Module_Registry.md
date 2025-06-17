@@ -12,13 +12,13 @@ The Terraform Private Module Registry is an index of private modules that you do
 
 Instead of writing a terraform module from scratch we will copy and existing S3 module from the public Terraform registry. Visit this URL to view the AWS S3 module:
 
-https://github.com/terraform-aws-modules/terraform-aws-s3-bucket
+<https://github.com/terraform-aws-modules/terraform-aws-s3-bucket>
 
 ### Step 1.1 Fork the Module Repository to your GitHub account
 
 You are going to fork the following repository into your own GitHub account:
 
-- https://github.com/terraform-aws-modules/terraform-aws-s3-bucket
+- <https://github.com/terraform-aws-modules/terraform-aws-s3-bucket>
 
 This repository represents a module that can be developed and versioned independently. Note the **Source:** link that points at the github repository for this module. Click on the Source URL and create your own fork of this repository with the **Fork** button.
 
@@ -26,11 +26,11 @@ This repository represents a module that can be developed and versioned independ
 
 We need to add this repository into the Private Module Registry. Navigate back to Terraform Cloud and click the "Modules" menu at the top of the page. From there click the "+ Add Module" button.
 
-![](img/tfe-add-module.png)
+![Add Module Form](img/tfe-add-module.png)
 
 Select the S3 repository you forked earlier.
 
-![](img/tfe-select-module-repo.png)
+![Confirm Module](img/tfe-select-module-repo.png)
 
 > Note: You will see your github user name since you forked this repo.
 
@@ -38,7 +38,7 @@ Click "Publish Module".
 
 This will query the repository for necessary files and tags used for versioning.
 
-![](img/tfe-published-module.png)
+![Published Module](img/tfe-published-module.png)
 
 ## Task 3: Review module block reference to Private Module Registry
 

@@ -3,7 +3,7 @@
 Enhanced backends can both store state and perform operations. There are only two enhanced backends: `local` and `remote`. The `local` backend is the default backend used by Terraform which we worked with in previous labs. The `remote` backend stores Terraform state and may be used to run operations in Terraform Cloud. When using full remote operations, operations like terraform plan or terraform apply can be executed in Terraform Cloud's run environment, with log output streaming to the local terminal. Remote plans and applies use variable values from the associated Terraform Cloud workspace.
 
 - Task 1: Log in to Terraform Cloud
-- Task 2: Update Terraform configuration to use Remote Enchanced Backend
+- Task 2: Update Terraform configuration to use Remote Enhanced Backend
 - Task 3: Re-initialize Terraform and Validate Remote Backend
 - Task 4: Provide Secure Credentials for Remote Runs
 - Task 5: View the state, log and lock files in Terraform Cloud
@@ -21,7 +21,7 @@ Open the organization switcher menu in the top navigation bar and take note of y
 
 ![Organization Name](img/tfc_organization.png)
 
-## Task 2: Update Terraform configuration to use Remote Enchanced Backend
+## Task 2: Update Terraform configuration to use Remote Enhanced Backend
 
 A configuration can only provide one backend block, so let's update our configuration to utilize the `remote` backend.
 

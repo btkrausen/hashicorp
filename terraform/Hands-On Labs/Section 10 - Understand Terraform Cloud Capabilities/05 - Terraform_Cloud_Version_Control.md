@@ -10,7 +10,7 @@ This lab demonstrates how to connect Terraform Cloud to your personal Github acc
 
 ## Task 1: Configuring GitHub Access
 
-You will need a free GitHub.com account for this lab. We recommend using a personal account. You can sign up or login in to an existing account at https://github.com/
+You will need a free GitHub.com account for this lab. We recommend using a personal account. You can sign up or login in to an existing account at <https://github.com/>
 
 ## Task 2: Create Terraform Cloud VCS Connection
 
@@ -18,15 +18,15 @@ You will need a free GitHub.com account for this lab. We recommend using a perso
 2. Login to Terraform Cloud in another browser tab.
 3. Within Terraform Cloud navigate to the settings page
 
-![](img/tfe-settings.png)
+![Settings Menu](img/tfe-settings.png)
 
 4. Click "VCS Providers" link:
 
-![](img/tfe-settings-vcs.png)
+![VPC Providers Link](img/tfe-settings-vcs.png)
 
 For full instructions follow the **Configuring GitHub Access** section of the Terraform Cloud documentation to connect your GitHub account to your Terraform Organization.
 
-[Configuring GitHub Access](https://www.terraform.io/docs/cloud/vcs/github.html) - https://www.terraform.io/docs/cloud/vcs/github.html
+[Configuring GitHub Access](https://www.terraform.io/docs/cloud/vcs/github.html) - <https://www.terraform.io/docs/cloud/vcs/github.html>
 
 > Note: The process involves several back and forth changes and is documented well in the link.
 
@@ -36,7 +36,7 @@ For full instructions follow the **Configuring GitHub Access** section of the Te
 2. Click the VCS Connection in the "Source" section.
 3. Verify you can see repositories:
 
-![](img/tfe-vcs-verify.png)
+![Verify Connection Form](img/tfe-vcs-verify.png)
 
 If you can see repositories then you are all set.
 

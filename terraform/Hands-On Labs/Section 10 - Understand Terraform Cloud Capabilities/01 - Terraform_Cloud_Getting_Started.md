@@ -1,6 +1,6 @@
 # Lab: Terraform Cloud - Getting Started
 
-Terraform Cloud is HashiCorp’s managed service offering that eliminates the need for unnecessary tooling and documentation to use Terraform in production. Terraforn Cloud helps you to provision infrastructure securely and reliably in the cloud with free remote state storage. Teraform Cloud and it's self hosted counterpart Terraform Enterprise offer Workspaces, Private Module Registry, Team Goverenance along with Policy as Code (Sentinel) as a few of it's benefits.
+Terraform Cloud is HashiCorp’s managed service offering that eliminates the need for unnecessary tooling and documentation to use Terraform in production. Terraform Cloud helps you to provision infrastructure securely and reliably in the cloud with free remote state storage. Terraform Cloud and it's self hosted counterpart Terraform Enterprise offer Workspaces, Private Module Registry, Team Goverenance along with Policy as Code (Sentinel) as a few of it's benefits.
 
 - Task 1: Sign up for Terraform Cloud
 - Task 2: Clone Getting Started Code Repository
@@ -39,7 +39,7 @@ Open the following URL to access the tokens page for app.terraform.io:
 ---------------------------------------------------------------------------------
 ```
 
-1. If the token was entered succesfully you should see the following:
+1. If the token was entered successfully you should see the following:
 
 ```bash
 
@@ -76,7 +76,7 @@ Retrieved token for user tfcuser
 
 ## Task 2: Clone Getting Started Code Repository
 
-We will utilize a sample code repo to get started with Terraform Cloud. You can clone this sample repo using the following conmmands:
+We will utilize a sample code repo to get started with Terraform Cloud. You can clone this sample repo using the following commands:
 
 ```sh
 git clone https://github.com/hashicorp/tfc-getting-started.git
@@ -87,7 +87,7 @@ cd tfc-getting-started
 
 This startup script within the sample code repo automatically handles all the setup required to start using Terraform with Terraform Cloud. The included configuration provisions some mock infrastructure to a fictitious cloud provider called "Fake Web Services" using the [`fakewebservices`](https://registry.terraform.io/providers/hashicorp/fakewebservices/latest) provider.
 
-```
+```bash
 ./scripts/setup.sh
 ```
 
@@ -110,12 +110,12 @@ First, we'll do some setup and configure Terraform to use Terraform Cloud.
 Press any key to continue (ctrl-c to quit):
 ```
 
-```
+```bash
 You did it! You just provisioned infrastructure with Terraform Cloud! The organization we created here has a 30-day free trial of the Team & Governance tier features.
 ```
 
 Navigate to your workspace, along with mock infrastruture that you just deployed:
 
-- Terraform Cloud: https://app.terraform.io/
+- Terraform Cloud: <https://app.terraform.io/>
 
-- Mock infrastructure you just provisioned: https://app.terraform.io/fake-web-services
+- Mock infrastructure you just provisioned: <https://app.terraform.io/fake-web-services>

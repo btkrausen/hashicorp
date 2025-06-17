@@ -85,7 +85,7 @@ Let's create a new development workspace for your app called: `devops-aws-myapp-
 
 The state data in a workspace can also be shared with other workspaces in the organization as a data source. That's helpful if you decide to refactor your Terraform code into separate workspaces, but you need to pass information between them.
 
-To isoloate our production deployment from our development, let's create a new workspace for our production infrastructure named: `devops-aws-myapp-prod`
+To isolate our production deployment from our development, let's create a new workspace for our production infrastructure named: `devops-aws-myapp-prod`
 
 1. Select `New Workspace` and choose the `CLI-driven workflow`
 2. Give the workspace a name of `devops-aws-myapp-prod`
@@ -141,7 +141,7 @@ Let's also update a couple of our resource blocks inside the `main.tf` to make u
 
 `main.tf`
 
-```
+```hcl
 resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr
 
@@ -163,7 +163,7 @@ resource "aws_key_pair" "generated" {
 
 ### 6.2 - Deploy infrastructure using appropriate Terraform Cloud workspaces
 
-Since we have Terraform Cloud workspaces that share the same Terraform codebase we will leverage backend partial configuration to select the correct workspace. If you are unfamilar with Terraform backend partial configuration it is recommended you reveiew the Terraform Backend Configuration lab which explains it in detail.
+Since we have Terraform Cloud workspaces that share the same Terraform codebase we will leverage backend partial configuration to select the correct workspace. If you are unfamiliar with Terraform backend partial configuration it is recommended you review the Terraform Backend Configuration lab which explains it in detail.
 
 Create two new files in our working directory called `dev.hcl` and `prod.hcl`
 
