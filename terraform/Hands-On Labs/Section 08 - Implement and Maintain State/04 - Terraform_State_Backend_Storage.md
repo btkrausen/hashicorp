@@ -84,6 +84,8 @@ Anyone on your team who has access to that S3 bucket will be able to see the sta
 
 ### Step 1.4 - Enable Locking for S3 Backend
 
+> Note: State locking via DynamoDB is deprecated and will be removed in a future minor version, see [developer.hashicorp.com/terraform/language/backend/s3#state-locking](https://developer.hashicorp.com/terraform/language/backend/s3#state-locking). The new method is to set the attribute `lock_enabled = true` in the `s3` backend block.
+
 The `s3` backend stores Terraform state as a given key in a given bucket on Amazon S3 to allow everyone working with a given collection of infrastructure the ability to access the same state data. In order to prevent concurrent modifications which could cause corruption, we need to implement locking on the backend. The `s3` backend supports state locking and consistency checking via Dynamo DB.
 
 State locking for the `s3` backend can be enabled by setting the dynamodb_table field to an existing DynamoDB table name. A single DynamoDB table can be used to lock multiple remote state files.
@@ -263,7 +265,7 @@ View the HTTP Logs in the webserver terminal to showcase the use of the `http` b
     Body -- {"ID":"12cae7fb-5f47-d751-8d8d-00ac15b25a00","Operation":"OperationTypeApply","Info":"","Who":"gabe@MacBook-Pro","Version":"1.0.10","Created":"06:47.629496Z","Path":""}
 ```
 
-### Step 2.4 - View the state, log and lock files.
+### Step 2.4 - View the state, log and lock files
 
 You can view the remote state file in the `http` backend by going into the webserver directory and looking inside the `.stateserver` directory. Both the state file and the log are located in this directory. This backend also supports state locking creating a `my_state.lock` when a lock is applied.
 
