@@ -8,8 +8,8 @@ One of the features of the Terraform CLI is that you can install a tab-completio
 
 ## Task 1: Install Terraform Auto Complete
 
-```hcl
-$ terraform -install-autocomplete
+```bash
+terraform -install-autocomplete
 ```
 
 ## Task 2: Test Auto Complete via CLI
@@ -22,7 +22,7 @@ apply         destroy       fmt           get           import        login     
 console       env           force-unlock  graph         init          logout        plan          push          show          taint         untaint       version
 ```
 
-Next, type `terraform state ` and hit the `tab` key (note the space after state). Notice how auto complete has provided with additional options available for the terraform state command:
+Next, type `terraform state` and hit the `tab` key (note the space after state). Notice how auto complete has provided with additional options available for the terraform state command:
 
 ```text
 $ terraform state
@@ -43,7 +43,7 @@ In your `main.tf` file, scroll to the bottom and add a few new lines. Type in `r
 
 If you get an error message that says `Error executing CLI: Did not find any shells to install` you might need to update, or create, your `~/.zshrc` or `~/.profile` file to enable auto-complete. If you are using `zsh`, which is now the default on MacOS, you'll only need `~/.zshrc`. If you're using `bash`, you'll just need `~/.profile`. If this file does not yet exist, you can run the command:
 
-```text
+```bash
 # for zsh
 touch ~/.zshrc
 
@@ -56,7 +56,7 @@ Try to install Terraform Auto Complete again.
 If you get an error message that says `complete:13: command not found: compdef`, then you should add the following to the file mentioned above:
 <br><br>
 
-```text
+```bash
 autoload -Uz compinit && compinit
 ```
 
