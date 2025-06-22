@@ -68,6 +68,7 @@ Repeat the previous step to create the additional subnets required to build out 
 
 |   Subnet Name    | Availability Zone |  CIDR Block   |
 | :--------------: | :---------------: | :-----------: |
+| private-subnet-2 |    us-east-1a     |  10.0.0.0/24  |
 | private-subnet-2 |    us-east-1b     |  10.0.1.0/24  |
 | private-subnet-3 |    us-east-1c     |  10.0.2.0/24  |
 | public-subnet-1  |    us-east-1a     | 10.0.100.0/24 |
