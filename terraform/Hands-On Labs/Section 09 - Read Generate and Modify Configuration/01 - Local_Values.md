@@ -51,7 +51,7 @@ Add another local values block to your `main.tf` module configuration that refer
 locals {
   # Common tags to be assigned to all resources
   common_tags = {
-    Name      = var.server_name
+    Name      = local.server_name
     Owner     = local.team
     App       = local.application
     Service   = local.service_name
