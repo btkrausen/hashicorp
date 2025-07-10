@@ -1,0 +1,154 @@
+#!/bin/bash
+echo "beginning userdata setup"
+
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+sudo yum -y install nomad
+export TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
+IP=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/local-ipv4)
+
+sudo touch /etc/nomad.d/nomad.env
+
+cat > /etc/nomad.d/nomad.hcl << EOF
+name = "${host_name}"
+
+# Directory to store agent state
+data_dir = "/var/lib/nomad"
+
+# Address the Nomad agent should bing to for networking
+# 0.0.0.0 is the default and results in using the default private network interface
+# Any configurations under the addresses parameter will take precedence over this value
+bind_addr = "$IP"
+
+advertise {
+  # Defaults to the first private IP address.
+  http = "$IP:4646" # must be reachable by Nomad CLI clients
+  rpc  = "$IP:4647" # must be reachable by Nomad client nodes
+  serf = "$IP:4648" # must be reachable by Nomad server nodes
+}
+
+ports {
+  http = 4646
+  rpc  = 4647
+  serf = 4648
+}
+
+# TLS configurations
+tls {
+  http = false
+  rpc  = false
+
+  # ca_file   = "/etc/certs/ca.crt"
+  # cert_file = "/etc/certs/nomad.crt"
+  # key_file  = "/etc/certs/nomad.key"
+}
+
+# Specify the datacenter the agent is a member of
+datacenter = "dc1"
+
+# Logging Configurations
+log_level = "INFO"
+log_file  = "/var/log/nomad.log"
+
+# Server & Raft configuration
+server {
+  enabled          = true
+  bootstrap_expect = 3
+  encrypt          = "Do7GerAsNtzK527dxRZJwpJANdS2NTFbKJIxIod84u0="
+  server_join {
+    retry_join = ["provider=aws tag_key=Environment-Name tag_value=nomad-cluster"]
+  }
+  default_scheduler_config {
+    scheduler_algorithm = "spread" # change from default of binpack
+  }
+}
+
+# Client Configuration - Disable for Server nodes
+client {
+  enabled = false
+}
+
+# Enable and configure ACLs
+acl {
+  enabled    = false
+  token_ttl  = "30s"
+  policy_ttl = "60s"
+  role_ttl   = "60s"
+}
+
+# [optional] Specifies configuration for connecting to Consul
+# consul {
+#   address = "127.0.0.1:8500"
+#   ssl     = false
+# }
+
+# [optional] Specifies configuration for connecting to Vault
+vault {
+  enabled          = true
+  address          = "https://vault-cluster-example.com:8200/"
+  create_from_role = "nomad-cluster"
+  namespace        = "admin" # Optional, if using HCP Vault or Vault Enterprise
+  default_identity {
+    aud = ["vault.io"]
+    ttl = "1h"
+  }
+}
+EOF
+
+sleep 5
+
+# INstall Consul Client
+sudo yum install -y consul
+
+sudo touch /etc/consul.d/consul.env
+
+cat > /etc/consul.d/consul.hcl << EOF
+log_level  = "INFO"
+server     = false
+datacenter = "us-east-1"
+node_name = "${host_name}"
+
+leave_on_terminate = true
+data_dir           = "/opt/consul/data"
+
+# Agent Network Configuration
+client_addr    = "0.0.0.0"
+bind_addr      = "0.0.0.0"
+advertise_addr = "$IP"
+
+# Disable HTTP and use 8501 for HTTPS
+ports {
+  http  = 8500
+  grpc = 8502
+
+}
+
+# Cluster Join - Using Cloud Auto Join
+retry_join = ["provider=aws tag_key=purpose tag_value=consul-cluster region=us-east-1"]
+
+# Enable Consul Service Mesh
+connect {
+  enabled = true
+}
+
+# Enable Auto Encrypt
+auto_encrypt {
+  tls = true
+}
+
+EOF
+
+echo "${host_name}" > /etc/hostname
+echo "export PS1='\h:\w\$ '" >> ~/.bashrc
+echo "export PS1='\h:\w\$ '" >> ~/.profile
+
+sleep 5
+sudo systemctl enable --now consul
+
+# Enable and Start the Nomad Service
+echo "Enabling and Starting the Nomad Service"
+sudo systemctl enable nomad
+sudo systemctl start nomad
+
+
+echo "Completed"

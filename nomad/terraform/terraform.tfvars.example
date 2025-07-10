@@ -1,0 +1,24 @@
+# AWS-Specific Variables
+
+aws_region             = "us-east-1"
+ec2_ami_id             = "ami-1234567890"
+associate_public_ip    = true
+ec2_key_name           = "my-ec2-private-key"
+ec2_security_group_ids = ["sg-1234567890"]
+nomad_server_subnet_id = "subnet-1234567890"
+nomad_client_subnet_id = "subnet-1234567890"
+nomad_server_ec2_instance_type = "t3.medium"
+nomad_client_ec2_instance_type = "t3.medium"
+
+# Nomad-Specific Variables
+nomad_servers = [
+  "nomad-server-1",
+  "nomad-server-2",
+  "nomad-server-3"
+]
+
+nomad_clients = [
+  "nomad-client-1",
+  "nomad-client-2",
+  "nomad-client-3"
+]
