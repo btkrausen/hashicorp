@@ -66,7 +66,7 @@ Below is a sample of the directory structure once these steps are complete.
 Specify a particular state file for development by using the `backend-config` path:
 
 ```bash
-terraform init -backend-config=state_configuration/dev_local.hcl -migrate-state
+terraform init -backend-config="state_config/dev_local.hcl" -migrate-state
 terraform plan
 terraform apply
 ```
@@ -173,12 +173,14 @@ key    = "dev/aws_infra"
 ```
 
 ```bash
-terraform init -backend-config="state_configuration/s3-state-bucket.hcl" \
+terraform init \
+  -backend-config="state_configuration/s3-state-bucket.hcl" \
   -backend-config="state_configuration/dev-s3-state-key.hcl" \
   -migrate-state
 terraform plan
 terraform apply
 ```
+> Note: Windows users might need to put this on a single line if PowerShell or Command Prompt doesn't like the forward slash `/` at the end of the lines for line continuation.
 
 ## Task 5: Partial backend configuration via CLI prompt
 
