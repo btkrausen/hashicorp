@@ -54,7 +54,7 @@ Check out my list of courses at [btk.me/btk](https://btk.me/btk)
 | [HashiCorp Certified: Vault Associate Practice Exam](https://btk.me/vpe) | AUGUST2025 |
 | [HashiCorp Certified: Consul Associate Practice Exam](https://btk.me/cpe) | AUGUST2025 |
 | [GitHub Foundations Certification Practice Exams](https://btk.me/ghp) | AUGUST2025 |
-| GitHub Copilot Certification Practice Exams | COMING SOON |
+| [GitHub Copilot Certification Practice Exams](https://btk.me/ghc) | AUGUST2025 |
 | [GitHub Actions Certification Practice Exams](https://btk.me/gha) | AUGUST2025 |
 
 ## 👬 👬 Collab Courses 👬 👬
