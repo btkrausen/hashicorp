@@ -27,9 +27,10 @@ Check out my list of courses at [btk.me/btk](https://btk.me/btk)
 <br>
 
 ## **🤝 Looking for Coaching? 🤝**
- **- Need help preparing for your certification exam?**  
- **- Want guidance on best practices for HashiCorp products?**  
- **- Seeking career advice to break into cloud computing?**
+ 📝 Need help preparing for your certification exam?  
+ 🏆 Want guidance on best practices for HashiCorp products?   
+ 🫵 Seeking career advice to break into cloud computing?  
+
 <p align="left">
   <a href="https://btk.me/meet" style="text-decoration:none;">
     <img src="https://img.shields.io/badge/Book%20a%20Coaching%20Session-blueviolet?style=for-the-badge&logo=google-calendar&logoColor=white" alt="Book Coaching Session"/>
