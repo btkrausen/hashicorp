@@ -54,7 +54,7 @@ Check out my list of courses at [btk.me/btk](https://btk.me/btk)
 | [Integrating HashiCorp Vault with AWS](https://www.udemy.com/course/integrating-hashicorp-vault-with-aws/?referralCode=8069E87B5BA71FD21632) | [Link](https://github.com/btkrausen/hashicorp/tree/master/vault)| JULY2026 |
 | [HashiCorp Certified: Vault Operations Professional](https://www.udemy.com/course/hashicorp-certified-vault-operations-professional/?referralCode=C3228B05DB53D1EB9C9E) |[Link](https://github.com/btkrausen/hashicorp/tree/master/vault) | JULY2026 |
 | [HCP Terraform: A Crash Course for Beginners](https://www.udemy.com/course/hcp-terraform-crash-course/?referralCode=425E9647DE7EED5E52C7) | [Link](https://github.com/btkrausen)| JULY2026 |
-| [HashiCorp Certified: Consul Associate (w Hands-On Labs)](https://www.udemy.com/course/hashicorp-consul/?referralCode=6506321DC305903E7BFA) | [Link](https://github.com/btkrausen/hashicorp/tree/master/consul)| JULY2026 |
+| [Getting Started with HashiCorp Consul](https://www.udemy.com/course/hashicorp-consul/?referralCode=6506321DC305903E7BFA) | [Link](https://github.com/btkrausen/hashicorp/tree/master/consul)| JULY2026 |
 | [HashiCorp Nomad Fundamentals: The Ultimate Beginner's Guide](https://www.udemy.com/course/hashicorp-nomad/?referralCode=0BEFB30FDE1B2442828F) | [Link](https://github.com/btkrausen/hashicorp/tree/master/nomad)| JULY2026 |
 | [Git Made Easy: A Crash Course for Beginners](https://www.udemy.com/course/git-essentials-for-beginners/?referralCode=67E733C1DA480586F6E0) | [Link](https://github.com/btkrausen) | JULY2026 |
 | [GitHub Copilot Coding Agent: Build, Test, and Ship Code Fast](https://www.udemy.com/course/github-copilot-coding-agent/?referralCode=F9602D867612DB74ACC2) | [Link](https://github.com/btkrausen) | JULY2026 |
@@ -67,7 +67,6 @@ Check out my list of courses at [btk.me/btk](https://btk.me/btk)
 | [HashiCorp Certified: Terraform Associate 004 Practice Exam](https://www.udemy.com/course/terraform-associate-004-practice-exams/?referralCode=F29E81A432F845F9DE67) | JULY2026 |
 | [Kubernetes and Cloud Native Associate (KCNA) Practice Exams](https://www.udemy.com/course/kcna-exams/?referralCode=7FF3D0CDD38F049269A9) | JULY2026 |
 | [HashiCorp Certified: Vault Associate Practice Exam](https://www.udemy.com/course/hashicorp-certified-vault-associate-practice-exam/?referralCode=B053909C293F10D9408D) | JULY2026 |
-| [HashiCorp Certified: Consul Associate Practice Exam](https://www.udemy.com/course/consul-associate-practice-exam/?referralCode=DFDB41615ADFB8C1CD6A) | JULY2026 |
 | [GitHub Foundations Certification Practice Exams](https://www.udemy.com/course/github-foundations/?referralCode=7306484CAC121459F5F9) | JULY2026 |
 | [GitHub Copilot Certification Practice Exams](https://www.udemy.com/course/copilot-certification-practice-exams/?referralCode=6FDA8F0D72347080D660) | JULY2026 |
 | [GitHub Actions Certification Practice Exams](https://www.udemy.com/course/github-actions-practice-exams/?referralCode=2B831C1FA3D7212CDB72) | JULY2026 |
