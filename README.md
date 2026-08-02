@@ -53,7 +53,7 @@ Grouped by track and ordered as a learning path (Beginner → Certification → 
 
 | Course | Level | 👥 Students |
 | ------ | :---: | :---------: |
-| [Terraform: The Ultimate Beginner's Guide (with Labs)](https://www.udemy.com/course/terraform-for-beginners-with-labs/?referralCode=4624364AC12873F01ECC) | Beginner | 6,500+ |
+| [HashiCorp Terraform: The Ultimate Beginner's Guide (with Labs)](https://www.udemy.com/course/terraform-for-beginners-with-labs/?referralCode=4624364AC12873F01ECC) | Beginner | 6,500+ |
 | ⭐ [HashiCorp Certified: Terraform Associate 004 – Exam Prep](https://www.udemy.com/course/hashicorp-certified-terraform-associate-004/?referralCode=49F5B1DF49EB3C8347B5) | Certification | 9,000+ |
 | [HashiCorp Certified: Terraform Associate 004 – Practice Exams](https://www.udemy.com/course/terraform-associate-004-practice-exams/?referralCode=F29E81A432F845F9DE67) | Certification | 7,900+ |
 | [HCP Terraform: A Crash Course for Beginners](https://www.udemy.com/course/hcp-terraform-crash-course/?referralCode=425E9647DE7EED5E52C7) | Beginner | ✨ New |
