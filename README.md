@@ -57,7 +57,6 @@ Check out my list of courses at [btk.me/btk](https://btk.me/btk)
 | [Getting Started with HashiCorp Consul](https://www.udemy.com/course/hashicorp-consul/?referralCode=6506321DC305903E7BFA) | [Link](https://github.com/btkrausen/hashicorp/tree/master/consul)| AUG2026 |
 | [HashiCorp Nomad Fundamentals: The Ultimate Beginner's Guide](https://www.udemy.com/course/hashicorp-nomad/?referralCode=0BEFB30FDE1B2442828F) | [Link](https://github.com/btkrausen/hashicorp/tree/master/nomad)| AUG2026 |
 | [Git Made Easy: A Crash Course for Beginners](https://www.udemy.com/course/git-essentials-for-beginners/?referralCode=67E733C1DA480586F6E0) | [Link](https://github.com/btkrausen) | AUG2026 |
-| [GitHub Copilot Coding Agent: Build, Test, and Ship Code Fast](https://www.udemy.com/course/github-copilot-coding-agent/?referralCode=F9602D867612DB74ACC2) | [Link](https://github.com/btkrausen) | AUG2026 |
 | [Amazon S3 Deep Dive: The Ultimate Guide to AWS Cloud Storage](https://www.udemy.com/course/amazon-s3-deep-dive/?referralCode=67EE4691D3E31B616CFC) | [Link](https://github.com/btkrausen/aws)| AUG2026 |
 | [Building Automated Machine Images using HashiCorp Packer](https://www.udemy.com/course/hashicorp-packer/?referralCode=C6799F68F1B5A1359218) | [Link](https://github.com/btkrausen/hashicorp/tree/master/packer)| AUG2026 |
 
