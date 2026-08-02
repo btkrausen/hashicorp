@@ -49,7 +49,7 @@ Hands-on training for <b>HashiCorp, AWS, and GitHub</b> — practice exams, real
 
 Grouped by track and ordered as a learning path (Beginner → Certification → Advanced). ⭐ = the best place to start.
 
-### ⚡ Terraform
+<h3><img alt="Terraform" src="https://img.shields.io/badge/Terraform-844FBA?style=for-the-badge&logo=terraform&logoColor=white" /></h3>
 
 | Course | Level | 👥 Students |
 | ------ | :---: | :---------: |
@@ -59,7 +59,7 @@ Grouped by track and ordered as a learning path (Beginner → Certification → 
 | [HCP Terraform: A Crash Course for Beginners](https://www.udemy.com/course/hcp-terraform-crash-course/?referralCode=425E9647DE7EED5E52C7) | Beginner | ✨ New |
 | [GitHub Copilot: Use GenAI to Write Terraform for You!](https://www.udemy.com/course/githubcopilot/?referralCode=39253AB760C8FA3DC046) | Skill | 2,400+ |
 
-### 🔐 Vault
+<h3><img alt="Vault" src="https://img.shields.io/badge/Vault-FFEC6E?style=for-the-badge&logo=vault&logoColor=black" /></h3>
 
 | Course | Level | 👥 Students |
 | ------ | :---: | :---------: |
@@ -69,7 +69,7 @@ Grouped by track and ordered as a learning path (Beginner → Certification → 
 | [Integrating HashiCorp Vault with AWS](https://www.udemy.com/course/integrating-hashicorp-vault-with-aws/?referralCode=8069E87B5BA71FD21632) | Intermediate | 2,700+ |
 | [HashiCorp Certified: Vault Operations Professional](https://www.udemy.com/course/hashicorp-certified-vault-operations-professional/?referralCode=C3228B05DB53D1EB9C9E) | Professional | 4,000+ |
 
-### 🐙 GitHub
+<h3><img alt="GitHub" src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" /></h3>
 
 | Course | Level | 👥 Students |
 | ------ | :---: | :---------: |
@@ -78,7 +78,7 @@ Grouped by track and ordered as a learning path (Beginner → Certification → 
 | [GitHub Foundations Certification – Practice Exams (GH-900)](https://www.udemy.com/course/github-foundations/?referralCode=7306484CAC121459F5F9) | Certification | 🔥 12,700+ |
 | [GitHub Actions Certification – Practice Exams (GH-200)](https://www.udemy.com/course/github-actions-practice-exams/?referralCode=2B831C1FA3D7212CDB72) | Certification | 6,000+ |
 
-### 🧩 Other HashiCorp
+<h3><img alt="Other HashiCorp" src="https://img.shields.io/badge/Other%20HashiCorp-000000?style=for-the-badge&logo=hashicorp&logoColor=white" /></h3>
 
 | Course | Level | 👥 Students |
 | ------ | :---: | :---------: |
@@ -86,14 +86,14 @@ Grouped by track and ordered as a learning path (Beginner → Certification → 
 | [HashiCorp Nomad Fundamentals: The Ultimate Beginner's Guide](https://www.udemy.com/course/hashicorp-nomad/?referralCode=0BEFB30FDE1B2442828F) | Beginner | 2,600+ |
 | [Building Automated Machine Images with HashiCorp Packer](https://www.udemy.com/course/hashicorp-packer/?referralCode=C6799F68F1B5A1359218) | Intermediate | 7,800+ |
 
-### ☁️ AWS &amp; Git Fundamentals
+<h3><img alt="AWS and Git Fundamentals" src="https://img.shields.io/badge/AWS%20%26%20Git%20Fundamentals-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=FF9900" /></h3>
 
 | Course | Level | 👥 Students |
 | ------ | :---: | :---------: |
 | [Git Made Easy: A Crash Course for Beginners](https://www.udemy.com/course/git-essentials-for-beginners/?referralCode=67E733C1DA480586F6E0) | Beginner | 6,700+ |
 | [Amazon S3 Deep Dive: The Ultimate Guide to AWS Storage](https://www.udemy.com/course/amazon-s3-deep-dive/?referralCode=67EE4691D3E31B616CFC) | Intermediate | 6,800+ |
 
-### 🚢 Kubernetes
+<h3><img alt="Kubernetes" src="https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white" /></h3>
 
 | Course | Level | 👥 Students |
 | ------ | :---: | :---------: |
