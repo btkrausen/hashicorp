@@ -15,7 +15,7 @@ seal "awskms" {
 listener "tcp" {
  address         = "0.0.0.0:8200"
  cluster_address = "0.0.0.0:8201"
- tls_disable    = 0
+ tls_disable     = 0
  tls_cert_file   = "/etc/vault.d/client.pem"
  tls_key_file    = "/etc/vault.d/cert.key"
  tls_disable_client_certs = "true"
