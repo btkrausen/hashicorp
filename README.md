@@ -29,7 +29,7 @@ Hands-on training for <b>HashiCorp, AWS, and GitHub</b> — practice exams, real
 
 <h2 align="center">🎟️ This Month's Coupon</h2>
 
-<p align="center"><b>20% off every course</b> — use code <code>AUG2026</code> at checkout. Refreshed monthly.<br>✅ Every course is backed by Udemy's 30-day money-back guarantee.</p>
+<p align="center"><b>20% off every course</b> — use code <code>SEP2026</code> at checkout. Refreshed monthly.<br>✅ Every course is backed by Udemy's 30-day money-back guarantee.</p>
 
 ---
 
