@@ -15,16 +15,16 @@ variable "vpc_cidr" {
 
 variable "private_subnets" {
   default = {
-    "private_subnet_1" = 1
-    "private_subnet_2" = 2
-    "private_subnet_3" = 3
+    "private_subnet_1" = 0
+    "private_subnet_2" = 1
+    "private_subnet_3" = 2
   }
 }
 
 variable "public_subnets" {
   default = {
-    "public_subnet_1" = 1
-    "public_subnet_2" = 2
-    "public_subnet_3" = 3
+    "public_subnet_1" = 0
+    "public_subnet_2" = 1
+    "public_subnet_3" = 2
   }
 }
